@@ -1,0 +1,14 @@
+.page__grid{
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1280px;
+  background-color: black;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(4 1fr);
+  grid-template-areas: 
+  "header"
+  "profile"
+  "element"
+  "footer";
+}
