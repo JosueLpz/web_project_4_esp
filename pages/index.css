@@ -6,3 +6,14 @@
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
 @import url(../bloks/header/__line/header__line.css);
+/* nav */
+@import url(../bloks/nav/__profile/profile.css);
+@import url(../bloks/nav/__profile/_img/profile__img.css);
+@import url(../bloks/nav/__profile/_title/profile__title.css);
+@import url(../bloks/nav/__profile/_subtitle/profile__subtitle.css);
+@import url(../bloks/nav/__profile/_button/profile__button.css);
+@import url(../bloks/nav/__profile/_container/profile__form_container.css);
+@import url(../bloks/nav/__profile/_container/_active/form_container_active.css);
+@import url(../bloks/nav/__profile/_form/profile__form.css);
+@import url(../bloks/nav/__profile/_form/_title/profile__form_title.css);
+@import url(../bloks/nav/__profile/_form/_subtitle/profile__form_subtitle.css);
