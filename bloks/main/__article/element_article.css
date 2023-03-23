@@ -1,0 +1,8 @@
+.element_article{
+  margin: 0 auto;
+  width: 282px;
+  height: 361px;
+  border-radius: 10px;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%);
+  /* Lineargradint para eliminar los bordes blancos */
+}

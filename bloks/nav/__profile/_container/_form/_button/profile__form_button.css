@@ -1,0 +1,8 @@
+.profile__form_button{
+  display: block;
+  margin: 60px auto;
+  width: 238px;
+  height: 46px;
+  color: white;
+  background-color: black;
+}

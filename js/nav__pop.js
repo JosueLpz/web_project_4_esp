@@ -5,17 +5,66 @@ let profile_Button = profile.querySelector(".profile__button")
 let profile_FormContainer = profile.querySelector(".profile__form_container");
 let profile_FormTitle = profile.querySelector(".profile__form_title")
 let profile_FormSubtitle = profile.querySelector(".profile__form_subtitle");
+let profile_AddButton = profile.querySelector(".profile__form_button");
 
 
-let infoTitle = `Jacques Cousteau`
-let infoSubtitle = `Explorador`
+profile_Button.addEventListener("click", function() {
+  profile_FormContainer.classList.toggle("form_container_active");
+});
 
-profile_Title.textContent = `${infoTitle}`;
-profile_Subtitle.textContent = `${infoSubtitle}`;
 
-// porque no funciona? 20/03/2023
-profile_FormTitle.setAttribute = ("placeholder", "Hola");
-profile_FormSubtitle.setAttribute = (`placeholder`,`adios`);
+
+let titleProfile = "Jacques Cousteau";
+let subtitleProfile =  "Explorador";
+
+profile_Title.insertAdjacentText("afterbegin", `${titleProfile}`);
+profile_Subtitle.insertAdjacentText("afterbegin", `${subtitleProfile}`);
+
+
+function  handleProfileFormSubmit (){
+
+  profile_Title.insertAdjacentText("afterbegin", `${profile_FormTitle.value}`);
+  profile_Subtitle.insertAdjacentText("afterbegin", `${profile_FormSubtitle.value}`);
+  
+}
+
+profile_AddButton.addEventListener("submit", handleProfileFormSubmit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // (OTRA FORMA DE HACERLO"Son Notas para mi Señor Revisor =)") function profileFormOpen() {
 //   profile_FormContainer.classList.toggle("form_container_active");
@@ -25,7 +74,3 @@ profile_FormSubtitle.setAttribute = (`placeholder`,`adios`);
 // profileFormOpen();
 
 // profile_Button.addEventListener("click", profileFormOpen);
-
-profile_Button.addEventListener("click", function() {
-  profile_FormContainer.classList.toggle("form_container_active");
-});

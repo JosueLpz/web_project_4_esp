@@ -1,0 +1,6 @@
+.main__element_container{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

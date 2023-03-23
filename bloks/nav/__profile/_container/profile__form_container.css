@@ -1,6 +1,10 @@
 .profile__form_container{
-  margin: 0 auto;
+  width: 282px;
+  height: 322px;
+  position: absolute;
+  left: 19px;
+  top: 115px;
+  border-radius: 10px;
+  background-color: #fff;
   display: none;
-  width: 200px;
-  height: 200px;
 }

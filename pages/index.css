@@ -1,7 +1,7 @@
 /* root */
 @import url(../bloks/root/root.css);
 /* page */
-@import url(../bloks/page/page__grid.css);
+@import url(../bloks/page/page.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
@@ -9,11 +9,21 @@
 /* nav */
 @import url(../bloks/nav/__profile/profile.css);
 @import url(../bloks/nav/__profile/_img/profile__img.css);
-@import url(../bloks/nav/__profile/_title/profile__title.css);
-@import url(../bloks/nav/__profile/_subtitle/profile__subtitle.css);
-@import url(../bloks/nav/__profile/_button/profile__button.css);
+@import url(../bloks/nav/__profile/_row/profile__container_flex-row.css);
+@import url(../bloks/nav/__profile/_row/_title/profile__title.css);
+@import url(../bloks/nav/__profile/_row/_subtitle/profile__subtitle.css);
+@import url(../bloks/nav/__profile/_row/_button/profile__button.css);
 @import url(../bloks/nav/__profile/_container/profile__form_container.css);
 @import url(../bloks/nav/__profile/_container/_active/form_container_active.css);
-@import url(../bloks/nav/__profile/_form/profile__form.css);
-@import url(../bloks/nav/__profile/_form/_title/profile__form_title.css);
-@import url(../bloks/nav/__profile/_form/_subtitle/profile__form_subtitle.css);
+@import url(../bloks/nav/__profile/_container/_form/profile__form.css);
+@import url(../bloks/nav/__profile/_container/_form/_title/profile__form_title.css);
+@import url(../bloks/nav/__profile/_container/_form/_subtitle/profile__form_subtitle.css);
+@import url(../bloks/nav/__profile/_container/_form/_button/profile__form_button.css);
+@import url(../bloks/nav/__profile/_add/profile__button_add.css);
+@import url(../bloks/nav/__profile/_container/_closed/profile__form_button-closed.css);
+@import url(../bloks/nav/__profile/_container/_form/_perfil/profile__form_perfil.css);
+/* element */
+@import url(../bloks/main/main__element_container.css);
+@import url(../bloks/main/__article/element_article.css);
+@import url(../bloks/main/__article/_img/element__img.css);
+@import url(../bloks/main/__article/__row/element__container_flex-row.css);
