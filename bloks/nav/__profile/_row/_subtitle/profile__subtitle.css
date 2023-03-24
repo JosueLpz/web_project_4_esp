@@ -3,3 +3,10 @@
   color: white;
   margin: 0 auto 35px auto;
 }
+
+@media screen and (min-width: 880px) {
+.profile__subtitle{
+  grid-area: subtitle;
+  margin: 0;
+}
+}

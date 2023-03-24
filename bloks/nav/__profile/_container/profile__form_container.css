@@ -2,8 +2,9 @@
   width: 282px;
   height: 322px;
   position: absolute;
-  left: 19px;
-  top: 115px;
+  left: 5%;
+  right: 5%;
+  top: 20%;
   border-radius: 10px;
   background-color: #fff;
   display: none;

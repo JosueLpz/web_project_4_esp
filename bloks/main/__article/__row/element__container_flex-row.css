@@ -1,4 +1,10 @@
 .element__container_flex-row{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 20px;
+  height: 60px;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  overflow: hidden;
 }

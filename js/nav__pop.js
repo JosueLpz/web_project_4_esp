@@ -5,30 +5,47 @@ let profile_Button = profile.querySelector(".profile__button")
 let profile_FormContainer = profile.querySelector(".profile__form_container");
 let profile_FormTitle = profile.querySelector(".profile__form_title")
 let profile_FormSubtitle = profile.querySelector(".profile__form_subtitle");
+let profile_ClosedButon = profile.querySelector(".profile__form_button-closed")
 let profile_AddButton = profile.querySelector(".profile__form_button");
 
 
+  // Abrir y Cerrar FORM <>
 profile_Button.addEventListener("click", function() {
-  profile_FormContainer.classList.toggle("form_container_active");
+  profile_FormContainer.classList.add("form_container_active");
 });
 
+profile_ClosedButon.addEventListener("click", function(){
+  profile_FormContainer.classList.remove("form_container_active")
+})
+// Abrir y Cerrar FORM </>
+
+  // Valores de Input y FORM <>
+profile_FormTitle.value = "Jacques Cousteau"
+profile_FormSubtitle.value = "Explorador"
+
+profile_Title.insertAdjacentText("afterbegin", `${profile_FormTitle.value}`);
+profile_Subtitle.insertAdjacentText("afterbegin", `${profile_FormSubtitle.value}`);
+// Valores de Input y FORM <>
 
 
-let titleProfile = "Jacques Cousteau";
-let subtitleProfile =  "Explorador";
-
-profile_Title.insertAdjacentText("afterbegin", `${titleProfile}`);
-profile_Subtitle.insertAdjacentText("afterbegin", `${subtitleProfile}`);
-
+  // Edicion de Inpit y Form <>
+profile_FormTitle.addEventListener("input", handleProfileFormSubmit);
+profile_FormSubtitle.addEventListener("input", handleProfileFormSubmit);
 
 function  handleProfileFormSubmit (){
-
-  profile_Title.insertAdjacentText("afterbegin", `${profile_FormTitle.value}`);
-  profile_Subtitle.insertAdjacentText("afterbegin", `${profile_FormSubtitle.value}`);
-  
+  profile_Title.textContent = profile_FormTitle.value
+  profile_Subtitle.textContent = profile_FormSubtitle.value
 }
 
-profile_AddButton.addEventListener("submit", handleProfileFormSubmit)
+
+// GUARDAR LA INFORMACION
+function GUARDAR (){
+  profile_Title.textContent += profile_FormTitle.value
+  profile_Subtitle.textContent += profile_FormSubtitle.value
+}
+
+profile_AddButton.addEventListener("sumit", GUARDAR)
+
 
 
 

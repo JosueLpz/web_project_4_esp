@@ -4,3 +4,11 @@
   display: block;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 880px) {
+.profile__button_add{
+  grid-area: buton;
+  margin-top: 10%;
+  padding-left: 46%;
+}
+}

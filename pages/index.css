@@ -2,6 +2,8 @@
 @import url(../bloks/root/root.css);
 /* page */
 @import url(../bloks/page/page.css);
+/* fonts */
+@import url(../fonts/inter.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
@@ -22,8 +24,13 @@
 @import url(../bloks/nav/__profile/_add/profile__button_add.css);
 @import url(../bloks/nav/__profile/_container/_closed/profile__form_button-closed.css);
 @import url(../bloks/nav/__profile/_container/_form/_perfil/profile__form_perfil.css);
+@import url();
 /* element */
 @import url(../bloks/main/main__element_container.css);
 @import url(../bloks/main/__article/element_article.css);
 @import url(../bloks/main/__article/_img/element__img.css);
 @import url(../bloks/main/__article/__row/element__container_flex-row.css);
+@import url(../bloks/main/__article/__row/_title/element__title.css);
+/* footer */
+@import url(../bloks/footer/footer__container.css);
+@import url(../bloks/footer/__paragrah/footer_paragrah.css);
