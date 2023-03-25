@@ -6,3 +6,10 @@
   color: white;
   background-color: black;
 }
+
+@media screen and (min-width: 574px){
+.profile__form_button{
+  width: 358px;
+  height: 50px;
+}
+}

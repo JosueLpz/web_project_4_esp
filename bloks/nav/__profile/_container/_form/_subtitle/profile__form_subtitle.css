@@ -8,3 +8,9 @@
   border-right: none;
   outline: 0;
 }
+
+@media screen and (min-width: 574px){
+.profile__form_subtitle{
+  width: 358px;
+}
+}

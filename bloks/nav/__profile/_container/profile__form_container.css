@@ -1,11 +1,4 @@
 .profile__form_container{
-  width: 282px;
-  height: 322px;
-  position: absolute;
-  left: 5%;
-  right: 5%;
-  top: 20%;
-  border-radius: 10px;
-  background-color: #fff;
+  border: none;
   display: none;
-}
+} 
