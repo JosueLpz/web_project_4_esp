@@ -5,6 +5,7 @@
   height: 46px;
   color: white;
   background-color: black;
+  transition: opacity linear 0.3s;
 }
 
 @media screen and (min-width: 574px){

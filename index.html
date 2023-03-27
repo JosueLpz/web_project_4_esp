@@ -9,6 +9,15 @@
   <title>Proyecto 4</title>
 </head>
 <body class="root">
+  <fieldset class="profile__form_container">
+    <form class="profile__form">
+      <a class="profile__form_button-closed"><img src="./image/nav/CloseIcon.svg" alt="buuttonclosed"></a> 
+      <h2 class="profile__form_perfil">Editar perfil</h2>
+      <input type="text" class="profile__form_title">
+      <input type="text" class="profile__form_subtitle">
+      <button type="submit" class="profile__form_button profile__form_hovers">Guardar</button>
+    </form>
+  </fieldset>
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./image/header/header__logo.svg" alt="logo header">
@@ -18,63 +27,55 @@
       <section class="profile"> 
         <img class="profile__img" src="./image/nav/nav__imagen.jpg" alt="señor explorador">
         <div class="profile__container_flex-row">
-            <h1 class="profile__title"></h1>
-            <a class="profile__button"><img src="./image/header/EditButton.svg" alt="boton edit"></a>
-          </div>
-          <h2 class="profile__subtitle"></h2>
-          <a class="profile__button_add"><img class="profile__button_add-img" src="./image/nav/Addbutton.svg" alt="BotonAdd"></a>
-        <fieldset class="profile__form_container">
-          <form class="profile__form">
-            <a class="profile__form_button-closed"><img src="./image/nav/CloseIcon.svg" alt="buuttonclosed"></a> 
-            <h2 class="profile__form_perfil">Editar perfil</h2>
-            <input type="text" class="profile__form_title">
-            <input type="text" class="profile__form_subtitle">
-            <button type="submit" class="profile__form_button">Guardar</button>
-          </form>
-        </fieldset>
+          <h1 class="profile__title"></h1>
+          <a class="profile__button profile__form_hovers"><img src="./image/header/EditButton.svg" alt="boton edit"></a>
+        </div>
+        <h2 class="profile__subtitle"></h2>
+        <a class="profile__button_add profile__form_hovers"><img class="profile__button_add-img" src="./image/nav/Addbutton.svg" alt="BotonAdd"></a>
       </section>
+      
     </nav> 
     <main class="main__element_container">
       <article class="element_article">
         <img class="element__img" src="./image/element/Valle_Yose.jpg" alt="lago valle de yosemite">
         <div class="element__container_flex-row">
           <h2 class="element__title">Valle de Yosemite</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers element__like_visited_active"><img class="test" src="./image/element/ButonLike.svg"></a>
         </div>  
       </article>
       <article class="element_article">
         <img class="element__img" src="./image/element/lago_louise.jpg" alt="lago louise">
         <div class="element__container_flex-row">
           <h2 class="element__title">Lago Louise</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers"><img src="./image/element/ButonLike.svg"></a>
         </div>
       </article>
       <article class="element_article">
         <img class="element__img" src="./image/element/montañas_calvas.jpg">
         <div class="element__container_flex-row">
           <h2 class="element__title">Montañas Calvas</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers"><img src="./image/element/ButonLike.svg"></a>
         </div>
       </article>
       <article class="element_article">
         <img class="element__img" src="./image/element/latemar.jpg" alt="latemar">
         <div class="element__container_flex-row">
           <h2 class="element__title">Latemar</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers"><img src="./image/element/ButonLike.svg"></a>
         </div>
       </article>
       <article class="element_article">
         <img class="element__img" src="./image/element/Vanoise_nation.jpg" alt="vonoise nacional">
         <div class="element__container_flex-row">
           <h2 class="element__title">Vanoise Nationa...</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers"><img src="./image/element/ButonLike.svg"></a>
         </div>
       </article>
       <article class="element_article">
         <img class="element__img" src="./image/element/lago_dibares.jpg" alt="lago dibares">
         <div class="element__container_flex-row">
           <h2 class="element__title">Lago di Braies</h2>
-          <a class="element__like"><img src="./image/element/ButonLike.svg"></a>
+          <a class="element__like profile__form_hovers"><img src="./image/element/ButonLike.svg"></a>
         </div>
       </article>
     </main>  

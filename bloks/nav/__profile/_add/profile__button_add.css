@@ -3,6 +3,8 @@
   height: 58px;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+  transition: opacity linear 0.1s;
 }
 
 @media screen and (min-width: 880px) {
