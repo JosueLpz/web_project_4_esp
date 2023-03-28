@@ -52,6 +52,6 @@ formAddButton.addEventListener("click", handleProfileFormSubmit)
 // Efecto Button Like
 ButtonLike.forEach(function(item) {
   item.addEventListener("click", function() {
-    item.classList.toggle("element__like_black");
+    item.classList.toggle("element__like_black-active");
   });
 });
