@@ -1,42 +1,42 @@
 /* root */
 @import url(../bloks/root/root.css);
+@import url(../bloks/root/_active/root__buttons_hovers.css);
 /* page */
 @import url(../bloks/page/page.css);
 @import url(../bloks/page/_active/page__opacity.css);
 /* fonts */
 @import url(../fonts/inter.css);
+/* form */
+@import url(../bloks/form/form.css);
+@import url(../bloks/form/_active/form__open.css);
+@import url(../bloks/form/__container/form__container.css);
+@import url(../bloks/form/__container/__closed/form__button_closed.css);
+@import url(../bloks/form/__container/__closed/_active/form__button_closed-hover.css);
+@import url(../bloks/form/__container/__title/form__title.css);
+@import url(../bloks/form/__container/__name/form__info_name.css);
+@import url(../bloks/form/__container/__hobbie/form__info_hobbie.css);
+@import url(../bloks/form/__container/__button/form__button.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
 @import url(../bloks/header/__line/header__line.css);
-/* nav */
-@import url(../bloks/nav/__profile/profile.css);
-@import url(../bloks/nav/__profile/_img/profile__img.css);
-@import url(../bloks/nav/__profile/_row/profile__container_flex-row.css);
-@import url(../bloks/nav/__profile/_row/_title/profile__title.css);
-@import url(../bloks/nav/__profile/_row/_subtitle/profile__subtitle.css);
-@import url(../bloks/nav/__profile/_row/_button/profile__button.css);
-@import url(../bloks/nav/__profile/_container/profile__form_container.css);
-@import url(../bloks/nav/__profile/_container/_active/form_container_active.css);
-@import url(../bloks/nav/__profile/_container/_form/profile__form.css);
-@import url(../bloks/nav/__profile/_container/_form/_title/profile__form_title.css);
-@import url(../bloks/nav/__profile/_container/_form/_subtitle/profile__form_subtitle.css);
-@import url(../bloks/nav/__profile/_container/_form/_button/profile__form_button.css);
-@import url(../bloks/nav/__profile/_container/_form/_active/profile__form_hovers.css);
-@import url(../bloks/nav/__profile/_add/profile__button_add.css);
-@import url(../bloks/nav/__profile/_container/_closed/profile__form_button-closed.css);
-@import url(../bloks/nav/__profile/_container/_closed/_active/profile__form_button-closed-hover.css);
-@import url(../bloks/nav/__profile/_container/_form/_perfil/profile__form_perfil.css);
-@import url();
+/* profile */
+@import url(../bloks/profile/profile.css);
+@import url(../bloks/profile/__img/profile__img.css);
+@import url(../bloks/profile/__row/profile__container_row.css);
+@import url(../bloks/profile/__row/__name/profile__name.css);
+@import url(../bloks/profile/__row/__edit/profile__button_edit.css);
+@import url(../bloks/profile/__hobbie/profile__hobbie.css);
+@import url(../bloks/profile/__add/profile__button_add.css);
 /* element */
-@import url(../bloks/main/main__element_container.css);
-@import url(../bloks/main/__article/element_article.css);
-@import url(../bloks/main/__article/_img/element__img.css);
-@import url(../bloks/main/__article/__row/element__container_flex-row.css);
-@import url(../bloks/main/__article/__row/_title/element__title.css);
-@import url(../bloks/main/__article/__row/_like/element__like.css);
-@import url(../bloks/main/__article/__row/_like/_active/element__like_visited_active.css);
-@import url(../bloks/main/__article/__row/_like/_active/element__like_black.css);
+@import url(../bloks/element/element.css);
+@import url(../bloks/element/__article/element_article.css);
+@import url(../bloks/element/__article/_img/element__img.css);
+@import url(../bloks/element/__article/__row/element__container_flex-row.css);
+@import url(../bloks/element/__article/__row/_title/element__title.css);
+@import url(../bloks/element/__article/__row/_like/element__like.css);
+@import url(../bloks/element/__article/__row/_like/_active/element__like_visited_active.css);
+@import url(../bloks/element/__article/__row/_like/_active/element__like_black.css);
 /* footer */
 @import url(../bloks/footer/footer__container.css);
 @import url(../bloks/footer/__paragrah/footer_paragrah.css);

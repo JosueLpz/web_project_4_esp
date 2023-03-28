@@ -1,0 +1,10 @@
+.form__button_closed{
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -38px;
+  right: 0px;
+  cursor: pointer;
+  transition: transform linear 0.5s;
+}

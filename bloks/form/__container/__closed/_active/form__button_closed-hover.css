@@ -1,0 +1,4 @@
+.form__button_closed-hover:hover{
+  opacity: 0.6;
+  transform: rotate(45deg);
+}
