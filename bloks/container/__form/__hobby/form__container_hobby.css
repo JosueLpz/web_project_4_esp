@@ -1,4 +1,4 @@
-.form__info_hobbie{
+.form__container_hobby{
   margin: 35px auto 0 auto;
   padding-bottom: 10px;
   width: 238px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 574px){
-.form__info_hobbie{
+.form__container_hobby{
   width: 358px;
 }
 }

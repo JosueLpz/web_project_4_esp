@@ -1,4 +1,4 @@
-.profile__button_add{
+.profile__add{
   width: 282px;
   height: 58px;
   display: block;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (min-width: 880px) {
-.profile__button_add{
+.profile__add{
   grid-area: buton;
   margin-top: 10%;
   padding-left: 46%;

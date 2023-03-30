@@ -1,4 +1,4 @@
-.form__button{
+.form__container_button{
   display: block;
   margin: 45px auto;
   width: 238px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 574px){
-.form__button{
+.form__container_button{
   width: 358px;
   height: 50px;
 }
