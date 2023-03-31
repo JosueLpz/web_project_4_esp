@@ -3,12 +3,12 @@
 @import url(/root/_active/root__buttons_hovers.css);
 /* page */
 @import url(../bloks/page/page.css);
-@import url(../bloks/page/_active/page__opacity.css);
+@import url(../bloks/page/_active/page__opacity_active.css);
 /* fonts */
 @import url(../fonts/inter.css);
 /* form */
-@import url(../bloks/container/form__container.css);
-@import url(../bloks/container/_active/form__container_open.css); 
+@import url(../bloks/container/form__container.css); 
+@import url(../bloks/container/_active/form__container_open_active.css); 
 @import url(../bloks/container/__form/form.css);
 @import url(../bloks/container/__form/__closed/form__container_closed.css);
 @import url(../bloks/container/__form/__closed/_active/form__container_closed-active.css);
@@ -23,20 +23,19 @@
 /* profile */
 @import url(../bloks/profile/profile.css);
 @import url(../bloks/profile/__img/profile__img.css);
-@import url(../bloks/profile/__row/profile__container_row.css);
-@import url(../bloks/profile/__row/__name/profile__name.css);
-@import url(../bloks/profile/__row/__edit/profile__button_edit.css);
+@import url(../bloks/profile/__row/profile__row.css);
+@import url(../bloks/profile/__row/__name/profile__row_name.css);
+@import url(../bloks/profile/__row/__edit/profile__row_edit.css);
 @import url(../bloks/profile/__hobbie/profile__hobbie.css);
-@import url(../bloks/profile/__add/profile__button_add.css);
+@import url(../bloks/profile/__button/profile__button.css);
 /* element */
 @import url(../bloks/element/element.css);
-@import url(../bloks/element/__article/element_article.css);
-@import url(../bloks/element/__article/_img/element__img.css);
-@import url(../bloks/element/__article/__row/element__container_flex-row.css);
-@import url(../bloks/element/__article/__row/_title/element__title.css);
-@import url(../bloks/element/__article/__row/_like/element__like.css);
-@import url(../bloks/element/__article/__row/_like/_active/element__like_visited_active.css);
-@import url(../bloks/element/__article/__row/_like/_active/element__article__row__like__active.css);
+@import url(../bloks/element/__article/element__article.css);
+@import url(../bloks/element/__article/_img/element__article_img.css);
+@import url(../bloks/element/__article/__row/element__article_row.css);
+@import url(../bloks/element/__article/__row/_title/element__article_row_title.css);
+@import url(../bloks/element/__article/__row/_like/element__article_row_like.css);
+@import url(../bloks/element/__article/__row/_like/_active/element__article_row_like_active.css);
 /* footer */
-@import url(../bloks/footer/footer__container.css);
-@import url(../bloks/footer/__paragrah/footer_paragrah.css);
+@import url(../bloks/footer/footer.css);
+@import url(../bloks/footer/__paragrah/footer__paragrah.css);

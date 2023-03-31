@@ -1,17 +1,17 @@
-.footer__container{
+.footer{
   margin: 0 auto;
   max-width: 280px;
 }
 
 @media screen and (min-width: 574px) {
-.footer__container{
+.footer{
 max-width: 574px;
 
 }
 }
 
 @media screen and (min-width: 880px) {
-.footer__container{
+.footer{
   max-width: 880px;
   margin: 0 auto;
   padding: 0;

@@ -1,4 +1,4 @@
-.page__opacity{
+.page__opacity_active{
   opacity: 0.5;
   z-index: 1;
 }

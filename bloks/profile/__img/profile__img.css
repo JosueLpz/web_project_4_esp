@@ -11,12 +11,5 @@
   grid-area: img;
   align-self: flex-end;
 }
-  .profile__button_add-img{
-    width: 150px;
-    height: 50px;
-    object-fit: cover;
-    border-left: white solid 2px;
-    border-right: white solid 2px;
-  }
 }
 
