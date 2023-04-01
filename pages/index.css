@@ -1,3 +1,5 @@
+/* vendor */
+@import url(../vendor/normalize.css);
 /* root */
 @import url(/root/root.css);
 @import url(/root/_active/root__buttons_hovers.css);
