@@ -18,8 +18,13 @@
 @import url(../bloks/container/__form/__name/form__container_name.css);
 @import url(../bloks/container/__form/__hobby/form__container_hobby.css);
 @import url(../bloks/container/__form/__button/form__container_button.css); 
-@import url(../bloks/container/__form/__card/form__container_name_card.css);
-@import url(../bloks/container/__form/__img/form__container_link_img.css);
+/* formElement */
+@import url(../bloks/card/form__container_card.css);
+@import url(../bloks/card/_active/form__container_open_active_e.css);
+@import url(../bloks/card/__element/form__element.css);
+@import url(../bloks/card/__card/form__container_name_card.css);
+@import url(../bloks/card/__img/form__container_link_img.css);
+@import url(../bloks/card/__button/form__container_element_button.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);

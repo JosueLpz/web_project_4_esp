@@ -13,10 +13,12 @@ const formClosedButon = document.querySelector(".form__container_closed")
 const formInfoName = document.querySelector(".form__container_name")
 const formInfoHobbie = document.querySelector(".form__container_hobby");
 const formAddButton = document.querySelector(".form__container_button");
+// FormElement
+const formElement = document.querySelector(".form__container_card")
 const formCardAdd = document.querySelector(".form__container_name_card");
 const formImgAdd = document.querySelector(".form__container_link_img");
-// Element
-
+const formElementButtom = document.querySelector(".form__container_element_button");
+const Formtest = document.querySelector(".form__element");
 
 // Valores Inputs Form profile
 formCardAdd.value = "Hey"
@@ -77,22 +79,65 @@ initialCards.map(function (item){
   
 });
 
+
+
+
+
+
+
+
 // Open Closed FORM
-function openPop (buttom){
-  buttom.addEventListener("click", function() {
-    formUp.classList.add("form__container_open_active");
+function openPop (buttom, form){
+  buttom.addEventListener("click", function(e) {
+    console.log(e.target)
+    form.classList.add("form__container_open_active");
     page.classList.add("page__opacity_active")
   });
 }
-openPop(profileButtonEdit);
+openPop(profileButtonEdit, formUp);
 
-function closedPop(buttom){
+function closedPop(buttom, form){
   buttom.addEventListener("click", function(){
-  formUp.classList.remove("form__container_open_active")
+  form.classList.remove("form__container_open_active")
   page.classList.remove("page__opacity_active")
   });
 }
-closedPop(formClosedButon);
+closedPop(formClosedButon, formUp);
 
 // Open Closed FORM Element
-openPop(profileButtonCardAdd);
+openPop(profileButtonCardAdd, formElement);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Efecto Button Like
+// ButtonLike.forEach(function(item) {
+//   item.addEventListener("click", function() {
+//     item.classList.toggle("element__article_row_like_active");
+//   });
+// });
+
+
+// // GUARDAR LA INFORMACION <>
+// function handleProfileFormSubmit (evt){
+//   evt.preventDefault()
+//   profileName.textContent = formInfoName.value
+//   profileHobbie.textContent = formInfoHobbie.value
+//   formUp.classList.remove("form__container_open_active")
+//   page.classList.remove("page__opacity_active")
+// }
