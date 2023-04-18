@@ -17,13 +17,23 @@
       <button type="submit" class="form__container_button root__button_hover">Guardar</button>
     </form>
   </fieldset>
+  <fieldset class="form__container">
+    <form class="form">
+      <a class="form__container_closed form__container_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
+      <h2 class="form__container_title">Editar perfil</h2>
+      <input type="text" class="form__container_name_card">
+      <input type="text" class="form__container_link_img">
+      <button type="submit" class="form__container_button_element root__button_hover">Guardar</button>
+    </form>
+  </fieldset>
+  </fieldset>
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./image/header/header__logo.svg" alt="logo header">
       <div class="header__line"></div>
     </header>
     <nav class="profile"> 
-      <img class="profile__img" src="./image/nav/nav__imagen.jpg" alt="señor explorador">
+      <img class="profile__img" src="./image/header/marcoaurelioprogramando.png" alt="marco aurelio">
       <div class="profile__row">
         <h1 class="profile__row_name"></h1>
         <a class="profile__row_edit root__button_hover"><img src="./image/header/EditButton.svg" alt="botonedit"></a>
@@ -32,53 +42,20 @@
       <a class="profile__button root__button_hover"><img class="profile__button" src="./image/nav/Addbutton.svg" alt="BotonAdd"></a>
     </nav> 
     <main class="element">
+      <template id="template__article">
       <article class="element__article">
-        <img class="element__article_img" src="./image/element/Valle_Yose.jpg" alt="lago valle de yosemite">
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Valle de Yosemite</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>  
-      </article>
-      <article class="element__article">
-        <img class="element__article_img" src="./image/element/lago_louise.jpg" alt="lago louise"> 
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Lago Louise</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>
-      </article>
-      <article class="element__article">
-        <img class="element__article_img" src="./image/element/montañas_calvas.jpg" alt="montañascalvas">
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Montañas Calvas</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>
-      </article>
-      <article class="element__article">
-        <img class="element__article_img" src="./image/element/latemar.jpg" alt="latemar">
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Latemar</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>
-      </article>
-      <article class="element__article">
-        <img class="element__article_img" src="./image/element/Vanoise_nation.jpg" alt="vonoise nacional">
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Vanoise Nationa...</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>
-      </article>
-      <article class="element__article">
-        <img class="element__article_img" src="./image/element/lago_dibares.jpg" alt="lago dibares">
-        <div class="element__article_row">
-          <h2 class="element__article_row_title">Lago di Braies</h2>
-          <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
-        </div>
-      </article>
-    </main>  
+          <img class="element__article_img">
+          <div class="element__article_row">
+            <h2 class="element__article_row_title"></h2>
+            <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
+          </div>
+        </article>
+      </template>
+    </main>
     <footer class="footer">
       <h2 class="footer__paragrah">&copy; 2021 Alrededor de los EEUU</h2>
     </footer>
   </div>
-  <script src="./js/main.js"></script>
+  <script src="./js/index.js"></script>
+  </html>
 </body>
-</html>

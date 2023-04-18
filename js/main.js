@@ -32,8 +32,8 @@ formClosedButon.addEventListener("click", function(){
 // Valores de Input y FORM <>
 formInfoName.value = "Jacques Cousteau"
 formInfoHobbie.value = "Explorador"
-
 profileName.insertAdjacentText("afterbegin", `${formInfoName.value}`);
+
 profileHobbie.insertAdjacentText("afterbegin", `${formInfoHobbie.value}`);
 // Valores de Input y FORM <>
 

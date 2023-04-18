@@ -18,6 +18,8 @@
 @import url(../bloks/container/__form/__name/form__container_name.css);
 @import url(../bloks/container/__form/__hobby/form__container_hobby.css);
 @import url(../bloks/container/__form/__button/form__container_button.css); 
+@import url(../bloks/container/__form/__card/form__container_name_card.css);
+@import url(../bloks/container/__form/__img/form__container_link_img.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
