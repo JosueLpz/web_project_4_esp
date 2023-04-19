@@ -21,6 +21,7 @@
 /* formElement */
 @import url(../bloks/card/form__container_card.css);
 @import url(../bloks/card/_active/form__container_open_active_e.css);
+@import url(../bloks/card/__closed/form__container_closed_element.css);
 @import url(../bloks/card/__element/form__element.css);
 @import url(../bloks/card/__card/form__container_name_card.css);
 @import url(../bloks/card/__img/form__container_link_img.css);
