@@ -65,7 +65,19 @@ const initialCards = [
     name: "Forum Romanum",
     link: "https://i.postimg.cc/hP9cnGJ9/Forum-Romanum-Rome-Italy.jpg"
   },
-  
+  {
+    name: "Atenas Grecia",
+    link: "https://i.postimg.cc/nhpZht7N/la-acropolis-athenas-grecia.jpg"
+  },
+  {
+    name: "Trevi Fountain",
+    link: "https://i.postimg.cc/43FTP7MT/Trevi-Fountain-Roma-Italy.jpg"
+    
+  },
+  {
+    name: "Areopagitou Athens",
+    link: "https://i.postimg.cc/HLLgb462/Odeon-of-Herodes-Atticus-Dionysiou-Areopagitou-Athens-Greece.jpg"
+  },  
 ];
 // TODO El ultmio elemento de CARD no se ve REVISAR LUEGO
 
