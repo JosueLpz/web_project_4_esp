@@ -20,12 +20,13 @@ const formImgAdd = document.querySelector(".form__container_link_img");
 const formElementButtom = document.querySelector(".form__container_element_button");
 const Formtest = document.querySelector(".form__element");
 
+
 // Valores Inputs Form profile
 formCardAdd.value = "Hey"
 formImgAdd.value = "Soy Yo"
 
 // Valor de los Inpunts del form
-function imfoValueForm (e){
+function imfoValueForm (){
 formInfoName.value = "Marco Aurelio"
 formInfoHobbie.value = "Filosofo Emperador Romano"
 profileName.textContent = formInfoName.value;
@@ -68,19 +69,32 @@ initialCards.map(function (item){
   const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
   const element = document.querySelector(".element")
   
-  
-  
   templateElement.querySelector(".element__article_img").src = item.link
   templateElement.querySelector(".element__article_row_title").textContent = item.name
   
   element.prepend(templateCard);
   
   return templateCard
-  
 });
 
 
+function addCard (){
+  const templateElement = document.querySelector("#template__article").content;
+  const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
+  const element = document.querySelector(".element")
 
+  templateElement.querySelector(".element__article_img").src = formImgAdd.value
+  templateElement.querySelector(".element__article_row_title").textContent = formCardAdd.value
+  
+  element.prepend(templateCard);
+  
+  return templateCard
+}
+
+formElementButtom.addEventListener("click", function(evt){
+  evt.preventDefault()
+  addCard ()
+});
 
 
 
