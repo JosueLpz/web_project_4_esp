@@ -42,6 +42,7 @@
 @import url(../bloks/element/element.css);
 @import url(../bloks/element/__article/element__article.css);
 @import url(../bloks/element/__article/_img/element__article_img.css);
+@import url(../bloks/element/__article/__delete/element__article_delete.css);
 @import url(../bloks/element/__article/__row/element__article_row.css);
 @import url(../bloks/element/__article/__row/_title/element__article_row_title.css);
 @import url(../bloks/element/__article/__row/_like/element__article_row_like.css);
