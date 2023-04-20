@@ -90,68 +90,64 @@ formImgAdd.value = "Link de el lugar"
 // iteracion de los objetos de el array con el metodo MAP y añadiendo las card
 initialCards.map(function (item){
 
-  // creando las cartas
-  const templateElement = document.querySelector("#template__article").content;
-  const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
+const templateElement = document.querySelector("#template__article").content;
+const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
 
-// asignando los valores de el array de objetos a los elementos en cada iteracion
 templateCard.querySelector(".element__article_img").src = item.link
 templateCard.querySelector(".element__article_row_title").textContent = item.name
 
-
-// asignando la posicion de las cartas en el elemento DOM
 element.append(templateCard);
-// retorna las cartas con los elementos
+
 return templateCard
 });
 
-// añadir carta funcion
+// funcion de like
+function likeCard(){
+  const ButtonLike = document.querySelectorAll(".element__article_row_like")
+
+  ButtonLike.forEach(function(item) {
+    item.addEventListener("click", function() {
+      item.classList.toggle("element__article_row_like_active"); 
+    });
+  });
+  }
+  likeCard()
+
+// funcion para borrar las tarjetas
+function deleteCard(){
+  const buttonDelete = document.querySelectorAll(".element__article_delete");
+  buttonDelete.forEach(function(button){
+  button.addEventListener( "click", function(){
+  const removeElement = button.closest(".element__article")
+  removeElement.remove()
+  });
+  });
+  };
+  deleteCard()
+
+  // añadir carta funcion
 function addCard (){
   const templateElement = document.querySelector("#template__article").content;
   const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
 
-
   templateCard.querySelector(".element__article_img").src = formImgAdd.value
   templateCard.querySelector(".element__article_row_title").textContent = formCardAdd.value
-  ButtonLike
   
   element.prepend(templateCard);
   
   return templateCard
+
+
 }
+
 
 // funcion para agregar la tarjeta =D
 formElementButtom.addEventListener("click", function(evt){
   evt.preventDefault()
-  addCard ()
+  addCard();
+  likeCard();
+  deleteCard();
 });
-
-// funcion para borrar las tarjetas
-const buttonDelete = document.querySelectorAll(".element__article_delete");
-
-buttonDelete.forEach(function(button){
-
-button.addEventListener( "click", function(){
-
-const removeElement = button.closest(".element__article")
-
-removeElement.remove()
-});
-
-});
-
-
-
-
-// Like de Button
-const ButtonLike = document.querySelectorAll(".element__article_row_like")
-ButtonLike.forEach(function(item) {
-  item.addEventListener("click", function() {
-    item.classList.toggle("element__article_row_like_active");
-  });
-});
-
-
 
 
 // Open Closed FORM
