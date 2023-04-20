@@ -20,6 +20,9 @@ const formImgAdd = document.querySelector(".form__container_link_img");
 const formElementButtom = document.querySelector(".form__container_element_button");
 const Formtest = document.querySelector(".form__element");
 const buttonClosedElement = document.querySelector(".form__container_closed_element");
+const templateElement = document.querySelector("#template__article");
+const templateCard = templateElement.querySelector(".element__article");
+const element = document.querySelector(".element");
 
 // Valor de los Inpunts del form  START
 
@@ -65,9 +68,20 @@ const initialCards = [
     name: "Forum Romanum",
     link: "https://i.postimg.cc/hP9cnGJ9/Forum-Romanum-Rome-Italy.jpg"
   },
-  
+  {
+    name: "Atenas Grecia",
+    link: "https://i.postimg.cc/nhpZht7N/la-acropolis-athenas-grecia.jpg"
+  },
+  {
+    name: "Trevi Fountain",
+    link: "https://i.postimg.cc/43FTP7MT/Trevi-Fountain-Roma-Italy.jpg"
+    
+  },
+  {
+    name: "Areopagitou Athens",
+    link: "https://i.postimg.cc/HLLgb462/Odeon-of-Herodes-Atticus-Dionysiou-Areopagitou-Athens-Greece.jpg"
+  },  
 ];
-// TODO El ultmio elemento de CARD no se ve REVISAR LUEGO
 
 // valores de los inputs de el form de element
 formCardAdd.value = "Nombre del lugar"
@@ -75,39 +89,64 @@ formImgAdd.value = "Link de el lugar"
 
 // iteracion de los objetos de el array con el metodo MAP y añadiendo las card
 initialCards.map(function (item){
-  // creando las cartas
-  const templateElement = document.querySelector("#template__article").content;
-  const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
-  const element = document.querySelector(".element")
-  
-  // asignando los valores de el array de objetos a los elementos en cada iteracion
-  templateElement.querySelector(".element__article_img").src = item.link
-  templateElement.querySelector(".element__article_row_title").textContent = item.name
-  
-  // asignando la posicion de las cartas en el elemento DOM
-  element.prepend(templateCard);
-  
-  // retorna las cartas con los elementos
-  return templateCard
+
+const templateElement = document.querySelector("#template__article").content;
+const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
+
+templateCard.querySelector(".element__article_img").src = item.link
+templateCard.querySelector(".element__article_row_title").textContent = item.name
+
+element.append(templateCard);
+
+return templateCard
 });
 
+// funcion de like
+function likeCard(){
+  const ButtonLike = document.querySelectorAll(".element__article_row_like")
 
+  ButtonLike.forEach(function(item) {
+    item.addEventListener("click", function() {
+      item.classList.toggle("element__article_row_like_active"); 
+    });
+  });
+  }
+  likeCard()
+
+// funcion para borrar las tarjetas
+function deleteCard(){
+  const buttonDelete = document.querySelectorAll(".element__article_delete");
+  buttonDelete.forEach(function(button){
+  button.addEventListener( "click", function(){
+  const removeElement = button.closest(".element__article")
+  removeElement.remove()
+  });
+  });
+  };
+  deleteCard()
+
+  // añadir carta funcion
 function addCard (){
   const templateElement = document.querySelector("#template__article").content;
   const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
-  const element = document.querySelector(".element")
 
-  templateElement.querySelector(".element__article_img").src = formImgAdd.value
-  templateElement.querySelector(".element__article_row_title").textContent = formCardAdd.value
+  templateCard.querySelector(".element__article_img").src = formImgAdd.value
+  templateCard.querySelector(".element__article_row_title").textContent = formCardAdd.value
   
   element.prepend(templateCard);
   
   return templateCard
+
+
 }
 
+
+// funcion para agregar la tarjeta =D
 formElementButtom.addEventListener("click", function(evt){
   evt.preventDefault()
-  addCard ()
+  addCard();
+  likeCard();
+  deleteCard();
 });
 
 
@@ -133,28 +172,3 @@ closedPop(formClosedButon, formUp);
 openPop(profileButtonCardAdd, formElement);
 closedPop(buttonClosedElement, formElement);
 
-// todo Porque el form no funciono con el active de form. pero si con el de element?
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Efecto Button Like
-// ButtonLike.forEach(function(item) {
-//   item.addEventListener("click", function() {
-//     item.classList.toggle("element__article_row_like_active");
-//   });
-// });
-
-
-// // GUARDAR LA INFORMACION <>
