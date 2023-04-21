@@ -123,8 +123,9 @@ function likeCard(){
   });
   }
   likeCard()
+// todo BUG en el boton like no todas las tarjetas creadas dan like. REVISAR
 
-// funcion para borrar las tarjetas
+  // funcion para borrar las tarjetas
 function deleteCard(){
   const buttonDelete = document.querySelectorAll(".element__article_delete");
   buttonDelete.forEach(function(button){
@@ -163,5 +164,26 @@ formElementButtom.addEventListener("click", function(evt){
 });
 
 
+imgScale()
+function imgScale(){
+const imgElement = document.querySelectorAll(".element__article_img");
+const buttomZoom = document.querySelectorAll(".element__article_img_button")
 
 
+
+}
+
+function deleteCard(){
+  const buttonDelete = document.querySelectorAll(".element__article_delete");
+  buttonDelete.forEach(function(button){
+  button.addEventListener( "click", function(){
+  const removeElement = button.closest(".element__article")
+  removeElement.remove()
+  });
+  });
+  };
+
+function imageInside(){
+  const insade = document.querySelector(".img__container_zoom")
+  insade.style
+}

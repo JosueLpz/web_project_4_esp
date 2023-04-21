@@ -8,6 +8,10 @@
   <title>Proyecto 4</title>
 </head>
 <body class="root">
+  <div class="img__container_zoom">
+    <a class="img__container_zoom_button_closed"></a>
+    <div class="img__container_zoom_content"></div>
+  </div>
   <fieldset class="form__container">
     <form class="form">
       <a class="form__container_closed form__container_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
@@ -44,7 +48,7 @@
       <template id="template__article">
       <article class="element__article">
           <a class="element__article_delete"><img src="./image/element/ButtonDelete.svg" alt="buttondelete"></a>
-          <img class="element__article_img">
+          <a class="element__article_img_button"><img class="element__article_img"></a>
           <div class="element__article_row">
             <h2 class="element__article_row_title"></h2>
             <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
