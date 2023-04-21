@@ -24,35 +24,49 @@ const templateElement = document.querySelector("#template__article");
 const templateCard = templateElement.querySelector(".element__article");
 const element = document.querySelector(".element");
 
-// Valor de los Inpunts del form  START
+// Open Closed FORM
+function openPop (buttom, form){
+  buttom.addEventListener("click", function(e) {
+    form.classList.add("form__container_open_active_e");
+    page.classList.add("page__opacity_active")
+  });
+}
+openPop(profileButtonEdit, formUp);
 
-// asignando el valor de los inputs y añadiendolos al  dom
+function closedPop(buttom, form){
+  buttom.addEventListener("click", function(){
+  form.classList.remove("form__container_open_active_e")
+  page.classList.remove("page__opacity_active")
+  });
+}
+closedPop(formClosedButon, formUp);
+
+// Open Closed FORM Element
+openPop(profileButtonCardAdd, formElement);
+closedPop(buttonClosedElement, formElement);
+
+
+// asignando el valor de los inputs Profile
 formInfoName.value = "Marco Aurelio"
 formInfoHobbie.value = "Filosofo Emperador Romano"
 profileName.textContent = formInfoName.value
 profileHobbie.textContent = formInfoHobbie.value
 
-// Evento para cambiar los valores de el elemento html
+// Form Profile closed saved
 formAddButton.addEventListener("click", function(evt){
 evt.preventDefault()
 
-// valores por defecto de el dom
 profileName.textContent = formInfoName.value
 profileHobbie.textContent = formInfoHobbie.value
 
-// cambio de valores por los agregados por el usuario
 formInfoName.value = profileName.textContent;
 formInfoHobbie.value = profileHobbie.textContent;
 
-// remover cambio de efectos
 formUp.classList.remove("form__container_open_active_e")
 page.classList.remove("page__opacity_active")
 });
 
-// Valor de los Inpunts del form END
 
-
-// Array de objetos de cartas de element START
 
 // array de objetos con las cartas para el dom element
 const initialCards = [
@@ -83,9 +97,6 @@ const initialCards = [
   },  
 ];
 
-// valores de los inputs de el form de element
-formCardAdd.value = "Nombre del lugar"
-formImgAdd.value = "Link de el lugar"
 
 // iteracion de los objetos de el array con el metodo MAP y añadiendo las card
 initialCards.map(function (item){
@@ -147,28 +158,10 @@ formElementButtom.addEventListener("click", function(evt){
   addCard();
   likeCard();
   deleteCard();
+  formElement.classList.remove("form__container_open_active_e")
+  page.classList.remove("page__opacity_active")
 });
 
 
-// Open Closed FORM
-function openPop (buttom, form){
-  buttom.addEventListener("click", function(e) {
-    console.log(e.target)
-    form.classList.add("form__container_open_active_e");
-    page.classList.add("page__opacity_active")
-  });
-}
-openPop(profileButtonEdit, formUp);
 
-function closedPop(buttom, form){
-  buttom.addEventListener("click", function(){
-  form.classList.remove("form__container_open_active_e")
-  page.classList.remove("page__opacity_active")
-  });
-}
-closedPop(formClosedButon, formUp);
-
-// Open Closed FORM Element
-openPop(profileButtonCardAdd, formElement);
-closedPop(buttonClosedElement, formElement);
 
