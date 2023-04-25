@@ -8,6 +8,13 @@
 @import url(../bloks/page/_active/page__opacity_active.css);
 /* fonts */
 @import url(../fonts/inter.css);
+/* imgZoom */
+@import url(../bloks/zoom/test/test.css);
+@import url(../bloks/zoom/img__container_zoom.css);
+@import url(../bloks/zoom/__img/img__container_zoom_img.css);
+@import url(../bloks/zoom/__closed/img__container_zoom_button_closed.css);
+@import url(../bloks/zoom/__content/img__container_zoom_content.css);
+@import url(../bloks/zoom/__text/img__container_zoom_text.css);
 /* form */
 @import url(../bloks/container/form__container.css); 
 @import url(../bloks/container/_active/form__container_open_active.css); 
@@ -41,7 +48,9 @@
 /* element */
 @import url(../bloks/element/element.css);
 @import url(../bloks/element/__article/element__article.css);
-@import url(../bloks/element/__article/_img/element__article_img.css);
+@import url(../bloks/element/__article/__button/element__article_img_button.css);
+@import url(../bloks/element/__article/__button/__img/_active/element__article_img_scale_active.css);
+@import url(../bloks/element/__article/__button/__img/element__article_img.css);
 @import url(../bloks/element/__article/__delete/element__article_delete.css);
 @import url(../bloks/element/__article/__row/element__article_row.css);
 @import url(../bloks/element/__article/__row/_title/element__article_row_title.css);
