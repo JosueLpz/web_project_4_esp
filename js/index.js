@@ -26,7 +26,8 @@ const element = document.querySelector(".element");
 
 // Open Closed FORM
 function openPop(buttom, form) {
-  buttom.addEventListener("click", function (e) {
+  buttom.addEventListener("click", function () {
+    form.classList.add("root__windos_fadeon")
     form.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")
   });
@@ -35,8 +36,14 @@ openPop(profileButtonEdit, formUp);
 
 function closedPop(buttom, form) {
   buttom.addEventListener("click", function () {
+    form.classList.remove("root__windos_fadeon")
     form.classList.remove("form__container_open_active_e")
-    page.classList.remove("page__opacity_active")
+    form.classList.add("root__windos_fadeoff")
+    // if (form.classList.contains("root__windos_fadeoff")){
+      //   form.classList.remove("root__windos_fadeoff")
+      // }
+      page.classList.remove("page__opacity_active")
+      console.log(form)
   });
 }
 closedPop(formClosedButon, formUp);
@@ -142,6 +149,7 @@ function imgZoom(templateCard) {
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
   const textZoomContainer = document.querySelector(".img__container_zoom_text")
   const textElement = templateCard.querySelector(".element__article_row_title")
+  
   buttomZoom.addEventListener("click", function(){
     zommContainer.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")

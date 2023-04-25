@@ -2,14 +2,14 @@
 @import url(../vendor/normalize.css);
 /* root */
 @import url(/root/root.css);
+@import url(../root/_active/root__windos_fadeon.css);
+@import url(../root/_active/root__windos_fadeoff.css);
 @import url(/root/_active/root__buttons_hovers.css);
-/* page */
 @import url(../bloks/page/page.css);
 @import url(../bloks/page/_active/page__opacity_active.css);
 /* fonts */
 @import url(../fonts/inter.css);
 /* imgZoom */
-@import url(../bloks/zoom/test/test.css);
 @import url(../bloks/zoom/img__container_zoom.css);
 @import url(../bloks/zoom/__img/img__container_zoom_img.css);
 @import url(../bloks/zoom/__closed/img__container_zoom_button_closed.css);
