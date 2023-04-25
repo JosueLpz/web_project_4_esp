@@ -25,18 +25,18 @@ const templateCard = templateElement.querySelector(".element__article");
 const element = document.querySelector(".element");
 
 // Open Closed FORM
-function openPop (buttom, form){
-  buttom.addEventListener("click", function(e) {
+function openPop(buttom, form) {
+  buttom.addEventListener("click", function (e) {
     form.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")
   });
 }
 openPop(profileButtonEdit, formUp);
 
-function closedPop(buttom, form){
-  buttom.addEventListener("click", function(){
-  form.classList.remove("form__container_open_active_e")
-  page.classList.remove("page__opacity_active")
+function closedPop(buttom, form) {
+  buttom.addEventListener("click", function () {
+    form.classList.remove("form__container_open_active_e")
+    page.classList.remove("page__opacity_active")
   });
 }
 closedPop(formClosedButon, formUp);
@@ -53,17 +53,17 @@ profileName.textContent = formInfoName.value
 profileHobbie.textContent = formInfoHobbie.value
 
 // Form Profile closed saved
-formAddButton.addEventListener("click", function(evt){
-evt.preventDefault()
+formAddButton.addEventListener("click", function (evt) {
+  evt.preventDefault()
 
-profileName.textContent = formInfoName.value
-profileHobbie.textContent = formInfoHobbie.value
+  profileName.textContent = formInfoName.value
+  profileHobbie.textContent = formInfoHobbie.value
 
-formInfoName.value = profileName.textContent;
-formInfoHobbie.value = profileHobbie.textContent;
+  formInfoName.value = profileName.textContent;
+  formInfoHobbie.value = profileHobbie.textContent;
 
-formUp.classList.remove("form__container_open_active_e")
-page.classList.remove("page__opacity_active")
+  formUp.classList.remove("form__container_open_active_e")
+  page.classList.remove("page__opacity_active")
 });
 
 
@@ -89,101 +89,91 @@ const initialCards = [
   {
     name: "Trevi Fountain",
     link: "https://i.postimg.cc/43FTP7MT/Trevi-Fountain-Roma-Italy.jpg"
-    
+
   },
   {
     name: "Areopagitou Athens",
     link: "https://i.postimg.cc/HLLgb462/Odeon-of-Herodes-Atticus-Dionysiou-Areopagitou-Athens-Greece.jpg"
-  },  
+  },
 ];
 
 
 // iteracion de los objetos de el array con el metodo MAP y añadiendo las card
-initialCards.map(function (item){
+initialCards.map(function (item) {
 
-const templateElement = document.querySelector("#template__article").content;
-const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
+  const templateElement = document.querySelector("#template__article").content;
+  const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
 
-templateCard.querySelector(".element__article_img").src = item.link
-templateCard.querySelector(".element__article_row_title").textContent = item.name
+  templateCard.querySelector(".element__article_img").src = item.link
+  templateCard.querySelector(".element__article_row_title").textContent = item.name
 
-element.append(templateCard);
+  element.append(templateCard);
 
-return templateCard
+  likeCard(templateCard);
+  deleteCard(templateCard);
+  imgZoom(templateCard);
+  return templateCard
 });
 
-// funcion de like
-function likeCard(){
-  const ButtonLike = document.querySelectorAll(".element__article_row_like")
 
-  ButtonLike.forEach(function(item) {
-    item.addEventListener("click", function() {
-      item.classList.toggle("element__article_row_like_active"); 
-    });
+function likeCard(templateCard) {
+  const ButtonLike = templateCard.querySelector(".element__article_row_like")
+  ButtonLike.addEventListener("click", function () {
+    ButtonLike.classList.toggle("element__article_row_like_active"); 
   });
-  }
-  likeCard()
-// todo BUG en el boton like no todas las tarjetas creadas dan like. REVISAR
+};
 
-  // funcion para borrar las tarjetas
-function deleteCard(){
-  const buttonDelete = document.querySelectorAll(".element__article_delete");
-  buttonDelete.forEach(function(button){
-  button.addEventListener( "click", function(){
-  const removeElement = button.closest(".element__article")
-  removeElement.remove()
+function deleteCard(templateCard) {
+  const buttonDelete = templateCard.querySelector(".element__article_delete");
+  buttonDelete.addEventListener("click", function () {
+    const removeElement = buttonDelete.closest(".element__article")
+    removeElement.remove()
   });
-  });
-  };
-  deleteCard()
+};
 
-  // añadir carta funcion
-function addCard (){
+
+const zommContainer = document.querySelector(".img__container_zoom")
+const buttonClosedZoom = document.querySelector(".img__container_zoom_button_closed");
+closedPop(buttonClosedZoom, zommContainer)
+
+function imgZoom(templateCard) {
+  const imgElementZoom = document.querySelector(".img__container_zoom_img");
+  const elementImg = templateCard.querySelector(".element__article_img");
+  const buttomZoom = templateCard.querySelector(".element__article_img_button");
+  const textZoomContainer = document.querySelector(".img__container_zoom_text")
+  const textElement = templateCard.querySelector(".element__article_row_title")
+  buttomZoom.addEventListener("click", function(){
+    zommContainer.classList.add("form__container_open_active_e");
+    page.classList.add("page__opacity_active")
+    imgElementZoom.src = elementImg.src
+    textZoomContainer.textContent = textElement.textContent
+  });
+}
+
+//añadir carta funcion
+function addCard() {
+
   const templateElement = document.querySelector("#template__article").content;
   const templateCard = templateElement.querySelector(".element__article").cloneNode(true);
 
   templateCard.querySelector(".element__article_img").src = formImgAdd.value
   templateCard.querySelector(".element__article_row_title").textContent = formCardAdd.value
-  
-  element.prepend(templateCard);
-  
-  return templateCard
 
+  element.prepend(templateCard);
+
+  return templateCard
 
 }
 
 
 // funcion para agregar la tarjeta =D
-formElementButtom.addEventListener("click", function(evt){
+formElementButtom.addEventListener("click", function (evt) {
   evt.preventDefault()
-  addCard();
-  likeCard();
-  deleteCard();
+
+  const templateCard = addCard();
+  likeCard(templateCard);
+  deleteCard(templateCard);
+  imgZoom(templateCard);
   formElement.classList.remove("form__container_open_active_e")
   page.classList.remove("page__opacity_active")
 });
-
-
-imgScale()
-function imgScale(){
-const imgElement = document.querySelectorAll(".element__article_img");
-const buttomZoom = document.querySelectorAll(".element__article_img_button")
-
-
-
-}
-
-function deleteCard(){
-  const buttonDelete = document.querySelectorAll(".element__article_delete");
-  buttonDelete.forEach(function(button){
-  button.addEventListener( "click", function(){
-  const removeElement = button.closest(".element__article")
-  removeElement.remove()
-  });
-  });
-  };
-
-function imageInside(){
-  const insade = document.querySelector(".img__container_zoom")
-  insade.style
-}
