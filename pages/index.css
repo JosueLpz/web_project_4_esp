@@ -28,7 +28,8 @@
 /* formElement */
 @import url(../bloks/card/card.css);
 @import url(../bloks/card/__element/card__element.css);
-@import url(../bloks/card/__element/__closed/element__button-closed.css);
+@import url(../bloks/card/__element/__closed/card__element-button-closed.css);
+@import url(../bloks/card/__element/__title/card__element-title.css);
 @import url(../bloks/card/__element/__card/card__element_name-card.css);
 @import url(../bloks/card/__element/__img/card__element_link-img.css);
 @import url(../bloks/card/__element/__button/card__element_button-add.css);
