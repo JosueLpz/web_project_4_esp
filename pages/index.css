@@ -4,7 +4,7 @@
 @import url(/root/root.css);
 @import url(../root/_active/root__windos_fadeon.css);
 @import url(../root/_active/root__windos_fadeoff.css);
-@import url(../root/_active/root__buttom_closed-active.css);
+@import url(../root/_active/root__buttom-closed-active.css);
 @import url(/root/_active/root__buttons_hovers-active.css);
 @import url(../bloks/page/page.css);
 @import url(../bloks/page/_active/page__opacity_active.css);
@@ -28,10 +28,10 @@
 /* formElement */
 @import url(../bloks/card/card.css);
 @import url(../bloks/card/__element/card__element.css);
-@import url(../bloks/card/__element/__closed/card__element_button-closed.css);
+@import url(../bloks/card/__element/__closed/element__button-closed.css);
 @import url(../bloks/card/__element/__card/card__element_name-card.css);
 @import url(../bloks/card/__element/__img/card__element_link-img.css);
-@import url(../bloks/card/__element/__button/card__element-button.css);
+@import url(../bloks/card/__element/__button/card__element_button-add.css);
 @import url(../bloks/card/_active/form__container_open_active_e.css);
 /* header */
 @import url(../bloks/header/header.css);

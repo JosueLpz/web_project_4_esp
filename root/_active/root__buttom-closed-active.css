@@ -1,4 +1,4 @@
-.root__buttom_closed-active:hover{
+.root__buttom-closed-active:hover{
   opacity: 0.6;
   transform: rotate(45deg);
 }
