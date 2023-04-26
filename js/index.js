@@ -3,9 +3,9 @@
 const page = document.querySelector(".page");
 // Profile
 const profile = document.querySelector(".profile");
-const profileName = profile.querySelector(".profile__row_name");
+const profileName = profile.querySelector(".profile__row-name");
 const profileHobbie = profile.querySelector(".profile__hobbie");
-const profileButtonEdit = profile.querySelector(".profile__row_edit")
+const profileButtonEdit = profile.querySelector(".profile__row-edit")
 const profileButtonCardAdd = document.querySelector(".profile__button")
 // Form
 const formUp = document.querySelector(".form");
@@ -15,9 +15,9 @@ const formInfoHobbie = document.querySelector(".form__container-hobby");
 const formAddButton = document.querySelector(".form__container-button");
 // FormElement
 const formElement = document.querySelector(".card")
-const formCardAdd = document.querySelector(".card__element_name-card");
-const formImgAdd = document.querySelector(".card__element_link-img");
-const formElementButtom = document.querySelector(".card__element_button-add");
+const formCardAdd = document.querySelector(".card__element-name-card");
+const formImgAdd = document.querySelector(".card__element-link-img");
+const formElementButtom = document.querySelector(".card__element-button-add");
 const Formtest = document.querySelector(".card__element");
 const buttonClosedElement = document.querySelector(".card__element-button-closed");
 const templateElement = document.querySelector("#template__article");

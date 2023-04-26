@@ -30,9 +30,9 @@
 @import url(../bloks/card/__element/card__element.css);
 @import url(../bloks/card/__element/__closed/card__element-button-closed.css);
 @import url(../bloks/card/__element/__title/card__element-title.css);
-@import url(../bloks/card/__element/__card/card__element_name-card.css);
-@import url(../bloks/card/__element/__img/card__element_link-img.css);
-@import url(../bloks/card/__element/__button/card__element_button-add.css);
+@import url(../bloks/card/__element/__card/card__element-name-card.css);
+@import url(../bloks/card/__element/__img/card__element-link-img.css);
+@import url(../bloks/card/__element/__button/card__element-button-add.css);
 @import url(../bloks/card/_active/form__container_open_active_e.css);
 /* header */
 @import url(../bloks/header/header.css);
@@ -42,8 +42,8 @@
 @import url(../bloks/profile/profile.css);
 @import url(../bloks/profile/__img/profile__img.css);
 @import url(../bloks/profile/__row/profile__row.css);
-@import url(../bloks/profile/__row/__name/profile__row_name.css);
-@import url(../bloks/profile/__row/__edit/profile__row_edit.css);
+@import url(../bloks/profile/__row/__name/profile__row-name.css);
+@import url(../bloks/profile/__row/__edit/profile__row-edit.css);
 @import url(../bloks/profile/__hobbie/profile__hobbie.css);
 @import url(../bloks/profile/__button/profile__button.css);
 /* element */
