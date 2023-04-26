@@ -9,10 +9,10 @@ const profileButtonEdit = profile.querySelector(".profile__row_edit")
 const profileButtonCardAdd = document.querySelector(".profile__button")
 // Form
 const formUp = document.querySelector(".form");
-const formClosedButon = document.querySelector(".form__container_closed")
-const formInfoName = document.querySelector(".form__container_name")
-const formInfoHobbie = document.querySelector(".form__container_hobby");
-const formAddButton = document.querySelector(".form__container_button");
+const formClosedButon = document.querySelector(".form__container-closed")
+const formInfoName = document.querySelector(".form__container-name")
+const formInfoHobbie = document.querySelector(".form__container-hobby");
+const formAddButton = document.querySelector(".form__container-button");
 // FormElement
 const formElement = document.querySelector(".form__container_card")
 const formCardAdd = document.querySelector(".form__container_name_card");
@@ -139,7 +139,7 @@ function deleteCard(templateCard) {
 
 
 const zommContainer = document.querySelector(".zoom")
-const buttonClosedZoom = document.querySelector(".zoom_button-closed");
+const buttonClosedZoom = document.querySelector(".zoom__button-closed");
 closedPop(buttonClosedZoom, zommContainer)
 
 
