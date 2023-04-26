@@ -36,14 +36,12 @@ openPop(profileButtonEdit, formUp);
 
 function closedPop(buttom, form) {
   buttom.addEventListener("click", function () {
-    form.classList.remove("root__windos_fadeon")
-    form.classList.remove("form__container_open_active_e")
     form.classList.add("root__windos_fadeoff")
-    // if (form.classList.contains("root__windos_fadeoff")){
-      //   form.classList.remove("root__windos_fadeoff")
-      // }
-      page.classList.remove("page__opacity_active")
-      console.log(form)
+    setTimeout(function() {
+      form.classList.remove("form__container_open_active_e");
+      form.classList.remove("root__windos_fadeoff");
+      page.classList.remove("page__opacity_active");
+    }, 500);
   });
 }
 closedPop(formClosedButon, formUp);
@@ -118,6 +116,7 @@ initialCards.map(function (item) {
 
   likeCard(templateCard);
   deleteCard(templateCard);
+  openPopImg(templateCard);
   imgZoom(templateCard);
   return templateCard
 });
@@ -142,6 +141,19 @@ function deleteCard(templateCard) {
 const zommContainer = document.querySelector(".img__container_zoom")
 const buttonClosedZoom = document.querySelector(".img__container_zoom_button_closed");
 closedPop(buttonClosedZoom, zommContainer)
+
+
+
+
+function openPopImg(templateCard) {
+  const buttomZoom = templateCard.querySelector(".element__article_img_button");
+  const zommContainer = document.querySelector(".img__container_zoom")
+  buttomZoom.addEventListener("click", function(){
+    zommContainer.classList.add("root__windos_fadeon")
+    zommContainer.classList.add("form__container_open_active_e");
+    page.classList.add("page__opacity_active")
+  });
+}
 
 function imgZoom(templateCard) {
   const imgElementZoom = document.querySelector(".img__container_zoom_img");
@@ -182,6 +194,7 @@ formElementButtom.addEventListener("click", function (evt) {
   likeCard(templateCard);
   deleteCard(templateCard);
   imgZoom(templateCard);
+  openPopImg(templateCard)
   formElement.classList.remove("form__container_open_active_e")
   page.classList.remove("page__opacity_active")
 });

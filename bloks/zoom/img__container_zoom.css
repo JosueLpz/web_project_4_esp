@@ -1,11 +1,11 @@
 .img__container_zoom{
   display: none;
   position: absolute;
-  top: 80%;
+  top: 86%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 850px;
-  height: 700px;
+  width: 750px;
+  height: 650px;
   z-index: 1;
   border-radius: 5%;
   -webkit-border-radius: 5%;

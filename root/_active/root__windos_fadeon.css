@@ -8,8 +8,8 @@
 }
 
 .root__windos_fadeon{
-  animation: fadeon 1s linear;
-  -webkit-animation: fadeon 1s linear;
+  animation: fadeon 0.7s ease-in;
+  -webkit-animation: fadeon 0.7s ease-in;
 }
 
 
