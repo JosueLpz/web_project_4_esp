@@ -1,4 +1,4 @@
-.form{
+.form__container{
   margin: 0 auto;
   width: 282px;
   height: 322px;
@@ -13,7 +13,7 @@
 }
 
 @media screen and (min-width: 574px) {
-.form{
+.form__container{
   width: 430px;
   height: 330px;
 }
