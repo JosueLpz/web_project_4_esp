@@ -1,4 +1,4 @@
-.form__element{
+.card__element{
   margin: 0 auto;
   width: 282px;
   height: 322px;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (min-width: 574px) {
-.form__element{
+.card__element{
   width: 430px;
   height: 330px;
 }

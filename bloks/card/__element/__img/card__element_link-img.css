@@ -1,5 +1,5 @@
-.form__container_name_card{
-  margin: 75px  auto 0 auto;
+.card__element_link-img{
+  margin: 35px auto 0 auto;
   padding-bottom: 10px;
   width: 238px;
   display: block;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (min-width: 574px){
-.form__container_name_card{
+.card__element_link-img{
   width: 358px;
 }
 }

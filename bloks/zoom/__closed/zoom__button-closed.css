@@ -1,5 +1,7 @@
 .zoom__button-closed{
   position: absolute;
+  cursor: pointer;
   top: -5%;
   left: 98%;
+  transition: transform linear 0.5s;
 }

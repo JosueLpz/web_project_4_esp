@@ -9,27 +9,27 @@
 </head>
 <body class="root">
   <div class="zoom">
-    <a class="zoom__button-closed"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a>
+    <a class="zoom__button-closed root__buttom_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a>
     <div class="zoom__content"></div>
     <img class="zoom__img">
     <p class="zoom__text"></p>
   </div>
   <fieldset class="form">
     <form class="form__container">
-      <a class="form__container-closed form__container_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
+      <a class="form__container-closed root__buttom_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
       <h2 class="form__container-title">Editar perfil</h2>
       <input type="text" class="form__container-name">
       <input type="text" class="form__container-hobby">
-      <button type="submit" class="form__container-button root__button_hover">Guardar</button>
+      <button type="submit" class="form__container-button root__button_hover-active">Guardar</button>
     </form>
   </fieldset>
-  <fieldset class="form__container_card">
-    <form class="form__element">
-      <a class="form__container_closed_element form__container_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
-      <h2 class="form__container_title">Nuevo lugar</h2>
-      <input placeholder="Titulo" type="text" class="form__container_name_card">
-      <input placeholder="Enlace a la imagen" type="text" class="form__container_link_img">
-      <button type="submit" class="form__container_element_button root__button_hover">Crear</button>
+  <fieldset class="card">
+    <form class="card__element">
+      <a class="card__element_button-closed root__buttom_closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
+      <h2 class="form__container-title">Nuevo lugar</h2>
+      <input placeholder="Titulo" type="text" class="card__element_name-card">
+      <input placeholder="Enlace a la imagen" type="text" class="card__element_link-img">
+      <button type="submit" class="card__element-button root__button_hover-active">Crear</button>
     </form>
   </fieldset>
   <div class="page">
@@ -41,19 +41,19 @@
       <img class="profile__img" src="./image/header/marcoaurelioprogramando.png" alt="marco aurelio">
       <div class="profile__row">
         <h1 class="profile__row_name"></h1>
-        <a class="profile__row_edit root__button_hover"><img src="./image/header/EditButton.svg" alt="botonedit"></a>
+        <a class="profile__row_edit root__button_hover-active"><img src="./image/header/EditButton.svg" alt="botonedit"></a>
       </div>
       <h2 class="profile__hobbie"></h2>
-      <a class="profile__button root__button_hover"><img class="profile__button" src="./image/nav/Addbutton.svg" alt="BotonAdd"></a>
+      <a class="profile__button root__button_hover-active"><img class="profile__button" src="./image/nav/Addbutton.svg" alt="BotonAdd"></a>
     </nav> 
     <main class="element">
       <template id="template__article">
       <article class="element__article">
-          <a class="element__article_delete root__button_hover"><img src="./image/element/ButtonDelete.svg" alt="buttondelete"></a>
+          <a class="element__article_delete root__button_hover-active"><img src="./image/element/ButtonDelete.svg" alt="buttondelete"></a>
           <a class="element__article_img_button"><img class="element__article_img"></a>
           <div class="element__article_row">
             <h2 class="element__article_row_title"></h2>
-            <a class="element__article_row_like root__button_hover"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
+            <a class="element__article_row_like root__button_hover-active"><img src="./image/element/ButonLike.svg" alt="buttonlike"></a>
           </div>
         </article>
       </template>
