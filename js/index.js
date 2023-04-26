@@ -138,8 +138,8 @@ function deleteCard(templateCard) {
 };
 
 
-const zommContainer = document.querySelector(".img__container_zoom")
-const buttonClosedZoom = document.querySelector(".img__container_zoom_button_closed");
+const zommContainer = document.querySelector(".img__container-zoom")
+const buttonClosedZoom = document.querySelector(".img__container_zoom_button-closed");
 closedPop(buttonClosedZoom, zommContainer)
 
 
@@ -147,7 +147,7 @@ closedPop(buttonClosedZoom, zommContainer)
 
 function openPopImg(templateCard) {
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
-  const zommContainer = document.querySelector(".img__container_zoom")
+  const zommContainer = document.querySelector(".img__container-zoom")
   buttomZoom.addEventListener("click", function(){
     zommContainer.classList.add("root__windos_fadeon")
     zommContainer.classList.add("form__container_open_active_e");

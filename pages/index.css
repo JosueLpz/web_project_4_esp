@@ -10,9 +10,9 @@
 /* fonts */
 @import url(../fonts/inter.css);
 /* imgZoom */
-@import url(../bloks/zoom/img__container_zoom.css);
+@import url(../bloks/zoom/img__container-zoom.css);
 @import url(../bloks/zoom/__img/img__container_zoom_img.css);
-@import url(../bloks/zoom/__closed/img__container_zoom_button_closed.css);
+@import url(../bloks/zoom/__closed/img__container_zoom_button-closed.css);
 @import url(../bloks/zoom/__content/img__container_zoom_content.css);
 @import url(../bloks/zoom/__text/img__container_zoom_text.css);
 /* form */
