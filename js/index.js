@@ -138,8 +138,8 @@ function deleteCard(templateCard) {
 };
 
 
-const zommContainer = document.querySelector(".img__container-zoom")
-const buttonClosedZoom = document.querySelector(".img__container_zoom_button-closed");
+const zommContainer = document.querySelector(".container__zoom")
+const buttonClosedZoom = document.querySelector(".container__zoom_button_closed");
 closedPop(buttonClosedZoom, zommContainer)
 
 
@@ -147,7 +147,7 @@ closedPop(buttonClosedZoom, zommContainer)
 
 function openPopImg(templateCard) {
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
-  const zommContainer = document.querySelector(".img__container-zoom")
+  const zommContainer = document.querySelector(".container__zoom")
   buttomZoom.addEventListener("click", function(){
     zommContainer.classList.add("root__windos_fadeon")
     zommContainer.classList.add("form__container_open_active_e");
@@ -156,10 +156,10 @@ function openPopImg(templateCard) {
 }
 
 function imgZoom(templateCard) {
-  const imgElementZoom = document.querySelector(".img__container_zoom_img");
+  const imgElementZoom = document.querySelector(".container__zoom_img");
   const elementImg = templateCard.querySelector(".element__article_img");
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
-  const textZoomContainer = document.querySelector(".img__container_zoom_text")
+  const textZoomContainer = document.querySelector(".container__zoom_text")
   const textElement = templateCard.querySelector(".element__article_row_title")
   
   buttomZoom.addEventListener("click", function(){

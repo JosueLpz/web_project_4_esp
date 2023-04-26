@@ -1,4 +1,4 @@
-.img__container-zoom{
+.container__zoom{
   display: none;
   position: absolute;
   top: 86%;
@@ -20,21 +20,21 @@
 }
 
 @media screen and (min-width: 320px) {
-.img__container-zoom{
+.container__zoom{
   width: 320px;
   height: 300px;
 }
 }
 
 @media screen and (min-width: 574px) {
-  .img__container-zoom{
+  .container__zoom{
     width: 500px;
     height: 500px;
   }
 }
 
 @media screen and (min-width: 880px) {
-  .img__container-zoom{
+  .container__zoom{
     width: 850px;
     height: 700px;
   }
