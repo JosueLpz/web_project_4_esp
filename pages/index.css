@@ -16,15 +16,15 @@
 @import url(../bloks/zoom/__content/img__container_zoom_content.css);
 @import url(../bloks/zoom/__text/img__container_zoom_text.css);
 /* form */
-@import url(../bloks/container/form__container.css); 
-@import url(../bloks/container/_active/form__container_open_active.css); 
+@import url(../bloks/container/form__container.css);
+@import url(../bloks/container/_active/form__container_open_active.css);
 @import url(../bloks/container/__form/form.css);
 @import url(../bloks/container/__form/__closed/form__container_closed.css);
 @import url(../bloks/container/__form/__closed/_active/form__container_closed-active.css);
 @import url(../bloks/container/__form/__title/form__container_title.css);
 @import url(../bloks/container/__form/__name/form__container_name.css);
 @import url(../bloks/container/__form/__hobby/form__container_hobby.css);
-@import url(../bloks/container/__form/__button/form__container_button.css); 
+@import url(../bloks/container/__form/__button/form__container_button.css);
 /* formElement */
 @import url(../bloks/card/form__container_card.css);
 @import url(../bloks/card/_active/form__container_open_active_e.css);
