@@ -137,13 +137,9 @@ function deleteCard(templateCard) {
   });
 };
 
-
 const zommContainer = document.querySelector(".zoom")
 const buttonClosedZoom = document.querySelector(".zoom__button-closed");
 closedPop(buttonClosedZoom, zommContainer)
-
-
-
 
 function openPopImg(templateCard) {
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
@@ -198,3 +194,4 @@ formElementButtom.addEventListener("click", function (evt) {
   formElement.classList.remove("form__container_open_active_e")
   page.classList.remove("page__opacity_active")
 });
+

@@ -14,22 +14,26 @@
     <img class="zoom__img">
     <p class="zoom__text"></p>
   </div>
-  <fieldset class="form">
-    <form class="form__container">
+  <fieldset class="form popup">
+    <form class="form__container popup__form" name="profile" novalidate>
       <a class="form__container-closed root__buttom-closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
       <h2 class="form__container-title">Editar perfil</h2>
-      <input type="text" class="form__container-name">
-      <input type="text" class="form__container-hobby">
-      <button type="submit" class="form__container-button root__button-hover-active">Guardar</button>
+      <input id="name_input" type="text" class="form__container-name popup__input" maxlength="40" minlength="2" required>
+      <span class="name_input-error form__container_input-error" ></span>
+      <input id="hobby_input" type="text" class="form__container-hobby popup__input" maxlength="200" minlength="2" required>
+      <span class="hobby_input-error form__container_input-error" ></span>
+      <button type="submit" class="form__container-button root__button-hover-active popup__button">Guardar</button>
     </form>
   </fieldset>
-  <fieldset class="card">
-    <form class="card__element">
+  <fieldset class="card popup">
+    <form class="card__element popup__form" name="card" novalidate>
       <a class="card__element-button-closed root__buttom-closed-active"><img src="./image/nav/CloseIcon.svg" alt="ButtonClosed"></a> 
       <h2 class="card__element-title">Nuevo lugar</h2>
-      <input placeholder="Titulo" type="text" class="card__element-name-card">
-      <input placeholder="Enlace a la imagen" type="text" class="card__element-link-img">
-      <button type="submit" class="card__element-button-add root__button-hover-active">Crear</button>
+      <input id="title_input" placeholder="Titulo" type="text" class="card__element-name-card popup__input" maxlength="30" minlength="2" required>
+      <span class="title_input-error card__element_input-error"></span>
+      <input id="url_input" placeholder="Enlace a la imagen" type="url" class="card__element-link-img popup__input" required>
+      <span class="url_input-error card__element_input-error"></span>
+      <button type="submit" class="card__element-button-add root__button-hover-active popup__button">Crear</button>
     </form>
   </fieldset>
   <div class="page">
@@ -63,5 +67,6 @@
     </footer>
   </div>
   <script src="./js/index.js"></script>
+  <script src="./js/validate.js"></script>
 </body>
 </html>
