@@ -1,6 +1,7 @@
 .card__element-button-add{
-  display: block;
-  margin: 45px auto;
+  position: absolute;
+  bottom: 30px;
+  left: 36px;
   width: 238px;
   height: 46px;
   cursor: pointer;

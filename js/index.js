@@ -59,7 +59,7 @@ profileHobbie.textContent = formInfoHobbie.value
 
 // Form Profile closed saved
 formAddButton.addEventListener("click", function (evt) {
-  evt.preventDefault()
+  // evt.preventDefault()
 
   profileName.textContent = formInfoName.value
   profileHobbie.textContent = formInfoHobbie.value
@@ -184,7 +184,7 @@ function addCard() {
 
 // funcion para agregar la tarjeta =D
 formElementButtom.addEventListener("click", function (evt) {
-  evt.preventDefault()
+  // evt.preventDefault()
 
   const templateCard = addCard();
   likeCard(templateCard);
@@ -194,4 +194,3 @@ formElementButtom.addEventListener("click", function (evt) {
   formElement.classList.remove("form__container_open_active_e")
   page.classList.remove("page__opacity_active")
 });
-
