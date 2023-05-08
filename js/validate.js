@@ -1,8 +1,9 @@
 const showInputError = function (forms, inputs, errorMesagge){
     const errorElement = forms.querySelector(`.${inputs.id}-error`);  
+    console.log(errorElement)
     inputs.classList.add("popup__input_type_error");  
-    errorElement.textContent = errorMesagge;
     errorElement.classList.add("popup__error_visible");
+    errorElement.textContent = errorMesagge;
   }
 
 const hideInputError = function (forms, inputs){

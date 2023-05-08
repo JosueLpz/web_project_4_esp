@@ -1,6 +1,7 @@
 .form__container-button{
-  display: block;
-  margin: 45px auto;
+  position: absolute;
+  bottom: 30px;
+  left: 36px;
   width: 238px;
   height: 46px;
   cursor: pointer;
