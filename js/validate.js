@@ -1,6 +1,5 @@
 const showInputError = function (forms, inputs, errorMesagge){
     const errorElement = forms.querySelector(`.${inputs.id}-error`);  
-    console.log(errorElement)
     inputs.classList.add("popup__input_type_error");  
     errorElement.classList.add("popup__error_visible");
     errorElement.textContent = errorMesagge;
@@ -21,29 +20,53 @@ const isValid = function (forms, inputs){
     }
     }
 
-const setEventListeners = function (formList){
+const setEventListeners = function (formList){  
+  const buttonList = Array.from(document.querySelectorAll(".popup__button"));
+  
   formList.forEach(function (forms){
     const inputList = Array.from(forms.querySelectorAll(".popup__input"));
-  inputList.forEach(function (inputs){
+    inputList.forEach(function (inputs){
     inputs.addEventListener("input", function (){
-      isValid(forms, inputs)
+      isValid(forms, inputs);
+      toggleButtonState(inputs, buttonList);
+      // buttonList.forEach(function (button){
+      // });
     });
   }); 
 });
 };
 
+const hasInvalidInput = function (inputs){
+  return inputs.some( function (input){
+    return !input.validity.valid
+  })
+};
+
+
+const toggleButtonState = function (inputs, buttons){  
+  const inputsArr = Array.from(inputs)  
+  
+  buttons.forEach(function (buton){
+    if(hasInvalidInput(inputsArr)){
+      buton.classList.add("popup__button_disabled");
+    }else{
+      buton.classList.remove("popup__button_disabled");
+    } 
+  });
+};
+
 function enableValidation(element){
     const formList = Array.from(document.querySelectorAll(element.formSelector));
     const inputList = Array.from(document.querySelectorAll(element.inputSelector));
+    const buttonList = Array.from(document.querySelectorAll(element.submitButtonSelector));
     
-    // const buttonList = document.querySelectorAll(element.submitButtonSelector);
-    // const inputError = document.querySelector(element.inputErrorClass);
+
+      toggleButtonState(inputList, buttonList);
     
     formList.forEach(function (forms){  
       forms.addEventListener("submit", function (evt){
         evt.preventDefault();
       });
-    
       setEventListeners(formList);
     });
   }
