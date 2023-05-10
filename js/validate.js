@@ -24,6 +24,7 @@ const setEventListeners = function (formA, formB) {
   
   const buttonA = document.querySelector(".popup__button");
   const buttonB = document.querySelector(".popup__button_card")
+  
   formA.forEach(function (form) {
     const inputlistA = Array.from(form.querySelectorAll(".popup__input"));
     inputlistA.forEach(function (input) {
@@ -66,11 +67,10 @@ function enableValidation(element) {
   
   const formB = Array.from(document.querySelectorAll(element.formSelectorCard));
   const inputListB = Array.from(document.querySelectorAll(element.inputSelectorCard));
-  const buttonB = document.querySelectorAll(element.submitButtonSelectorCard);
-  
-  setEventListeners(formA, formB);
+  const buttonB = document.querySelector(element.submitButtonSelectorCard);
   toggleButtonState(inputListA, buttonA);
-  // toggleButtonState(inputListB, buttonB);
+  toggleButtonState(inputListB, buttonB);
+  setEventListeners(formA, formB);
 }
 
 enableValidation({
