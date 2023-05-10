@@ -61,19 +61,32 @@ const toggleButtonState = function (inputs, button) {
 };
 
 function enableValidation(element) {
+  const fieldest = document.querySelectorAll(element.fieldest);
+
   const formA = Array.from(document.querySelectorAll(element.formSelector));
   const inputListA = Array.from(document.querySelectorAll(element.inputSelector));
   const buttonA = document.querySelector(element.submitButtonSelector);
-  
+
   const formB = Array.from(document.querySelectorAll(element.formSelectorCard));
   const inputListB = Array.from(document.querySelectorAll(element.inputSelectorCard));
   const buttonB = document.querySelector(element.submitButtonSelectorCard);
+
+
+
+  fieldest.forEach(function(forms){
+    forms.addEventListener("submit", function(evt){
+      evt.preventDefault();
+    })
+  });
+  
   toggleButtonState(inputListA, buttonA);
   toggleButtonState(inputListB, buttonB);
   setEventListeners(formA, formB);
 }
 
 enableValidation({
+  fieldest: ".popup",
+
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
