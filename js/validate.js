@@ -21,14 +21,15 @@ const isValid = function (forms, inputs) {
 };
 
 const setEventListeners = function (formA, formB) {
-  console.log(formA)
-  console.log(formB)
   
+  const buttonA = document.querySelector(".popup__button");
+  const buttonB = document.querySelector(".popup__button_card")
   formA.forEach(function (form) {
     const inputlistA = Array.from(form.querySelectorAll(".popup__input"));
     inputlistA.forEach(function (input) {
       input.addEventListener("keyup", function () {
         isValid(form, input);
+        toggleButtonState(inputlistA, buttonA);
       });
     });
   });
@@ -38,40 +39,38 @@ const setEventListeners = function (formA, formB) {
     inputlistB.forEach(function (input){
       input.addEventListener("keyup", function () {
         isValid(form, input);
+        toggleButtonState(inputlistB, buttonB);
       });
     });
   });
 };
 
-// const hasInvalidInput = function (inputs) {
+const hasInvalidInput = function (inputs) { 
+  return inputs.some(input=>{
+    return !input.validity.valid
+  })  
+};
 
-//   return inputs.some(input=>{
-//     return !input.validity.valid
-//   })  
-// };
-
-// const toggleButtonState = function (inputs, buttons) {
-//   buttons.forEach(function (buton) {
-//     if (hasInvalidInput(inputs)) {
-//       buton.classList.add("popup__button_disabled");
-//     } else {
-//       buton.classList.remove("popup__button_disabled");
-//     }
-//   });
-// };
+const toggleButtonState = function (inputs, button) {
+  if (hasInvalidInput(inputs)) {
+      button.classList.add("popup__button_disabled");
+    } else {
+      button.classList.remove("popup__button_disabled");
+    }
+};
 
 function enableValidation(element) {
   const formA = Array.from(document.querySelectorAll(element.formSelector));
   const inputListA = Array.from(document.querySelectorAll(element.inputSelector));
-  const buttonListA = document.querySelector(element.submitButtonSelector);
+  const buttonA = document.querySelector(element.submitButtonSelector);
   
   const formB = Array.from(document.querySelectorAll(element.formSelectorCard));
   const inputListB = Array.from(document.querySelectorAll(element.inputSelectorCard));
-  const buttonListB = document.querySelectorAll(element.submitButtonSelectorCard);
+  const buttonB = document.querySelectorAll(element.submitButtonSelectorCard);
   
-  // toggleButtonState(inputListA, buttonListA);
   setEventListeners(formA, formB);
-
+  toggleButtonState(inputListA, buttonA);
+  // toggleButtonState(inputListB, buttonB);
 }
 
 enableValidation({
