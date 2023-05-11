@@ -33,16 +33,27 @@ function closedPopGlobal(form){
       form.classList.remove("form__container_open_active_e");
       page.classList.remove("page__opacity_active");
       document.removeEventListener("click", closedPop);
-    }else if(form.contains(evt.target)){
+    }
+    if(evt.key === "Escape"){
       form.classList.remove("form__container_open_active_e");
       page.classList.remove("page__opacity_active");
-      document.removeEventListener("click", closedPop);
+      document.removeEventListener("keydown", closedPop);
     }
   };
+  document.addEventListener("keydown", closedPop);
   document.addEventListener("click", closedPop);
 }
 
-
+// function closedScapeGlobal(form){  
+//   const ClosedScape = (evt) =>{
+//     if(evt.key === "Escape"){
+//       form.classList.remove("form__container_open_active_e");
+//       page.classList.remove("page__opacity_active");
+//       document.removeEventListener("keydown", ClosedScape)
+//     }
+//   }
+//   document.addEventListener("keydown", ClosedScape)
+// }
 
 // Open Closed FORM
 function openPop(buttom, form) {
@@ -53,7 +64,7 @@ function openPop(buttom, form) {
     
     setTimeout(function() {
       closedPopGlobal(form)
-    }, 500);
+    }, 100);
   });
 }
 openPop(profileButtonEdit, formUp);
@@ -175,7 +186,7 @@ function openPopImg(templateCard) {
     page.classList.add("page__opacity_active")
     setTimeout(function() {
       closedPopGlobal(zommContainer)
-    }, 500);
+    }, 100);
   });
 }
 
