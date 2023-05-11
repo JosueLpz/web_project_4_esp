@@ -26,7 +26,7 @@
 @import url(../bloks/form/__container/__name/form__container-name.css);
 @import url(../bloks/form/__container/__hobby/form__container-hobby.css);
 @import url(../bloks/form/__container/__button/form__container-button.css);
-@import url(../bloks/form/__container/__error/form__container_input-error.css);
+@import url(../bloks/form/__container/__error/form__container-error.css);
 /* formElement */
 @import url(../bloks/card/card.css);
 @import url(../bloks/card/__element/card__element.css);
