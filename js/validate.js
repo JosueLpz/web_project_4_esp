@@ -36,7 +36,7 @@ const setEventListeners = function (formA, formB) {
   });
   
   formB.forEach(function(form){
-    const inputlistB = Array.from(form.querySelectorAll(".popup__input_card"));
+    const inputlistB = Array.from(form.querySelectorAll(".popup__input-card"));
     inputlistB.forEach(function (input){
       input.addEventListener("keyup", function () {
         isValid(form, input);
@@ -91,8 +91,8 @@ enableValidation({
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
 
-  formSelectorCard:".popup__form_card",
-  inputSelectorCard:".popup__input_card",
+  formSelectorCard:".card__element",
+  inputSelectorCard:".popup__input-card",
   submitButtonSelectorCard:".popup__button_card",
 
   inactiveButtonClass: "popup__button_disabled",

@@ -36,7 +36,7 @@
 @import url(../bloks/card/__element/__img/card__element-link-img.css);
 @import url(../bloks/card/__element/__button/card__element-button-add.css);
 @import url(../bloks/card/_active/form__container_open_active_e.css);
-@import url(../bloks/card/__element/__error/card__element_input-error.css);
+@import url(../bloks/card/__element/__error/card__element-error.css);
 /* header */
 @import url(../bloks/header/header.css);
 @import url(../bloks/header/__logo/header__logo.css);
