@@ -24,12 +24,36 @@ const templateElement = document.querySelector("#template__article");
 const templateCard = templateElement.querySelector(".element__article");
 const element = document.querySelector(".element");
 
+
+
+//Closed Forms Global
+function closedPopGlobal(form){
+  const closedPop = (evt) =>{
+    if(evt.target !== form && !form.contains(evt.target)){
+      form.classList.remove("form__container_open_active_e");
+      page.classList.remove("page__opacity_active");
+      document.removeEventListener("click", closedPop);
+    }else if(form.contains(evt.target)){
+      form.classList.remove("form__container_open_active_e");
+      page.classList.remove("page__opacity_active");
+      document.removeEventListener("click", closedPop);
+    }
+  };
+  document.addEventListener("click", closedPop);
+}
+
+
+
 // Open Closed FORM
 function openPop(buttom, form) {
   buttom.addEventListener("click", function () {
     form.classList.add("root__windos_fadeon")
     form.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")
+    
+    setTimeout(function() {
+      closedPopGlobal(form)
+    }, 500);
   });
 }
 openPop(profileButtonEdit, formUp);
@@ -141,6 +165,7 @@ const zommContainer = document.querySelector(".zoom")
 const buttonClosedZoom = document.querySelector(".zoom__button-closed");
 closedPop(buttonClosedZoom, zommContainer)
 
+
 function openPopImg(templateCard) {
   const buttomZoom = templateCard.querySelector(".element__article_img_button");
   const zommContainer = document.querySelector(".zoom")
@@ -148,6 +173,9 @@ function openPopImg(templateCard) {
     zommContainer.classList.add("root__windos_fadeon")
     zommContainer.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")
+    setTimeout(function() {
+      closedPopGlobal(zommContainer)
+    }, 500);
   });
 }
 
