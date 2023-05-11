@@ -23,7 +23,7 @@ const isValid = function (forms, inputs) {
 const setEventListeners = function (formA, formB) {
   
   const buttonA = document.querySelector(".popup__button");
-  const buttonB = document.querySelector(".popup__button_card")
+  const buttonB = document.querySelector(".popup__button-card")
   
   formA.forEach(function (form) {
     const inputlistA = Array.from(form.querySelectorAll(".popup__input"));
@@ -93,7 +93,7 @@ enableValidation({
 
   formSelectorCard:".card__element",
   inputSelectorCard:".popup__input-card",
-  submitButtonSelectorCard:".popup__button_card",
+  submitButtonSelectorCard:".popup__button-card",
 
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
