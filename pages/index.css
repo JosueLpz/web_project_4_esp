@@ -2,10 +2,11 @@
 @import url(../vendor/normalize.css);
 /* root */
 @import url(/root/root.css);
+@import url(../bloks/page/page.css);
+@import url(../root/_active/root__button-hover-active.css);
 @import url(../root/_active/root__windos_fadeon.css);
 @import url(../root/_active/root__windos_fadeoff.css);
 @import url(../root/_active/root__buttom-closed-active.css);
-@import url(../bloks/page/page.css);
 @import url(../bloks/page/_active/page__opacity_active.css);
 @import url(../root/__error/popup__input_type_error.css);
 @import url(../root/__error/popup__error_visible.css);
