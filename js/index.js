@@ -23,20 +23,35 @@ const buttonClosedElement = document.querySelector(".card__element-button-closed
 const templateElement = document.querySelector("#template__article");
 const templateCard = templateElement.querySelector(".element__article");
 const element = document.querySelector(".element");
+const zommContainer = document.querySelector(".zoom")
+const buttonClosedZoom = document.querySelector(".zoom__button-closed");
 
 
 
-//Closed Forms Global
-function closedPopGlobal(form){
+
+
+const buttons =[buttonClosedElement, formClosedButon, buttonClosedZoom]
+
+function closedPopGlobal(form, buttons){ 
+  let isPreest = false
+  buttons.forEach((button) =>{
+    button.addEventListener("click", ()=>{
+      isPreest = true
+    });
+  });
+    
   const closedPop = (evt) =>{
     if(evt.target !== form && !form.contains(evt.target)){
       form.classList.remove("form__container_open_active_e");
       page.classList.remove("page__opacity_active");
       document.removeEventListener("click", closedPop);
       document.removeEventListener("keydown", escapePop);
-    }    
+    }else if(isPreest === true){
+      document.removeEventListener("click", closedPop);
+      document.removeEventListener("keydown", escapePop);
+    }
   };
-
+  
   const escapePop = (evt) =>{
     if(evt.key === "Escape"){
       form.classList.remove("form__container_open_active_e");
@@ -58,9 +73,10 @@ function openPop(buttom, form) {
     page.classList.add("page__opacity_active")
     
     setTimeout(function() {
-      closedPopGlobal(form)
+      closedPopGlobal(form, buttons)
     }, 500);
   });
+
 }
 openPop(profileButtonEdit, formUp);
 
@@ -167,8 +183,7 @@ function deleteCard(templateCard) {
   });
 };
 
-const zommContainer = document.querySelector(".zoom")
-const buttonClosedZoom = document.querySelector(".zoom__button-closed");
+
 closedPop(buttonClosedZoom, zommContainer)
 
 
@@ -180,7 +195,7 @@ function openPopImg(templateCard) {
     zommContainer.classList.add("form__container_open_active_e");
     page.classList.add("page__opacity_active")
     setTimeout(function() {
-      closedPopGlobal(zommContainer)
+      closedPopGlobal(zommContainer, buttons)
     }, 500);
   });
 }
