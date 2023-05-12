@@ -4,3 +4,9 @@
   justify-content: center;
   margin: 25px auto 15px auto;
 }
+
+@media screen and (min-width: 880px) {
+  .profile__row{
+    margin: 0;
+  }
+  }
