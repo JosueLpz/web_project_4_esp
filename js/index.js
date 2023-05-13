@@ -30,7 +30,7 @@ const buttonClosedZoom = document.querySelector(".zoom__button-closed");
 
 
 
-const buttons =[buttonClosedElement, formClosedButon, buttonClosedZoom]
+const buttons =[buttonClosedElement, formClosedButon, buttonClosedZoom, formAddButton, formElementButtom]
 
 function closedPopGlobal(form, buttons){ 
   let isPreest = false
