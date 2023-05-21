@@ -38,15 +38,15 @@ class mainCard extends Card {
     super._getTemplate();
     super._setEventListeners();
 
-    this._element.querySelector(".element__article_img").src = this._img;
-    this._element.querySelector(".element__article_row_title").textContent = this._name;
+    this._cardElement.querySelector(".element__article_img").src = this._img;
+    this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
 
-    return this._element;
+    return this._cardElement;
   }
 }
 
 dataCards.forEach((data) => {
-  const card = new mainCard(data, "#template__article");
+  const card = new mainCard(data, "#template__article", ".popup");
   const cardElement = card.generateCard();
   mainCardsList.append(cardElement);
 });
