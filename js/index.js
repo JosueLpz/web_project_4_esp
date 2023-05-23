@@ -1,5 +1,6 @@
 import { Card } from "./Card.js";
 import { mainCardsList } from "./utils.js";
+import { Forms } from "./Forms.js";
 
 const dataCards = [
   {
@@ -46,7 +47,20 @@ class mainCard extends Card {
 }
 
 dataCards.forEach((data) => {
-  const card = new mainCard(data, "#template__article", ".popup");
+  const card = new mainCard(data, "#template__article");
   const cardElement = card.generateCard();
   mainCardsList.append(cardElement);
 });
+
+class Form extends Forms {
+  constructor(formAddProfile, formAddCard) {
+    super(formAddProfile, formAddCard);
+  }
+  _getForm() {
+    super._setEventListeners();
+    super._getForm();
+  }
+}
+
+const Formss = new Form(".form", ".card");
+Formss._getForm();
