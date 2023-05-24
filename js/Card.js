@@ -1,3 +1,5 @@
+import { buttonsClosed } from "./utils.js";
+import { mainCardsList } from "./utils.js";
 export class Card {
   constructor(cardSelector) {
     this._cardSelector = cardSelector;
@@ -16,11 +18,15 @@ export class Card {
     });
     this._cardElement.querySelector(".element__article_img_button").addEventListener("click", () => {
       this._openPopCard();
+      setTimeout(() => {
+        this._closedPopGlobalCard(buttonsClosed);
+      }, 500);
     });
     document.querySelector(".zoom__button-closed").addEventListener("click", () => {
       this._closedPopCard();
     });
   }
+
   _likeCard() {
     this._cardElement.querySelector(".element__article_row_like").classList.toggle("element__article_row_like_active");
   }
@@ -29,7 +35,7 @@ export class Card {
   }
   _openPopCard() {
     document.querySelector(".zoom").classList.add("root__windos_fadeon");
-    document.querySelector(".zoom").classList.add("form__container_open_active_e");
+    document.querySelector(".zoom").style.display = "block";
     document.querySelector(".page").classList.add("page__opacity_active");
     document.querySelector(".zoom__img").src = this._cardElement.querySelector(".element__article_img").src;
     document.querySelector(".zoom__text").textContent = this._cardElement.querySelector(".element__article_row_title").textContent;
@@ -37,9 +43,39 @@ export class Card {
   _closedPopCard() {
     document.querySelector(".zoom").classList.add("root__windos_fadeoff");
     setTimeout(function () {
-      document.querySelector(".zoom").classList.remove("form__container_open_active_e");
+      document.querySelector(".zoom").style.display = "";
       document.querySelector(".zoom").classList.remove("root__windos_fadeoff");
       document.querySelector(".page").classList.remove("page__opacity_active");
     }, 500);
   }
+  _closedPopGlobalCard = (buttons) => {
+    let isPreest = false;
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        isPreest = true;
+      });
+    });
+    const closedPop = (evt) => {
+      if (evt.target !== document.querySelector(".zoom") && !document.querySelector(".zoom").contains(evt.target)) {
+        document.querySelector(".zoom").style.display = "";
+        document.querySelector(".page").classList.remove("page__opacity_active");
+        document.removeEventListener("click", closedPop);
+        document.removeEventListener("keydown", escapePop);
+      }
+      if (isPreest === true) {
+        document.removeEventListener("click", closedPop);
+        document.removeEventListener("keydown", escapePop);
+      }
+    };
+    const escapePop = (evt) => {
+      if (evt.key === "Escape") {
+        document.querySelector(".zoom").style.display = "";
+        document.querySelector(".page").classList.remove("page__opacity_active");
+        document.removeEventListener("click", closedPop);
+        document.removeEventListener("keydown", escapePop);
+      }
+    };
+    document.addEventListener("keydown", escapePop);
+    document.addEventListener("click", closedPop);
+  };
 }

@@ -8,35 +8,29 @@ export class FormValidator {
     this._errorClass = data.errorClass;
   }
   _getFormElements() {
-    const forms = Array.from(document.querySelectorAll(this._formSelector));
-    this._forms = forms;
+    this._forms = Array.from(document.querySelectorAll(this._formSelector));
+    this._buttons = Array.from(document.querySelectorAll(this._submitButtonSelector));
     this._imptus = [];
-    this._buttons = [];
     this._forms.forEach((form) => {
       const imputs = Array.from(form.querySelectorAll(this._inputSelector));
       this._imptus.push(imputs);
-      const button = Array.from(form.querySelectorAll(this._submitButtonSelector));
-      this._buttons.push(button);
     });
   }
   _enableValidation() {
     this._setEventListeners();
-    // this._toggleButtonState(this._imptus[0], this._buttons[0]);
-    console.log("🚀 ~ file: FormValidator.js:26 ~ FormValidator ~ _enableValidation ~ this._buttons:", this._buttons);
-    console.log("🚀 ~ file: FormValidator.js:26 ~ FormValidator ~ _enableValidation ~ this._buttons[1]:", this._buttons[1]);
-    console.log("🚀 ~ file: FormValidator.js:15 ~ FormValidator ~ _getFormElements ~ this._buttons:", this._buttons[1][0]);
-    this._toggleButtonState(this._imptus[1], this._buttons[1][0]);
+    this._toggleButtonState(this._imptus[0], this._buttons[0]);
+    this._toggleButtonState(this._imptus[1], this._buttons[1]);
   }
   _setEventListeners() {
     this._forms.forEach((form) => {
-      form.addEventListener("submit", (evt) => {
+      form.addEventListener("click", (evt) => {
         evt.preventDefault();
       });
 
       this._imptus[0].forEach((imput) => {
         imput.addEventListener("keyup", () => {
           this._isValid(this._forms[0], imput);
-          // this._toggleButtonState(this._imptus[0], this._buttons[0]);
+          this._toggleButtonState(this._imptus[0], this._buttons[0]);
         });
       });
     });
@@ -44,7 +38,7 @@ export class FormValidator {
     this._imptus[1].forEach((imput) => {
       imput.addEventListener("keyup", () => {
         this._isValid(this._forms[1], imput);
-        // this._toggleButtonState(this._imptus[1], this._buttons[1]);
+        this._toggleButtonState(this._imptus[1], this._buttons[1]);
       });
     });
   }

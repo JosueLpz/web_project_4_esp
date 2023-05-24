@@ -1,5 +1,5 @@
 import { Card } from "./Card.js";
-import { mainCardsList } from "./utils.js";
+import { mainCardsList, closedPopGlobalActive, profileDfault } from "./utils.js";
 import { Forms } from "./Forms.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -53,6 +53,53 @@ dataCards.forEach((data) => {
   mainCardsList.append(cardElement);
 });
 
+profileDfault();
+
+class cardAndProifle extends Card {
+  constructor(cardSelector) {
+    super(cardSelector);
+  }
+  _addProfile() {
+    const profileName = document.querySelector(".profile__row-name");
+    const profileHobbie = document.querySelector(".profile__hobbie");
+    const imputName = document.querySelector(".form__container-name");
+    const imputHobbie = document.querySelector(".form__container-hobby");
+
+    profileName.textContent = imputName.value;
+    profileHobbie.textContent = imputHobbie.value;
+
+    imputName.value = profileName.textContent;
+    imputHobbie.value = profileHobbie.textContent;
+  }
+  _addCard() {
+    const cardCreate = super._getTemplate();
+    const name = document.querySelector(".card__element-name-card").value;
+    const link = document.querySelector(".card__element-link-img").value;
+
+    cardCreate.querySelector(".element__article_row_title").textContent = name;
+    cardCreate.querySelector(".element__article_img").src = link;
+    mainCardsList.append(cardCreate);
+    super._setEventListeners();
+
+    return cardCreate;
+  }
+  setEventListeners() {
+    document.querySelector(".card__element-button-add").addEventListener("click", (e) => {
+      this._addCard();
+      document.querySelector(".card").style.display = "";
+      document.querySelector(".page").classList.remove("page__opacity_active");
+    });
+    document.querySelector(".form__container-button").addEventListener("click", (e) => {
+      this._addProfile();
+      document.querySelector(".form").style.display = "";
+      document.querySelector(".page").classList.remove("page__opacity_active");
+    });
+  }
+}
+
+const profileAndCard = new cardAndProifle("#template__article");
+profileAndCard.setEventListeners();
+
 class Form extends Forms {
   constructor(formAddProfile, formAddCard) {
     super(formAddProfile, formAddCard);
@@ -92,3 +139,5 @@ dataForms.forEach((data) => {
   const FormsVali = new FormsValid(data);
   FormsVali._enableValidation();
 });
+
+closedPopGlobalActive();
