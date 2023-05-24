@@ -21,10 +21,9 @@ const isValid = function (forms, inputs) {
 };
 
 const setEventListeners = function (formA, formB) {
-  
   const buttonA = document.querySelector(".popup__button");
-  const buttonB = document.querySelector(".popup__button-card")
-  
+  const buttonB = document.querySelector(".popup__button-card");
+
   formA.forEach(function (form) {
     const inputlistA = Array.from(form.querySelectorAll(".popup__input"));
     inputlistA.forEach(function (input) {
@@ -34,10 +33,10 @@ const setEventListeners = function (formA, formB) {
       });
     });
   });
-  
-  formB.forEach(function(form){
+
+  formB.forEach(function (form) {
     const inputlistB = Array.from(form.querySelectorAll(".popup__input-card"));
-    inputlistB.forEach(function (input){
+    inputlistB.forEach(function (input) {
       input.addEventListener("keyup", function () {
         isValid(form, input);
         toggleButtonState(inputlistB, buttonB);
@@ -46,18 +45,18 @@ const setEventListeners = function (formA, formB) {
   });
 };
 
-const hasInvalidInput = function (inputs) { 
-  return inputs.some(input=>{
-    return !input.validity.valid
-  })  
+const hasInvalidInput = function (inputs) {
+  return inputs.some((input) => {
+    return !input.validity.valid;
+  });
 };
 
 const toggleButtonState = function (inputs, button) {
   if (hasInvalidInput(inputs)) {
-      button.classList.add("popup__button_disabled");
-    } else {
-      button.classList.remove("popup__button_disabled");
-    }
+    button.classList.add("popup__button_disabled");
+  } else {
+    button.classList.remove("popup__button_disabled");
+  }
 };
 
 function enableValidation(element) {
@@ -71,31 +70,28 @@ function enableValidation(element) {
   const inputListB = Array.from(document.querySelectorAll(element.inputSelectorCard));
   const buttonB = document.querySelector(element.submitButtonSelectorCard);
 
-
-
-  fieldest.forEach(function(forms){
-    forms.addEventListener("submit", function(evt){
+  fieldest.forEach(function (forms) {
+    forms.addEventListener("submit", function (evt) {
       evt.preventDefault();
-    })
+    });
   });
-  
+
   toggleButtonState(inputListA, buttonA);
   toggleButtonState(inputListB, buttonB);
   setEventListeners(formA, formB);
 }
 
-enableValidation({
-  fieldest: ".popup",
-
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-
-  formSelectorCard:".card__element",
-  inputSelectorCard:".popup__input-card",
-  submitButtonSelectorCard:".popup__button-card",
-
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
+const dataForms = [
+  {
+    fieldest: ".popup",
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    formSelectorCard: ".card__element",
+    inputSelectorCard: ".popup__input-card",
+    submitButtonSelectorCard: ".popup__button-card",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  },
+];

@@ -1,6 +1,7 @@
 import { Card } from "./Card.js";
 import { mainCardsList } from "./utils.js";
 import { Forms } from "./Forms.js";
+import { FormValidator } from "./FormValidator.js";
 
 const dataCards = [
   {
@@ -64,3 +65,30 @@ class Form extends Forms {
 
 const Formss = new Form(".form", ".card");
 Formss._getForm();
+
+const dataForms = [
+  {
+    fieldest: ".popup",
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  },
+];
+
+class FormsValid extends FormValidator {
+  constructor(data) {
+    super(data);
+  }
+  _enableValidation() {
+    super._getFormElements();
+    super._enableValidation();
+  }
+}
+
+dataForms.forEach((data) => {
+  const FormsVali = new FormsValid(data);
+  FormsVali._enableValidation();
+});
