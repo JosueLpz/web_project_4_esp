@@ -78,7 +78,7 @@ class cardAndProifle extends Card {
 
     cardCreate.querySelector(".element__article_row_title").textContent = name;
     cardCreate.querySelector(".element__article_img").src = link;
-    mainCardsList.append(cardCreate);
+    mainCardsList.prepend(cardCreate);
     super._setEventListeners();
 
     return cardCreate;
