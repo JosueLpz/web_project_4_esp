@@ -56,12 +56,16 @@ export class FormValidator {
       form.addEventListener("click", (evt) => {
         evt.preventDefault();
       });
-
-      this._cardImputs.forEach((imput) => {
-        imput.addEventListener("keyup", () => {
-          this._isValid(this._formCard, imput);
-          this._toggleButtonState(this._cardImputs, this._buttomCard);
-        });
+      form.addEventListener("keydown", (evt) => {
+        if (evt.key === "Enter") {
+          evt.preventDefault();
+        }
+      });
+    });
+    this._cardImputs.forEach((imput) => {
+      imput.addEventListener("keyup", () => {
+        this._isValid(this._formCard, imput);
+        this._toggleButtonState(this._cardImputs, this._buttomCard);
       });
     });
 
