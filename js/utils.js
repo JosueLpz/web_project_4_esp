@@ -9,14 +9,10 @@ const formElementButtom = document.querySelector(".card__element-button-add");
 
 const profileButtonEdit = document.querySelector(".profile__row-edit");
 const profileButtonCardAdd = document.querySelector(".profile__button");
-const templateElement = document.querySelector("#template__article").content.querySelector(".element__article");
-const buttomZoom = templateElement.querySelector(".element__article_img_button");
 
-const zommContainer = document.querySelector(".zoom");
 const formElement = document.querySelector(".card");
 const formUp = document.querySelector(".form");
 
-const buttonsOpen = [profileButtonEdit, profileButtonCardAdd];
 const forms = [formElement, formUp];
 const buttonsClosed = [buttonClosedElement, formClosedButon, buttonClosedZoom, formAddButton, formElementButtom];
 
