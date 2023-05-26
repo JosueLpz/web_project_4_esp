@@ -36,8 +36,8 @@ export class FormValidator {
   }
   _enableValidation() {
     this._setEventListeners();
-    this._toggleButtonState(this._cardImputs, this._buttomCard);
-    this._toggleButtonState(this._profileImputs, this._buttomProfile);
+    this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);
+    this._toggleButtonState(this._formProfile, this._profileImputs, this._buttomProfile);
   }
   _setEventListeners() {
     document.querySelector(".profile__row-edit").addEventListener("click", () => {
@@ -56,23 +56,18 @@ export class FormValidator {
       form.addEventListener("click", (evt) => {
         evt.preventDefault();
       });
-      form.addEventListener("keydown", (evt) => {
-        if (evt.key === "Enter") {
-          evt.preventDefault();
-        }
-      });
     });
     this._cardImputs.forEach((imput) => {
       imput.addEventListener("keyup", () => {
         this._isValid(this._formCard, imput);
-        this._toggleButtonState(this._cardImputs, this._buttomCard);
+        this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);
       });
     });
 
     this._profileImputs.forEach((imput) => {
       imput.addEventListener("keyup", () => {
         this._isValid(this._formProfile, imput);
-        this._toggleButtonState(this._profileImputs, this._buttomProfile);
+        this._toggleButtonState(this._formProfile, this._profileImputs, this._buttomProfile);
       });
     });
   }
@@ -101,11 +96,19 @@ export class FormValidator {
       return !input.validity.valid;
     });
   }
-  _toggleButtonState(inputs, button) {
+  _evtKey(evt) {
+    if (evt.key === "Enter") {
+      evt.preventDefault();
+    }
+  }
+
+  _toggleButtonState(form, inputs, button) {
     if (this._hasInvalidInput(inputs)) {
       button.classList.add("popup__button_disabled");
+      form.addEventListener("keydown", this._evtKey);
     } else {
       button.classList.remove("popup__button_disabled");
+      form.removeEventListener("keydown", this._evtKey);
     }
   }
 }
