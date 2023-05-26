@@ -1,6 +1,5 @@
 import { Card } from "./Card.js";
-import { mainCardsList, closedPopGlobalActive, profileDfault } from "./utils.js";
-import { Forms } from "./Forms.js";
+import { mainCardsList, closedPopGlobalActive, profileDfault, forms } from "./utils.js";
 import { FormValidator } from "./FormValidator.js";
 
 const dataCards = [
@@ -100,19 +99,6 @@ class cardAndProifle extends Card {
 const profileAndCard = new cardAndProifle("#template__article");
 profileAndCard.setEventListeners();
 
-class Form extends Forms {
-  constructor(formAddProfile, formAddCard) {
-    super(formAddProfile, formAddCard);
-  }
-  _getForm() {
-    super._setEventListeners();
-    super._getForm();
-  }
-}
-
-const Formss = new Form(".form", ".card");
-Formss._getForm();
-
 const dataForms = [
   {
     fieldest: ".popup",
@@ -126,8 +112,8 @@ const dataForms = [
 ];
 
 class FormsValid extends FormValidator {
-  constructor(data) {
-    super(data);
+  constructor(data, forms) {
+    super(data, forms);
   }
   _enableValidation() {
     super._getFormElements();
@@ -136,7 +122,7 @@ class FormsValid extends FormValidator {
 }
 
 dataForms.forEach((data) => {
-  const FormsVali = new FormsValid(data);
+  const FormsVali = new FormsValid(data, forms);
   FormsVali._enableValidation();
 });
 

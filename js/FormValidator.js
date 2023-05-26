@@ -1,6 +1,6 @@
 export class FormValidator {
-  constructor(data) {
-    this._formSelector = data.formSelector;
+  constructor(data, forms) {
+    this._forms = forms;
     this._inputSelector = data.inputSelector;
     this._submitButtonSelector = data.submitButtonSelector;
     this._inactiveButtonClass = data.inactiveButtonClass;
@@ -8,37 +8,67 @@ export class FormValidator {
     this._errorClass = data.errorClass;
   }
   _getFormElements() {
-    this._forms = Array.from(document.querySelectorAll(this._formSelector));
-    this._buttons = Array.from(document.querySelectorAll(this._submitButtonSelector));
-    this._imptus = [];
+    this._formCard = this._forms[0];
+    this._formProfile = this._forms[1];
+    const formButtons = Array.from(document.querySelectorAll(this._submitButtonSelector));
+    this._buttomCard = formButtons[1];
+    this._buttomProfile = formButtons[0];
+    const imputsList = [];
     this._forms.forEach((form) => {
       const imputs = Array.from(form.querySelectorAll(this._inputSelector));
-      this._imptus.push(imputs);
+      imputsList.push(imputs);
     });
+    this._cardImputs = imputsList[0];
+    this._profileImputs = imputsList[1];
+  }
+  _openForm(formElement) {
+    formElement.style.display = "block";
+    formElement.classList.add("root__windos_fadeon");
+    document.querySelector(".page").classList.add("page__opacity_active");
+  }
+  _closedForm(formElement) {
+    formElement.classList.add("root__windos_fadeoff");
+    setTimeout(function () {
+      formElement.style.display = "";
+      formElement.classList.remove("root__windos_fadeoff");
+      document.querySelector(".page").classList.remove("page__opacity_active");
+    }, 500);
   }
   _enableValidation() {
     this._setEventListeners();
-    this._toggleButtonState(this._imptus[0], this._buttons[0]);
-    this._toggleButtonState(this._imptus[1], this._buttons[1]);
+    this._toggleButtonState(this._cardImputs, this._buttomCard);
+    this._toggleButtonState(this._profileImputs, this._buttomProfile);
   }
   _setEventListeners() {
+    document.querySelector(".profile__row-edit").addEventListener("click", () => {
+      this._openForm(this._formProfile);
+    });
+    document.querySelector(".profile__button").addEventListener("click", () => {
+      this._openForm(this._formCard);
+    });
+    document.querySelector(".form__container-closed").addEventListener("click", () => {
+      this._closedForm(this._formProfile);
+    });
+    document.querySelector(".card__element-button-closed").addEventListener("click", () => {
+      this._closedForm(this._formCard);
+    });
     this._forms.forEach((form) => {
       form.addEventListener("click", (evt) => {
         evt.preventDefault();
       });
 
-      this._imptus[0].forEach((imput) => {
+      this._cardImputs.forEach((imput) => {
         imput.addEventListener("keyup", () => {
-          this._isValid(this._forms[0], imput);
-          this._toggleButtonState(this._imptus[0], this._buttons[0]);
+          this._isValid(this._formCard, imput);
+          this._toggleButtonState(this._cardImputs, this._buttomCard);
         });
       });
     });
 
-    this._imptus[1].forEach((imput) => {
+    this._profileImputs.forEach((imput) => {
       imput.addEventListener("keyup", () => {
-        this._isValid(this._forms[1], imput);
-        this._toggleButtonState(this._imptus[1], this._buttons[1]);
+        this._isValid(this._formProfile, imput);
+        this._toggleButtonState(this._profileImputs, this._buttomProfile);
       });
     });
   }

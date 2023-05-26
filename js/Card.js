@@ -1,5 +1,4 @@
 import { buttonsClosed } from "./utils.js";
-import { mainCardsList } from "./utils.js";
 export class Card {
   constructor(cardSelector) {
     this._cardSelector = cardSelector;

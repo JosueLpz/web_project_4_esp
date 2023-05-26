@@ -78,4 +78,4 @@ const closedPopGlobalActive = () => {
   }
 };
 
-export { mainCardsList, closedPopGlobalActive, buttonsClosed, profileDfault };
+export { mainCardsList, closedPopGlobalActive, buttonsClosed, profileDfault, forms };
