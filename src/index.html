@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Webpack</title>
+  </head>
+  <body class="page">
+    <h1 class="page__title">¡Bienvenido a Webpack!</h1>
+    <h2 class="page__subtitle">¡Procesamiento de archivos de imagen y fuentes!</h2>
+    <!-- añade una imagen aquí -->
+    <div class="page__image_wrapper">
+      <img id="image-steps" class="page__image" />
+    </div>
+    <!-- añade un bloque div -->
+    <div class="page__image_wrapper">
+      <div class="page__image page__image_achievements"></div>
+    </div>
+    <!-- añade otra imagen aquí -->
+    <div class="page__image_wrapper">
+      <img class="page__image" src="<%= require('./images/website-contacts.jpg')%>" />
+    </div>
+  </body>
+</html>
+<!-- estamos envolviendo cada elemento en un div para que aparezca en la siguiente línea -->
