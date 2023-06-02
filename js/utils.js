@@ -16,6 +16,33 @@ const formUp = document.querySelector(".form");
 const forms = [formElement, formUp];
 const buttonsClosed = [buttonClosedElement, formClosedButon, buttonClosedZoom, formAddButton, formElementButtom];
 
+const dataCards = [
+  {
+    name: "Acrópolis Atenas",
+    link: "https://i.postimg.cc/3xZNv8TW/acropolis-gracia.jpg",
+  },
+  {
+    name: "Colosseum Rome",
+    link: "https://i.postimg.cc/x8mYcf6V/Colosseum-Rome-Italy.jpg",
+  },
+  {
+    name: "Forum Romanum",
+    link: "https://i.postimg.cc/hP9cnGJ9/Forum-Romanum-Rome-Italy.jpg",
+  },
+  {
+    name: "Atenas Grecia",
+    link: "https://i.postimg.cc/nhpZht7N/la-acropolis-athenas-grecia.jpg",
+  },
+  {
+    name: "Trevi Fountain",
+    link: "https://i.postimg.cc/43FTP7MT/Trevi-Fountain-Roma-Italy.jpg",
+  },
+  {
+    name: "Areopagitou Athens",
+    link: "https://i.postimg.cc/HLLgb462/Odeon-of-Herodes-Atticus-Dionysiou-Areopagitou-Athens-Greece.jpg",
+  },
+];
+
 const profileDfault = () => {
   const profileName = document.querySelector(".profile__row-name");
   const profileHobbie = document.querySelector(".profile__hobbie");
@@ -74,4 +101,4 @@ const closedPopGlobalActive = () => {
   }
 };
 
-export { mainCardsList, closedPopGlobalActive, buttonsClosed, profileDfault, forms };
+export { mainCardsList, closedPopGlobalActive, buttonsClosed, profileDfault, forms, dataCards };
