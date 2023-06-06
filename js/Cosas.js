@@ -22,12 +22,12 @@
 //     });
 //   });
 //   const closedPop = (evt) => {
-//     if (evt.target !== document.querySelector(".zoom") && !document.querySelector(".zoom").contains(evt.target)) {
-//       document.querySelector(".zoom").style.display = "";
-//       document.querySelector(".page").classList.remove("page__opacity_active");
-//       document.removeEventListener("click", closedPop);
-//       document.removeEventListener("keydown", escapePop);
-//     }
+// if (evt.target !== document.querySelector(".zoom") && !document.querySelector(".zoom").contains(evt.target)) {
+//   document.querySelector(".zoom").style.display = "";
+//   document.querySelector(".page").classList.remove("page__opacity_active");
+//   document.removeEventListener("click", closedPop);
+//   document.removeEventListener("keydown", escapePop);
+// }
 //     if (isPreest === true) {
 //       document.removeEventListener("click", closedPop);
 //       document.removeEventListener("keydown", escapePop);
@@ -56,17 +56,62 @@
 //   this._closedPopCard();
 // });
 
-//!Queria un acoplamiento mas debil de la clase card! queda para preguntar a Horacio!
-// const cardSection = new Section(
-//   {
-//     data: dataCards,
-//     renderer: (item) => {
-//       const card = new Card("#template__article");
-//       cardElement = card.generateCard();
-//       cardElement.querySelector(".element__article_img").src = item.link;
-//       cardElement.querySelector(".element__article_row_title").textContent = item.name;
-//       cardSection.addItem(cardElement);
-//     },
-//   },
-//   mainCardsList
-// );
+//!new
+
+const profileDfault = () => {
+  const profileName = document.querySelector(".profile__row-name");
+  const profileHobbie = document.querySelector(".profile__hobbie");
+  const imputName = document.querySelector(".form__container-name");
+  const imputHobbie = document.querySelector(".form__container-hobby");
+
+  imputName.value = "Marco Aurelio";
+  imputHobbie.value = "Filosofo Emperador Romano";
+  profileName.textContent = imputName.value;
+  profileHobbie.textContent = imputHobbie.value;
+};
+
+// const closedPopGlobalActive = () => {
+//   profileButtonEdit.addEventListener("click", () => {
+//     setTimeout(() => {
+//       closedPopGlobal(formUp, buttonsClosed);
+//     }, 500);
+//   });
+//   profileButtonCardAdd.addEventListener("click", () => {
+//     setTimeout(() => {
+//       closedPopGlobal(formElement, buttonsClosed);
+//     }, 500);
+//   });
+
+//   function closedPopGlobal(form, buttons) {
+//     let isPreest = false;
+//     buttons.forEach((button) => {
+//       button.addEventListener("click", () => {
+//         isPreest = true;
+//       });
+//     });
+
+//     const closedPop = (evt) => {
+//       if (evt.target !== form && !form.contains(evt.target)) {
+//         form.style.display = "";
+//         page.classList.remove("page__opacity_active");
+//         document.removeEventListener("click", closedPop);
+//         document.removeEventListener("keydown", escapePop);
+//       }
+//       if (isPreest === true) {
+//         document.removeEventListener("click", closedPop);
+//         document.removeEventListener("keydown", escapePop);
+//       }
+//     };
+
+//     const escapePop = (evt) => {
+//       if (evt.key === "Escape") {
+//         form.style.display = "";
+//         page.classList.remove("page__opacity_active");
+//         document.removeEventListener("click", closedPop);
+//         document.removeEventListener("keydown", escapePop);
+//       }
+//     };
+//     document.addEventListener("keydown", escapePop);
+//     document.addEventListener("click", closedPop);
+//   }
+//

@@ -1,13 +1,8 @@
 import Popup from "./Popup.js";
 
-class PopupWithImage extends Popup {
-  constructor(elementSelector) {
-    super(elementSelector);
-  }
-  open() {
-    super.open();
-  }
-  closed() {
-    super.closed();
+export default class PopupWithImage extends Popup {
+  data(img, text) {
+    document.querySelector(".zoom__img").src = img;
+    document.querySelector(".zoom__text").textContent = text;
   }
 }

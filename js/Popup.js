@@ -15,8 +15,21 @@ export default class Popup {
       document.querySelector(".page").classList.remove("page__opacity_active");
     }, 500);
   }
-  _handleEscClose() {
-    //!La logica esta en utuls solo tengo que adactarla! dejare esra tarea para el final seguire con la creacion de clases
-    //!que a mi parecer es lo mas  complicado!
+  _handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      this._elementSelector.style.display = "";
+      document.querySelector(".page").classList.remove("page__opacity_active");
+    }
+  }
+  _handleClicClose(evt) {
+    if (evt.target !== this._elementSelector && !this._elementSelector.contains(evt.target)) {
+      this._elementSelector.style.display = "";
+      document.querySelector(".page").classList.remove("page__opacity_active");
+    }
+  }
+  setEventListeners() {
+    document.querySelector(".card__element-button-closed").addEventListener("click", () => {
+      this.closed();
+    });
   }
 }

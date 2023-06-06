@@ -1,4 +1,4 @@
-.zoom{
+.zoom {
   display: none;
   position: absolute;
   top: 86%;
@@ -16,26 +16,25 @@
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
-
 }
 
 @media screen and (min-width: 320px) {
-.zoom{
-  width: 320px;
-  height: 300px;
-}
+  .zoom {
+    width: 320px;
+    height: 300px;
+  }
 }
 
 @media screen and (min-width: 574px) {
-  .zoom{
+  .zoom {
     width: 500px;
     height: 500px;
   }
 }
 
 @media screen and (min-width: 880px) {
-  .zoom{
+  .zoom {
     width: 850px;
     height: 700px;
   }
-  }
+}
