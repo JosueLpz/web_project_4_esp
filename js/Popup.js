@@ -9,15 +9,15 @@ export default class Popup {
   }
   closed() {
     this._elementSelector.classList.add("root__windos_fadeoff");
-    setTimeout(function () {
-      this._elementSelector.style.display = "";
+    setTimeout(() => {
+      this._elementSelector.style.display = "none";
       this._elementSelector.classList.remove("root__windos_fadeoff");
       document.querySelector(".page").classList.remove("page__opacity_active");
     }, 500);
   }
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
-      this._elementSelector.style.display = "";
+      this._elementSelector.style.display = "none";
       document.querySelector(".page").classList.remove("page__opacity_active");
     }
   }
@@ -28,8 +28,11 @@ export default class Popup {
     }
   }
   setEventListeners() {
-    document.querySelector(".card__element-button-closed").addEventListener("click", () => {
-      this.closed();
+    const listButton = document.querySelectorAll(".card__element-button-closed");
+    listButton.forEach((button) => {
+      button.addEventListener("click", () => {
+        this.closed();
+      });
     });
   }
 }

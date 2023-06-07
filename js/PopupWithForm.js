@@ -13,6 +13,11 @@ export default class PopupWithForm extends Popup {
   closed() {
     super.closed();
   }
+  closedSend() {
+    this._elementSelector.style.display = "none";
+    this._elementSelector.classList.remove("root__windos_fadeoff");
+    document.querySelector(".page").classList.remove("page__opacity_active");
+  }
   _getInputValues() {
     this._inputList = this._elementSelector.querySelectorAll(".popup__input");
     this._formValues = {};
@@ -22,11 +27,11 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
   setEventListeners() {
-    // super.setEventListeners();
+    super.setEventListeners();
     this._elementSelector.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      //this._elementSelector.reset();
+      this.closedSend();
     });
     document.querySelector(this._buttonSelector).addEventListener("click", () => {
       this.open();
