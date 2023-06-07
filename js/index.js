@@ -24,20 +24,26 @@ const cardSection = new Section(
 );
 cardSection.renderItems();
 
-defaultProfileValue();
+const formCard = new PopupWithForm({
+  elementSelector: cardForm,
+  handleFormSubmit: (item) => {
+    const newCard = new Card(item, "#template__article", popupWithImage, popupImg);
+    const addNewCard = newCard.generateCard();
+    mainCardsList.prepend(addNewCard);
+  },
+  buttonSelector: ".profile__button",
+});
+formCard.setEventListeners();
 
+defaultProfileValue();
 const formProfile = new PopupWithForm({
   elementSelector: profileForm,
   handleFormSubmit: (item) => {
     const profileName = document.querySelector(".profile__row-name");
     const profileHobby = document.querySelector(".profile__hobbie");
-
-    profileName.textContent = item.name;
+    profileName.textContent = item.title;
     profileHobby.textContent = item.hobby;
   },
   buttonSelector: ".profile__row-edit",
 });
 formProfile.setEventListeners();
-
-const formCard = new PopupWithForm({ elementSelector: cardForm, handleFormSubmit: () => {}, buttonSelector: ".profile__button" });
-formCard.setEventListeners();
