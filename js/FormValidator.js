@@ -21,20 +21,7 @@ export default class FormValidator {
     this._cardImputs = imputsList[0];
     this._profileImputs = imputsList[1];
   }
-  //*Codigo para Abrir y Cerrar Form pasado a popup
-  //_openForm(formElement) {
-  //   formElement.style.display = "block";
-  //   formElement.classList.add("root__windos_fadeon");
-  //   document.querySelector(".page").classList.add("page__opacity_active");
-  // }
-  // _closedForm(formElement) {
-  //   formElement.classList.add("root__windos_fadeoff");
-  //   setTimeout(function () {
-  //     formElement.style.display = "";
-  //     formElement.classList.remove("root__windos_fadeoff");
-  //     document.querySelector(".page").classList.remove("page__opacity_active");
-  //   }, 500);
-  //}
+
   _enableValidation() {
     this._setEventListeners();
     this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);

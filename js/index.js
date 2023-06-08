@@ -2,9 +2,10 @@ import Card from "./Card.js";
 import Popup from "./Popup.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
-import { mainCardsList, dataCards, popupElements, defaultProfileValue } from "./utils.js";
+import { mainCardsList, dataCards, popupElements } from "./utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
 
@@ -35,15 +36,13 @@ const formCard = new PopupWithForm({
 });
 formCard.setEventListeners();
 
-defaultProfileValue();
 const formProfile = new PopupWithForm({
   elementSelector: profileForm,
   handleFormSubmit: (item) => {
-    const profileName = document.querySelector(".profile__row-name");
-    const profileHobby = document.querySelector(".profile__hobbie");
-    profileName.textContent = item.title;
-    profileHobby.textContent = item.hobby;
+    const userInfo = new UserInfo({ title: item.title, hobby: item.hobby });
+    userInfo.setUserInfo();
   },
   buttonSelector: ".profile__row-edit",
 });
+formProfile.showInfoValue();
 formProfile.setEventListeners();

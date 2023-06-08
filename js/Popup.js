@@ -1,7 +1,6 @@
 export default class Popup {
   constructor(elementSelector) {
     this._elementSelector = elementSelector;
-    console.log("🚀 ~ file: Popup.js:4 ~ Popup ~ constructor ~ this._elementSelector:", this._elementSelector);
   }
   open() {
     document.addEventListener;

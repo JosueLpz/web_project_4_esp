@@ -21,19 +21,6 @@ const popupElements = [formElement, formUp, zoomContainer];
 
 const buttons = [buttonClosedElement, formClosedButon, buttonClosedZoom, formAddButton, formElementButtom];
 
-const defaultProfileValue = () => {
-  const imputName = document.querySelector(".form__container-name");
-  const imputHobbie = document.querySelector(".form__container-hobby");
-
-  const profileName = document.querySelector(".profile__row-name");
-  const profileHobby = document.querySelector(".profile__hobbie");
-  imputName.value = "Marco Aurelio";
-  imputHobbie.value = "Filosofo Emperador Romano";
-
-  profileName.textContent = imputName.value;
-  profileHobby.textContent = imputHobbie.value;
-};
-
 const dataCards = [
   {
     name: "Acrópolis Atenas",
@@ -63,4 +50,4 @@ const dataCards = [
 
 //
 
-export { mainCardsList, popupElements, dataCards, defaultProfileValue };
+export { mainCardsList, popupElements, dataCards };
