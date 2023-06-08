@@ -37,5 +37,8 @@ export default class Card {
     this._cardElement.querySelector(".element__article_img_button").addEventListener("click", () => {
       this._handleCardClick();
     });
+    document.querySelector(".zoom__button-closed").addEventListener("click", () => {
+      this._zoom.closed();
+    });
   }
 }
