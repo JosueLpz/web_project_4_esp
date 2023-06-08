@@ -13,10 +13,18 @@ export default class PopupWithForm extends Popup {
   closed() {
     super.closed();
   }
+  _handleEscClose(evt) {
+    super._handleEscClose(evt);
+  }
+  _handleClicClose(evt) {
+    super._handleClicClose(evt);
+  }
   closedSend() {
     this._elementSelector.style.display = "none";
     this._elementSelector.classList.remove("root__windos_fadeoff");
     document.querySelector(".page").classList.remove("page__opacity_active");
+    document.removeEventListener("keydown", this._handleEscClose.bind(this));
+    document.removeEventListener("click", this._handleClicClose);
   }
   _getInputValues() {
     this._inputList = this._elementSelector.querySelectorAll(".popup__input");
@@ -32,6 +40,8 @@ export default class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.closedSend();
+      document.removeEventListener("keydown", this._handleEscClose.bind(this));
+      document.removeEventListener("click", this._handleClicClose);
     });
     document.querySelector(this._buttonSelector).addEventListener("click", () => {
       this.open();
