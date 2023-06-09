@@ -5,7 +5,7 @@ import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import FormValidator from "./FormValidator.js";
 import Section from "./Section.js";
-import { mainCardsList, dataCards, popupElements } from "./utils.js";
+import { mainCardsList, dataCards, popupElements, forms } from "./utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
 
@@ -46,3 +46,16 @@ const formProfile = new PopupWithForm({
 });
 formProfile.showInfoValue();
 formProfile.setEventListeners();
+
+const validForm = new FormValidator(
+  {
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  },
+  forms
+);
+validForm._enableValidation();
+console.log("🚀 ~ file: index.js:59 ~ forms:", forms);

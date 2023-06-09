@@ -17,6 +17,8 @@ const zoomContainer = document.querySelector(".zoom");
 const formElement = document.querySelector(".card");
 const formUp = document.querySelector(".form");
 
+const forms = [formElement, formUp];
+
 const popupElements = [formElement, formUp, zoomContainer];
 
 const buttons = [buttonClosedElement, formClosedButon, buttonClosedZoom, formAddButton, formElementButtom];
@@ -50,4 +52,4 @@ const dataCards = [
 
 //
 
-export { mainCardsList, popupElements, dataCards };
+export { mainCardsList, popupElements, dataCards, forms };

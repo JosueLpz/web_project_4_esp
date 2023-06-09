@@ -1,11 +1,11 @@
 export default class FormValidator {
-  constructor(data, forms) {
+  constructor({ inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }, forms) {
     this._forms = forms;
-    this._inputSelector = data.inputSelector;
-    this._submitButtonSelector = data.submitButtonSelector;
-    this._inactiveButtonClass = data.inactiveButtonClass;
-    this._inputErrorClass = data.inputErrorClass;
-    this._errorClass = data.errorClass;
+    this._inputSelector = inputSelector;
+    this._submitButtonSelector = submitButtonSelector;
+    this._inactiveButtonClass = inactiveButtonClass;
+    this._inputErrorClass = inputErrorClass;
+    this._errorClass = errorClass;
   }
   _getFormElements() {
     this._formCard = this._forms[0];
@@ -23,28 +23,12 @@ export default class FormValidator {
   }
 
   _enableValidation() {
+    this._getFormElements();
     this._setEventListeners();
     this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);
     this._toggleButtonState(this._formProfile, this._profileImputs, this._buttomProfile);
   }
   _setEventListeners() {
-    document.querySelector(".profile__row-edit").addEventListener("click", () => {
-      this._openForm(this._formProfile);
-    });
-    document.querySelector(".profile__button").addEventListener("click", () => {
-      this._openForm(this._formCard);
-    });
-    document.querySelector(".form__container-closed").addEventListener("click", () => {
-      this._closedForm(this._formProfile);
-    });
-    document.querySelector(".card__element-button-closed").addEventListener("click", () => {
-      this._closedForm(this._formCard);
-    });
-    this._forms.forEach((form) => {
-      form.addEventListener("click", (evt) => {
-        evt.preventDefault();
-      });
-    });
     this._cardImputs.forEach((imput) => {
       imput.addEventListener("keyup", () => {
         this._isValid(this._formCard, imput);
@@ -69,14 +53,14 @@ export default class FormValidator {
   _showInputError(forms, inputs, errorMesagge) {
     forms.querySelector(`.${inputs.id}-error`);
 
-    inputs.classList.add("popup__input_type_error");
-    forms.querySelector(`.${inputs.id}-error`).classList.add("popup__error_visible");
+    inputs.classList.add(this._inputErrorClass);
+    forms.querySelector(`.${inputs.id}-error`).classList.add(this._errorClass);
     forms.querySelector(`.${inputs.id}-error`).textContent = errorMesagge;
   }
   _hideInputError(forms, inputs) {
     forms.querySelector(`.${inputs.id}-error`);
-    inputs.classList.remove("popup__input_type_error");
-    forms.querySelector(`.${inputs.id}-error`).classList.remove("popup__error_visible");
+    inputs.classList.remove(this._inputErrorClass);
+    forms.querySelector(`.${inputs.id}-error`).classList.remove(this._errorClass);
     forms.querySelector(`.${inputs.id}-error`).textContent = "";
   }
   _hasInvalidInput(inputs) {
@@ -92,10 +76,10 @@ export default class FormValidator {
 
   _toggleButtonState(form, inputs, button) {
     if (this._hasInvalidInput(inputs)) {
-      button.classList.add("popup__button_disabled");
+      button.classList.add(this._inactiveButtonClass);
       form.addEventListener("keydown", this._evtKey);
     } else {
-      button.classList.remove("popup__button_disabled");
+      button.classList.remove(this._inactiveButtonClass);
       form.removeEventListener("keydown", this._evtKey);
     }
   }
