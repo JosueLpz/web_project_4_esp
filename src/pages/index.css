@@ -1,7 +1,7 @@
 /* vendor */
 @import url(../vendor/normalize.css);
 /* root */
-@import url(/root/root.css);
+@import url(../root/root.css);
 @import url(../bloks/page/page.css);
 @import url(../root/_active/root__button-hover-active.css);
 @import url(../root/_active/root__windos_fadeon.css);
