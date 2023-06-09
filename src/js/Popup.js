@@ -39,7 +39,7 @@ export default class Popup {
     }
   };
   setEventListeners() {
-    const listButton = document.querySelectorAll(".card__element-button-closed");
+    const listButton = document.querySelectorAll(".popup__closed");
     listButton.forEach((button) => {
       button.addEventListener("click", () => {
         this.closed();

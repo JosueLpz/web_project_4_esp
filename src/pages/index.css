@@ -22,7 +22,7 @@
 @import url(../bloks/form/form.css);
 @import url(../bloks/form/_active/form__container_open_active.css);
 @import url(../bloks/form/__container/form__container.css);
-/* @import url(../bloks/form/__container/__closed/form__container-closed.css); */
+@import url(../bloks/form/__container/__closed/form__container-closed.css);
 @import url(../bloks/form/__container/__title/form__container-title.css);
 @import url(../bloks/form/__container/__name/form__container-name.css);
 @import url(../bloks/form/__container/__hobby/form__container-hobby.css);

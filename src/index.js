@@ -59,4 +59,3 @@ const validForm = new FormValidator(
   forms
 );
 validForm._enableValidation();
-console.log("🚀 ~ file: index.js:59 ~ forms:", forms);

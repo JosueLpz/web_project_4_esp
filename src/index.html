@@ -15,7 +15,7 @@
     </div>
     <fieldset class="form popup">
       <form class="form__container popup__form" name="profile" novalidate>
-        <a class="card__element-button-closed root__buttom-closed-active"><img src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" /></a>
+        <a class="form__container-closed root__buttom-closed-active popup__closed"><img src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" /></a>
         <h2 class="form__container-title">Editar perfil</h2>
         <input id="form__name" name="title" type="text" class="form__container-name popup__input" maxlength="40" minlength="2" required />
         <span class="form__name-error form__container-error"></span>
@@ -26,7 +26,7 @@
     </fieldset>
     <fieldset class="card popup">
       <form class="card__element popup__form" name="card" novalidate>
-        <a class="card__element-button-closed root__buttom-closed-active"><img src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" /></a>
+        <a class="card__element-button-closed root__buttom-closed-active popup__closed"><img src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" /></a>
         <h2 class="card__element-title">Nuevo lugar</h2>
         <input id="card__title" name="name" placeholder="Titulo" type="text" class="card__element-name-card popup__input" maxlength="30" minlength="2" required />
         <span class="card__title-error card__element-error"></span>
