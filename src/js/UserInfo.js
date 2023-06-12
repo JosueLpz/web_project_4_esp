@@ -1,5 +1,5 @@
 export default class UserInfo {
-  constructor({ title = "Marco Aurelio", hobby = "Filosofo Emperador Romano" }) {
+  constructor({ title, hobby }) {
     this._title = title;
     this._hobby = hobby;
   }
