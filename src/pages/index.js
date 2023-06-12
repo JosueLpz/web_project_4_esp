@@ -1,12 +1,12 @@
-import "./pages/index.css";
-import Card from "./js/Card.js";
-import Popup from "./js/Popup.js";
-import PopupWithImage from "./js/PopupWithImage.js";
-import PopupWithForm from "./js/PopupWithForm.js";
-import UserInfo from "./js/UserInfo.js";
-import FormValidator from "./js/FormValidator.js";
-import Section from "./js/Section.js";
-import { mainCardsList, dataCards, popupElements, forms } from "./js/utils.js";
+import "./index.css";
+import Card from "../js/Card.js";
+import Popup from "../js/Popup.js";
+import PopupWithImage from "../js/PopupWithImage.js";
+import PopupWithForm from "../js/PopupWithForm.js";
+import UserInfo from "../js/UserInfo.js";
+import FormValidator from "../js/FormValidator.js";
+import Section from "../js/Section.js";
+import { mainCardsList, dataCards, popupElements, forms } from "../js/utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
 
