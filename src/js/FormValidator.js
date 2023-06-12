@@ -1,6 +1,6 @@
 export default class FormValidator {
-  constructor({ inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }, forms) {
-    this._forms = forms;
+  constructor(form, { inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }) {
+    this._form = form;
     this._inputSelector = inputSelector;
     this._submitButtonSelector = submitButtonSelector;
     this._inactiveButtonClass = inactiveButtonClass;
@@ -8,38 +8,21 @@ export default class FormValidator {
     this._errorClass = errorClass;
   }
   _getFormElements() {
-    this._formCard = this._forms[0];
-    this._formProfile = this._forms[1];
-    const formButtons = Array.from(document.querySelectorAll(this._submitButtonSelector));
-    this._buttomCard = formButtons[1];
-    this._buttomProfile = formButtons[0];
-    const imputsList = [];
-    this._forms.forEach((form) => {
-      const imputs = Array.from(form.querySelectorAll(this._inputSelector));
-      imputsList.push(imputs);
-    });
-    this._cardImputs = imputsList[0];
-    this._profileImputs = imputsList[1];
+    this._form;
+    this._imputs = Array.from(this._form.querySelectorAll(this._inputSelector));
+    this._button = this._form.querySelector(this._submitButtonSelector);
   }
 
   _enableValidation() {
     this._getFormElements();
     this._setEventListeners();
-    this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);
-    this._toggleButtonState(this._formProfile, this._profileImputs, this._buttomProfile);
+    this._toggleButtonState(this._form, this._imputs, this._button);
   }
   _setEventListeners() {
-    this._cardImputs.forEach((imput) => {
+    this._imputs.forEach((imput) => {
       imput.addEventListener("keyup", () => {
-        this._isValid(this._formCard, imput);
-        this._toggleButtonState(this._formCard, this._cardImputs, this._buttomCard);
-      });
-    });
-
-    this._profileImputs.forEach((imput) => {
-      imput.addEventListener("keyup", () => {
-        this._isValid(this._formProfile, imput);
-        this._toggleButtonState(this._formProfile, this._profileImputs, this._buttomProfile);
+        this._isValid(this._form, imput);
+        this._toggleButtonState(this._form, this._imputs, this._button);
       });
     });
   }
