@@ -1,6 +1,4 @@
 import Popup from "./Popup.js";
-import UserInfo from "./UserInfo.js";
-
 export default class PopupWithForm extends Popup {
   constructor({ elementSelector, handleFormSubmit, buttonSelector }) {
     super(elementSelector);
@@ -36,21 +34,18 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
   showInfoValue() {
-    const userInfo = new UserInfo({});
-    const defaultUserInfo = userInfo.getUserInfo();
-
     const inputName = document.querySelector(".form__container-name");
     const inputHobby = document.querySelector(".form__container-hobby");
     const profileName = document.querySelector(".profile__row-name");
     const profileHobby = document.querySelector(".profile__hobbie");
-    inputName.value = defaultUserInfo.title;
-    inputHobby.value = defaultUserInfo.hobby;
+    inputName.value = "Marco Aurelio";
+    inputHobby.value = "Filosofo Emperador Romano";
     profileName.textContent = inputName.value;
     profileHobby.textContent = inputHobby.value;
   }
   setEventListeners() {
     super.setEventListeners();
-
+    this.showInfoValue();
     this._elementSelector.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
