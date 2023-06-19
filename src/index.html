@@ -13,6 +13,21 @@
       <img class="zoom__img" alt="" />
       <p class="zoom__text"></p>
     </div>
+    <fieldset class="popup">
+      <form class="popup__form">
+        <h2 class="popop__form_title">¿Estás seguro?</h2>
+        <img class="popup__button_closed popup__closed" src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" />
+        <button class="popup__button"></button>
+      </form>
+    </fieldset>
+    <fieldset class="popup cierrate">
+      <form class="popup__form">
+        <h2 class="popop__form_title">Cambiar foto de perfil</h2>
+        <img class="popup__button_closed popup__closed" src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" />
+        <input id="perfil__url" name="link_perfil" placeholder="New Perfil" type="url" class="popup__input" required />
+        <button class="popup__button"></button>
+      </form>
+    </fieldset>
     <fieldset class="form popup">
       <form class="form__container popup__form" name="profile" novalidate>
         <a class="form__container-closed root__buttom-closed-active popup__closed"><img src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" /></a>
