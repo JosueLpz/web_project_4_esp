@@ -1,8 +1,6 @@
-.form__container-closed {
-  width: 25px;
-  height: 25px;
+.popup__closed {
   position: absolute;
-  top: -38px;
+  top: -28px;
   right: 0px;
   cursor: pointer;
   transition: transform linear 0.5s;
