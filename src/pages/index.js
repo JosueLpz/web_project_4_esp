@@ -65,3 +65,13 @@ const formValidCard = new FormValidator(cardForm, {
   errorClass: "popup__error_visible",
 });
 formValidCard._enableValidation();
+
+fetch("https://around.nomoreparties.co/v1/web_es_05/card", {
+  headers: {
+    authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
