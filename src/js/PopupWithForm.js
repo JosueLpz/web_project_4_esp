@@ -1,4 +1,5 @@
 import Popup from "./Popup.js";
+import Api from "./Api.js";
 export default class PopupWithForm extends Popup {
   constructor({ elementSelector, handleFormSubmit, buttonSelector }) {
     super(elementSelector);
@@ -34,14 +35,34 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
   showInfoValue() {
-    const inputName = document.querySelector(".form__container-name");
-    const inputHobby = document.querySelector(".form__container-hobby");
-    const profileName = document.querySelector(".profile__row-name");
-    const profileHobby = document.querySelector(".profile__hobbie");
-    inputName.value = "Marco Aurelio";
-    inputHobby.value = "Filosofo Emperador Romano";
-    profileName.textContent = inputName.value;
-    profileHobby.textContent = inputHobby.value;
+    const api = new Api({
+      baseUrl: "https://around.nomoreparties.co/v1",
+      headers: {
+        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
+        "Content-Type": "application/json",
+      },
+    });
+    api
+      .getProfileUser()
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .then((result) => {
+        const inputName = document.querySelector(".form__container-name");
+        const inputHobby = document.querySelector(".form__container-hobby");
+        const profileName = document.querySelector(".profile__row-name");
+        const profileHobby = document.querySelector(".profile__hobbie");
+        inputName.value = result.name;
+        inputHobby.value = result.about;
+        profileName.textContent = result.name;
+        profileHobby.textContent = result.about;
+      })
+      .catch((error) => {
+        console.log("Error:", error);
+      });
   }
   setEventListeners() {
     super.setEventListeners();
