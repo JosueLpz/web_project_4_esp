@@ -53,13 +53,3 @@ const dataCards = [
 //
 
 export { mainCardsList, popupElements, dataCards, forms };
-
-// fetch("https://around.nomoreparties.co/v1/web_es_05/users/me", {
-//   headers: {
-//     authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-//   },
-// })
-//   .then((res) => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   });

@@ -51,7 +51,6 @@ export default class PopupWithForm extends Popup {
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((result) => {
-        console.log(result);
         const inputName = document.querySelector(".form__container-name");
         const inputHobby = document.querySelector(".form__container-hobby");
         const profileName = document.querySelector(".profile__row-name");
@@ -69,7 +68,7 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this.showInfoValue();
     this._elementSelector.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+      // evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.closedSend();
       document.removeEventListener("keydown", this._handleEscClose.bind(this));

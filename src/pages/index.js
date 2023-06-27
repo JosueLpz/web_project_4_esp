@@ -46,23 +46,22 @@ const formProfile = new PopupWithForm({
   },
   buttonSelector: ".profile__row-edit",
 });
-formProfile.showInfoValue();
 formProfile.setEventListeners();
 
-const formValidProffile = new FormValidator(profileForm, {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
-formValidProffile._enableValidation();
+// const formValidProffile = new FormValidator(profileForm, {
+//   inputSelector: ".popup__input",
+//   submitButtonSelector: ".popup__button",
+//   inactiveButtonClass: "popup__button_disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__error_visible",
+// });
+// formValidProffile._enableValidation();
 
-const formValidCard = new FormValidator(cardForm, {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
-formValidCard._enableValidation();
+// const formValidCard = new FormValidator(cardForm, {
+//   inputSelector: ".popup__input",
+//   submitButtonSelector: ".popup__button",
+//   inactiveButtonClass: "popup__button_disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__error_visible",
+// });
+// formValidCard._enableValidation();
