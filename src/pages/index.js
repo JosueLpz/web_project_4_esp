@@ -6,6 +6,7 @@ import PopupWithForm from "../js/PopupWithForm.js";
 import UserInfo from "../js/UserInfo.js";
 import FormValidator from "../js/FormValidator.js";
 import Section from "../js/Section.js";
+import Api from "../js/Api.js";
 import { mainCardsList, dataCards, popupElements } from "../js/utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
@@ -65,13 +66,3 @@ const formValidCard = new FormValidator(cardForm, {
   errorClass: "popup__error_visible",
 });
 formValidCard._enableValidation();
-
-fetch("https://around.nomoreparties.co/v1/web_es_05/cards", {
-  headers: {
-    authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
