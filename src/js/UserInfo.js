@@ -2,9 +2,7 @@ import Api from "./Api";
 export default class UserInfo {
   constructor({ title, hobby }) {
     this._title = title;
-    console.log("🚀 ~ file: UserInfo.js:5 ~ UserInfo ~ constructor ~ this._title:", this._title);
     this._hobby = hobby;
-    console.log("🚀 ~ file: UserInfo.js:7 ~ UserInfo ~ constructor ~ this._hobby:", this._hobby);
   }
   getUserInfo() {
     return { title: this._title, hobby: this._hobby };
