@@ -2,7 +2,9 @@ import Api from "./Api";
 export default class UserInfo {
   constructor({ title, hobby }) {
     this._title = title;
+    console.log("🚀 ~ file: UserInfo.js:5 ~ UserInfo ~ constructor ~ this._title:", this._title);
     this._hobby = hobby;
+    console.log("🚀 ~ file: UserInfo.js:7 ~ UserInfo ~ constructor ~ this._hobby:", this._hobby);
   }
   getUserInfo() {
     return { title: this._title, hobby: this._hobby };
@@ -25,10 +27,20 @@ export default class UserInfo {
     api
       .postProfileUser()
       .then((res) => {
-        return res.json();
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
       })
-      .then((res) => {
-        console.log(res);
+      .then((result) => {
+        const inputName = document.querySelector(".form__container-name");
+        const inputHobby = document.querySelector(".form__container-hobby");
+        const profileName = document.querySelector(".profile__row-name");
+        const profileHobby = document.querySelector(".profile__hobbie");
+        inputName.value = result.name;
+        inputHobby.value = result.about;
+        profileName.textContent = result.name;
+        profileHobby.textContent = result.about;
       })
       .catch((err) => {
         console.log(err);
