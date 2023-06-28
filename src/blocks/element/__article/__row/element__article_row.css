@@ -1,8 +1,9 @@
-.element__article_row{
-  margin-top: 10px;
-  margin-left: 5px;
+.element__article_row {
+  width: 273px;
+  margin: 10px auto 0 auto;
   display: flex;
+  /* justify-content: space-between; */
   align-items: center;
-  column-gap: 20px;
+  column-gap: 5px;
   height: 60px;
 }

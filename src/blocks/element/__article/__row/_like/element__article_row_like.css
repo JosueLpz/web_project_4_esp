@@ -1,7 +1,6 @@
-.element__article_row_like{
+.element__article_row_like {
   cursor: pointer;
   width: 21px;
   height: 19px;
-  position: absolute;
   right: 2%;
 }

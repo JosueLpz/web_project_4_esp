@@ -12,6 +12,7 @@
 @import url(../root/__error/popup__error_visible.css);
 /* fonts */
 @import url(../fonts/inter.css);
+@import url(../fonts/Pacifico.css);
 /* popup */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__form/popup__form.css);
@@ -70,6 +71,7 @@
 @import url(../blocks/element/__article/__row/element__article_row.css);
 @import url(../blocks/element/__article/__row/_title/element__article_row_title.css);
 @import url(../blocks/element/__article/__row/_like/element__article_row_like.css);
+@import url(../blocks/element/__article/__row/__counter/element__article_row_like_counter.css);
 @import url(../blocks/element/__article/__row/_like/_active/element__article_row_like_active.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
