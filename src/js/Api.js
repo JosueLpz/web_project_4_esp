@@ -12,5 +12,10 @@ export default class Api {
     return fetch(`${this._baseUrl}/web_es_05/users/me`, { method: this._method, headers: this._headers, body: this._body });
   }
 
-  getInitialCards() {}
+  getInitialCards() {
+    return fetch(`${this._baseUrl}/web_es_05/cards`, { headers: this._headers });
+  }
+  postCreateCards() {
+    return fetch(`${this._baseUrl}/web_es_05/cards`, { method: this._method, headers: this._headers, body: this._body });
+  }
 }
