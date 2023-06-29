@@ -3,6 +3,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
+    this._likes = item.likes.length;
     this._popup = popup;
     this._zoom = zoom;
   }
@@ -15,6 +16,7 @@ export default class Card {
     this._setEventListeners();
     this._cardElement.querySelector(".element__article_img").src = this._link;
     this._cardElement.querySelector(".element__article_img").alt = this._name;
+    this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes;
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
     return this._cardElement;
   }
