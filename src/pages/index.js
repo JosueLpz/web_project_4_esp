@@ -15,7 +15,7 @@ const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
 
 const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1",
+  baseUrl: "cards",
   headers: {
     authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
     "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const formCard = new PopupWithForm({
   handleFormSubmit: (item) => {
     const api = new Api({
       method: "POST",
-      baseUrl: "https://around.nomoreparties.co/v1",
+      baseUrl: "cards",
       headers: {
         authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
         "Content-Type": "application/json",

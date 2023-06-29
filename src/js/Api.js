@@ -1,21 +1,25 @@
 export default class Api {
-  constructor({ baseUrl, method, headers, body }) {
+  constructor({ baseUrl, method, headers, body, _idCard }) {
     this._baseUrl = baseUrl;
     this._method = method;
+    this._idCard = _idCard;
     this._headers = headers;
     this._body = body;
   }
   getProfileUser() {
-    return fetch(`${this._baseUrl}/web_es_05/users/me`, { headers: this._headers });
+    return fetch(`https://around.nomoreparties.co/v1/web_es_05/${this._baseUrl}`, { headers: this._headers });
   }
   postProfileUser() {
-    return fetch(`${this._baseUrl}/web_es_05/users/me`, { method: this._method, headers: this._headers, body: this._body });
+    return fetch(`https://around.nomoreparties.co/v1/web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers, body: this._body });
   }
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/web_es_05/cards`, { headers: this._headers });
+    return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { headers: this._headers });
   }
   postCreateCards() {
-    return fetch(`${this._baseUrl}/web_es_05/cards`, { method: this._method, headers: this._headers, body: this._body });
+    return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers, body: this._body });
+  }
+  putLikesCard() {
+    return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers });
   }
 }

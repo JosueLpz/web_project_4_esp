@@ -1,9 +1,11 @@
+import Api from "./Api.js";
 export default class Card {
   constructor(item, cardSelector, popup, zoom) {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
-    this._likes = item.likes.length;
+    this._idCard = item._id;
+    this._likes = item.likes;
     this._popup = popup;
     this._zoom = zoom;
   }
@@ -16,12 +18,32 @@ export default class Card {
     this._setEventListeners();
     this._cardElement.querySelector(".element__article_img").src = this._link;
     this._cardElement.querySelector(".element__article_img").alt = this._name;
-    this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes;
+    this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
     return this._cardElement;
   }
   _likeCard() {
-    this._cardElement.querySelector(".element__article_row_like").classList.toggle("element__article_row_like_active");
+    const api = new Api({
+      method: "PUT",
+      baseUrl: `cards/likes/${this._idCard}`,
+      headers: {
+        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
+        "Content-Type": "application/json",
+      },
+    });
+    api
+      .putLikesCard()
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .then((res) => {
+        this._likes = res.likes;
+        this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
+        this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
+      });
   }
   _deleteCard() {
     this._cardElement.closest(".element__article").remove();

@@ -12,7 +12,7 @@ export default class UserInfo {
 
     const api = new Api({
       method: "PATCH",
-      baseUrl: "https://around.nomoreparties.co/v1",
+      baseUrl: "users/me",
       headers: {
         authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
         "Content-Type": "application/json",
