@@ -19,7 +19,11 @@ export default class Api {
   postCreateCards() {
     return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers, body: this._body });
   }
+
   putLikesCard() {
+    return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers });
+  }
+  deleteLikesCard() {
     return fetch(`https://around.nomoreparties.co/v1//web_es_05/${this._baseUrl}`, { method: this._method, headers: this._headers });
   }
 }
