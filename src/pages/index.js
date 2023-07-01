@@ -7,7 +7,6 @@ import UserInfo from "../js/UserInfo.js";
 import FormValidator from "../js/FormValidator.js";
 import Section from "../js/Section.js";
 import api from "../js/Api.js";
-console.log("🚀 ~ file: index.js:10 ~ api:", api);
 import { mainCardsList, popupElements } from "../js/utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
@@ -24,18 +23,28 @@ api
     return Promise.reject(`Error: ${res.status}`);
   })
   .then((data) => {
-    const cardSection = new Section(
-      {
-        data: data,
-        renderer: (item) => {
-          const card = new Card(item, "#template__article", popupWithImage, popupImg);
-          const cardElement = card.generateCard();
-          cardSection.addItem(cardElement);
-        },
-      },
-      mainCardsList
-    );
-    cardSection.renderItems();
+    api
+      .getProfileUser("users/me")
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .then((user) => {
+        const cardSection = new Section(
+          {
+            data: data,
+            renderer: (item) => {
+              const card = new Card(item, "#template__article", popupWithImage, popupImg, user);
+              const cardElement = card.generateCard();
+              cardSection.addItem(cardElement);
+            },
+          },
+          mainCardsList
+        );
+        cardSection.renderItems();
+      });
   });
 
 const formCard = new PopupWithForm({

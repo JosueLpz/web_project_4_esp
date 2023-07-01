@@ -1,6 +1,6 @@
 import api from "./Api.js";
 export default class Card {
-  constructor(item, cardSelector, popup, zoom) {
+  constructor(item, cardSelector, popup, zoom, user) {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
@@ -9,6 +9,8 @@ export default class Card {
     this._likes = item.likes;
     this._popup = popup;
     this._zoom = zoom;
+    this._meUserID = user._id;
+    console.log("🚀 ~ file: Card.js:13 ~ Card ~ constructor ~ this._meUserID:", this._meUserID);
   }
 
   _getTemplate() {
@@ -22,57 +24,52 @@ export default class Card {
     this._cardElement.querySelector(".element__article_img").alt = this._name;
     this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
-
+    if (this._likes.some((like) => like._id === this._meUserID)) {
+      this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
+    }
     return this._cardElement;
   }
 
   _likeCard() {
-    api
-      .getProfileUser("users/me")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
-      .then((result) => {
-        this._userID = result._id;
-
-        if (this._likes.some((like) => like._id !== this._userID)) {
-          return api
-            .putLikesCard(`cards/likes/${this._idCard}`)
-            .then((res) => {
-              if (res.ok) {
-                return res.json();
-              }
-              return Promise.reject(`Error: ${res.status}`);
-            })
-            .then((res) => {
-              console.log("🚀 ~ file: Card.js:90 ~ Card ~ .then ~ res:", res);
-              this._likes = res.likes;
-              this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
-              this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
-            });
-        } else if (this._likes.incledes(this._userID)) {
-          return api
-            .deleteLikesCard(`cards/likes/${this._idCard}`)
-            .then((res) => {
-              if (res.ok) {
-                return res.json();
-              }
-              return Promise.reject(`Error: ${res.status}`);
-            })
-            .then((res) => {
-              console.log("🚀 ~ file: Card.js:113 ~ Card ~ .then ~ res:", res);
-              this._likes = res.likes;
-              this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
-              this._cardElement.querySelector(".element__article_row_like").classList.remove("element__article_row_like_active");
-            });
-        }
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
+    if (this._likes.some((like) => like._id !== this._meUserID)) {
+      console.log(
+        "🚀 ~ file: Card.js:34 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id !== this._meUserID):",
+        this._likes.some((like) => like._id !== this._meUserID)
+      );
+      return api
+        .putLikesCard(`cards/likes/${this._idCard}`)
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(`Error: ${res.status}`);
+        })
+        .then((res) => {
+          console.log("🚀 ~ file: Card.js:90 ~ Card ~ .then ~ res:", res);
+          this._likes = res.likes;
+          this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
+          this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
+        });
+    } else if (this._likes.some((like) => like._id === this._meUserID)) {
+      console.log(
+        "🚀 ~ file: Card.js:50 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id === this._meUserID):",
+        this._likes.some((like) => like._id === this._meUserID)
+      );
+      return api
+        .deleteLikesCard(`cards/likes/${this._idCard}`)
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(`Error: ${res.status}`);
+        })
+        .then((res) => {
+          console.log("🚀 ~ file: Card.js:113 ~ Card ~ .then ~ res:", res);
+          this._likes = res.likes;
+          this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
+          this._cardElement.querySelector(".element__article_row_like").classList.remove("element__article_row_like_active");
+        });
+    }
   }
   _deleteCard() {
     this._cardElement.closest(".element__article").remove();
