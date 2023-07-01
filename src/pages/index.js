@@ -6,7 +6,8 @@ import PopupWithForm from "../js/PopupWithForm.js";
 import UserInfo from "../js/UserInfo.js";
 import FormValidator from "../js/FormValidator.js";
 import Section from "../js/Section.js";
-import Api from "../js/Api.js";
+import api from "../js/Api.js";
+console.log("🚀 ~ file: index.js:10 ~ api:", api);
 import { mainCardsList, popupElements } from "../js/utils.js";
 
 const [cardForm, profileForm, zoomContainer] = popupElements;
@@ -14,15 +15,8 @@ const [cardForm, profileForm, zoomContainer] = popupElements;
 const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
 
-const api = new Api({
-  baseUrl: "cards",
-  headers: {
-    authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-    "Content-Type": "application/json",
-  },
-});
 api
-  .getInitialCards()
+  .getInitialCards("cards")
   .then((res) => {
     if (res.ok) {
       return res.json();
@@ -47,20 +41,14 @@ api
 const formCard = new PopupWithForm({
   elementSelector: cardForm,
   handleFormSubmit: (item) => {
-    const api = new Api({
-      method: "POST",
-      baseUrl: "cards",
-      headers: {
-        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: item.name,
-        link: item.link,
-      }),
-    });
     api
-      .postCreateCards()
+      .postCreateCards(
+        "cards",
+        JSON.stringify({
+          name: item.name,
+          link: item.link,
+        })
+      )
       .then((res) => {
         if (res.ok) {
           return res.json();

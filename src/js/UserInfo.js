@@ -1,4 +1,4 @@
-import Api from "./Api";
+import api from "./Api";
 export default class UserInfo {
   constructor({ title, hobby }) {
     this._title = title;
@@ -10,20 +10,14 @@ export default class UserInfo {
   setUserInfo() {
     const userInfo = this.getUserInfo();
 
-    const api = new Api({
-      method: "PATCH",
-      baseUrl: "users/me",
-      headers: {
-        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: userInfo.title,
-        about: userInfo.hobby,
-      }),
-    });
     api
-      .postProfileUser()
+      .postProfileUser(
+        "users/me",
+        JSON.stringify({
+          name: userInfo.title,
+          about: userInfo.hobby,
+        })
+      )
       .then((res) => {
         if (res.ok) {
           return res.json();

@@ -1,5 +1,5 @@
 import Popup from "./Popup.js";
-import Api from "./Api.js";
+import api from "./Api.js";
 export default class PopupWithForm extends Popup {
   constructor({ elementSelector, handleFormSubmit, buttonSelector }) {
     super(elementSelector);
@@ -35,15 +35,8 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
   showInfoValue() {
-    const api = new Api({
-      baseUrl: "users/me",
-      headers: {
-        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-        "Content-Type": "application/json",
-      },
-    });
     api
-      .getProfileUser()
+      .getProfileUser("users/me")
       .then((res) => {
         if (res.ok) {
           return res.json();
