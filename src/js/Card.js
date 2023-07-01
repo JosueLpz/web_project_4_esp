@@ -1,4 +1,4 @@
-import Api from "./Api.js";
+import api from "./Api.js";
 export default class Card {
   constructor(item, cardSelector, popup, zoom) {
     this._cardSelector = cardSelector;
@@ -21,13 +21,7 @@ export default class Card {
     this._cardElement.querySelector(".element__article_img").alt = this._name;
     this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
-    const api = new Api({
-      baseUrl: "users/me",
-      headers: {
-        authorization: "a1e6aa2e-20ff-4c9e-8a8e-2b23e3b6a743",
-        "Content-Type": "application/json",
-      },
-    });
+
     api
       .getProfileUser()
       .then((res) => {
@@ -92,7 +86,7 @@ export default class Card {
               this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
               this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
             });
-        } else if (this._likes.some((like) => like._id === this._userID)) {
+        } else if (this._likes.incledes(this._userID)) {
           const api = new Api({
             method: "DELETE",
             baseUrl: `cards/likes/${this._idCard}`,
@@ -143,3 +137,4 @@ export default class Card {
     });
   }
 }
+// (this._likes.some((like) => like._id === this._userID)
