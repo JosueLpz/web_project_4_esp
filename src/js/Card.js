@@ -31,10 +31,10 @@ export default class Card {
   }
 
   _likeCard() {
-    if (this._likes.some((like) => like._id !== this._meUserID)) {
+    if (this._likes.every((like) => like._id !== this._meUserID)) {
       console.log(
-        "🚀 ~ file: Card.js:34 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id !== this._meUserID):",
-        this._likes.some((like) => like._id !== this._meUserID)
+        "🚀 ~ file: Card.js:35 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id === this._meUserID):",
+        this._likes.every((like) => like._id === this._meUserID)
       );
       return api
         .putLikesCard(`cards/likes/${this._idCard}`)
@@ -50,9 +50,9 @@ export default class Card {
           this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
           this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
         });
-    } else if (this._likes.some((like) => like._id === this._meUserID)) {
+    } else if (this._likes.some((like) => like._id !== this._meUserID)) {
       console.log(
-        "🚀 ~ file: Card.js:50 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id === this._meUserID):",
+        "🚀 ~ file: Card.js:54 ~ Card ~ _likeCard ~ this._idCard.some((like) => like._id === this._meUserID):",
         this._likes.some((like) => like._id === this._meUserID)
       );
       return api
