@@ -10,7 +10,6 @@ export default class Card {
     this._popup = popup;
     this._zoom = zoom;
     this._meUserID = user._id;
-    console.log("🚀 ~ file: Card.js:13 ~ Card ~ constructor ~ this._meUserID:", this._meUserID);
   }
 
   _getTemplate() {
@@ -32,10 +31,6 @@ export default class Card {
 
   _likeCard() {
     if (this._likes.every((like) => like._id !== this._meUserID)) {
-      console.log(
-        "🚀 ~ file: Card.js:35 ~ Card ~ _likeCard ~ this._likes.some((like) => like._id === this._meUserID):",
-        this._likes.every((like) => like._id === this._meUserID)
-      );
       return api
         .putLikesCard(`cards/likes/${this._idCard}`)
         .then((res) => {
@@ -45,16 +40,11 @@ export default class Card {
           return Promise.reject(`Error: ${res.status}`);
         })
         .then((res) => {
-          console.log("🚀 ~ file: Card.js:90 ~ Card ~ .then ~ res:", res);
           this._likes = res.likes;
           this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
           this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
         });
-    } else if (this._likes.some((like) => like._id !== this._meUserID)) {
-      console.log(
-        "🚀 ~ file: Card.js:54 ~ Card ~ _likeCard ~ this._idCard.some((like) => like._id === this._meUserID):",
-        this._likes.some((like) => like._id === this._meUserID)
-      );
+    } else {
       return api
         .deleteLikesCard(`cards/likes/${this._idCard}`)
         .then((res) => {
@@ -64,7 +54,6 @@ export default class Card {
           return Promise.reject(`Error: ${res.status}`);
         })
         .then((res) => {
-          console.log("🚀 ~ file: Card.js:113 ~ Card ~ .then ~ res:", res);
           this._likes = res.likes;
           this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
           this._cardElement.querySelector(".element__article_row_like").classList.remove("element__article_row_like_active");
