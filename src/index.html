@@ -13,14 +13,14 @@
       <img class="zoom__img" alt="" />
       <p class="zoom__text"></p>
     </div>
-    <fieldset class="popup cierrate">
+    <fieldset class="popup popup__card_delete">
       <form class="popup__form">
         <h2 class="popop__form_title">¿Estás seguro?</h2>
         <img class="popup__closed" src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" />
-        <button class="popup__button">Si</button>
+        <button type="submit" class="popup__button popup__card_delete-button">Si</button>
       </form>
     </fieldset>
-    <fieldset class="popup cierrate">
+    <fieldset class="popup">
       <form class="popup__form popup-avatar">
         <h2 class="popop__form_title avatar-title">Cambiar foto de perfil</h2>
         <img class="popup__closed" src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" />
@@ -73,6 +73,7 @@
               <h2 class="element__article_row_title"></h2>
               <a class="element__article_row_like root__button-hover-active"><img src="<%=require('./image/element/ButonLike.svg')%>" alt="buttonlike" /></a>
               <p class="element__article_row_like_counter"></p>
+              <button class="test_test">AQUI</button>
             </div>
           </article>
         </template>

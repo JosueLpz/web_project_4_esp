@@ -1,4 +1,6 @@
-.element__article_delete{
+.element__article_delete {
+  border: red solid 1px;
+  /* display: none; */
   position: absolute;
   right: 10px;
   top: 15px;

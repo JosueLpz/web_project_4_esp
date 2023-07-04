@@ -4,6 +4,7 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
+    this._Card = item;
     this._idCard = item._id;
     this._idUser = item.owner._id;
     this._likes = item.likes;
@@ -25,6 +26,7 @@ export default class Card {
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
     if (this._likes.some((like) => like._id === this._meUserID)) {
       this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
+      // this._cardElement.querySelector(".element__article_delete").style.display = "block";
     }
     return this._cardElement;
   }
@@ -61,7 +63,26 @@ export default class Card {
     }
   }
   _deleteCard() {
-    this._cardElement.closest(".element__article").remove();
+    document.querySelector(".popup__card_delete").style.display = "block";
+    // this._cardElement.querySelector(".test_test").style.display = "block";
+
+    // if (event.target === this._cardElement.querySelector(".test_test")) {
+    if (event.target === document.querySelector(".popup__card_delete-button")) {
+      api
+        .deleteCard(`cards/${this._idCard}`)
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return Promise.reject(res.status);
+        })
+        .then((res) => {
+          this._cardElement.closest(".element__article").remove();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
   _handleCardClick() {
     this._popup.data(this._link, this._name);
@@ -72,7 +93,7 @@ export default class Card {
       this._likeCard();
     });
     this._cardElement.querySelector(".element__article_delete").addEventListener("click", () => {
-      this._deleteCard();
+      this._deleteCard(this._idCard);
     });
     this._cardElement.querySelector(".element__article_img_button").addEventListener("click", () => {
       this._handleCardClick();
@@ -80,5 +101,13 @@ export default class Card {
     document.querySelector(".zoom__button-closed").addEventListener("click", () => {
       this._zoom.closed();
     });
+    document.querySelector(".popup__card_delete-button").addEventListener("click", (event) => {
+      event.preventDefault();
+      this._deleteCard();
+    });
+    // this._cardElement.querySelector(".test_test").addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   this._deleteCard();
+    // });
   }
 }

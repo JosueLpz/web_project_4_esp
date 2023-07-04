@@ -28,7 +28,6 @@ class Api {
       body: body,
     });
   }
-
   putLikesCard(url) {
     return fetch(`${this._baseUrl}${url}`, {
       method: "PUT",
@@ -36,6 +35,12 @@ class Api {
     });
   }
   deleteLikesCard(url) {
+    return fetch(`${this._baseUrl}${url}`, {
+      method: "DELETE",
+      headers: this._headers,
+    });
+  }
+  deleteCard(url) {
     return fetch(`${this._baseUrl}${url}`, {
       method: "DELETE",
       headers: this._headers,
