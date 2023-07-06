@@ -48,6 +48,8 @@ export default class PopupWithForm extends Popup {
         const inputHobby = document.querySelector(".form__container-hobby");
         const profileName = document.querySelector(".profile__row-name");
         const profileHobby = document.querySelector(".profile__hobbie");
+        const avatar = document.querySelector(".profile__img");
+        avatar.src = result.avatar;
         inputName.value = result.name;
         inputHobby.value = result.about;
         profileName.textContent = result.name;

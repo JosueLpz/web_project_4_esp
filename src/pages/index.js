@@ -4,6 +4,7 @@ import Popup from "../js/Popup.js";
 import PopupWithImage from "../js/PopupWithImage.js";
 import PopupWithForm from "../js/PopupWithForm.js";
 import UserInfo from "../js/UserInfo.js";
+import AvatarInfo from "../js/AvatarInfo.js";
 import FormValidator from "../js/FormValidator.js";
 import Section from "../js/Section.js";
 import api from "../js/Api.js";
@@ -104,3 +105,16 @@ formProfile.setEventListeners();
 //   errorClass: "popup__error_visible",
 // });
 // formValidCard._enableValidation();
+
+const formAvatar = document.querySelector(".avatar__form");
+const imfavatar = document.querySelector(".profile__img");
+
+const profileAvatar = new PopupWithForm({
+  elementSelector: formAvatar,
+  handleFormSubmit: (item) => {
+    const avatarInfo = new AvatarInfo({ avatar: item.avatar });
+    avatarInfo.setUserInfo();
+  },
+  buttonSelector: imfavatar,
+});
+// profileAvatar.setEventListeners();

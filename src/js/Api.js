@@ -15,7 +15,13 @@ class Api {
       body: body,
     });
   }
-
+  postAvatarUser(url, body) {
+    return fetch(`${this._baseUrl}${url}`, {
+      method: "POST",
+      headers: this._headers,
+      body: body,
+    });
+  }
   getInitialCards(url) {
     return fetch(`${this._baseUrl}${url}`, {
       headers: this._headers,
