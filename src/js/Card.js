@@ -64,10 +64,9 @@ export default class Card {
   }
   _deleteCard() {
     document.querySelector(".popup__card_delete").style.display = "block";
-    // this._cardElement.querySelector(".test_test").style.display = "block";
 
-    // if (event.target === this._cardElement.querySelector(".test_test")) {
-    if (event.target === document.querySelector(".popup__card_delete-button")) {
+    document.querySelector(".popup__card_delete-button").addEventListener("click", (event) => {
+      event.preventDefault();
       api
         .deleteCard(`cards/${this._idCard}`)
         .then((res) => {
@@ -77,13 +76,16 @@ export default class Card {
           return Promise.reject(res.status);
         })
         .then((res) => {
+          // Realizar las acciones necesarias después de eliminar la tarjeta, como actualizar la interfaz de usuario
           this._cardElement.closest(".element__article").remove();
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          // Manejar el error en caso de que ocurra
+          console.log("Error al eliminar la tarjeta:", error);
         });
-    }
+    });
   }
+
   _handleCardClick() {
     this._popup.data(this._link, this._name);
     this._zoom.open();
@@ -93,7 +95,7 @@ export default class Card {
       this._likeCard();
     });
     this._cardElement.querySelector(".element__article_delete").addEventListener("click", () => {
-      this._deleteCard(this._idCard);
+      this._deleteCard();
     });
     this._cardElement.querySelector(".element__article_img_button").addEventListener("click", () => {
       this._handleCardClick();
@@ -101,13 +103,5 @@ export default class Card {
     document.querySelector(".zoom__button-closed").addEventListener("click", () => {
       this._zoom.closed();
     });
-    document.querySelector(".popup__card_delete-button").addEventListener("click", (event) => {
-      event.preventDefault();
-      this._deleteCard();
-    });
-    // this._cardElement.querySelector(".test_test").addEventListener("click", (event) => {
-    //   event.preventDefault();
-    //   this._deleteCard();
-    // });
   }
 }
