@@ -115,6 +115,6 @@ const profileAvatar = new PopupWithForm({
     const avatarInfo = new AvatarInfo({ avatar: item.avatar });
     avatarInfo.setUserInfo();
   },
-  buttonSelector: imfavatar,
+  buttonSelector: ".profile__img",
 });
-// profileAvatar.setEventListeners();
+profileAvatar.setEventListeners();
