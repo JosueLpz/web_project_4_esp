@@ -6,7 +6,6 @@ export default class PopupWithForm extends Popup {
     this._elementSelector = elementSelector;
     this._handleFormSubmit = handleFormSubmit;
     this._buttonSelector = buttonSelector;
-    console.log("🚀 ~ file: PopupWithForm.js:9 ~ PopupWithForm ~ constructor ~ this._buttonSelector:", this._buttonSelector);
   }
   open() {
     super.open();

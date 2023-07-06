@@ -22,7 +22,6 @@ export default class AvatarInfo {
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((result) => {
-        console.log("🚀 ~ file: AvatarInfo.js:25 ~ AvatarInfo ~ .then ~ result:", result);
         const avatar = document.querySelector(".profile__img");
         avatar.src = result.avatar;
       })
