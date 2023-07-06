@@ -17,7 +17,7 @@ class Api {
   }
   postAvatarUser(url, body) {
     return fetch(`${this._baseUrl}${url}`, {
-      method: "POST",
+      method: "PATCH",
       headers: this._headers,
       body: body,
     });

@@ -1,6 +1,7 @@
 import api from "./Api.js";
 export default class Card {
   constructor(item, cardSelector, popup, zoom, user) {
+    console.log("🚀 ~ file: Card.js:4 ~ constructor ~ user:", user);
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;

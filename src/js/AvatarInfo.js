@@ -2,7 +2,6 @@ import api from "./Api";
 export default class AvatarInfo {
   constructor({ avatar }) {
     this._avatar = avatar;
-    console.log("🚀 ~ file: AvatarInfo.js:5 ~ AvatarInfo ~ constructor ~ this._avatar:", this._avatar);
   }
   getUserInfo() {
     return { avatar: this._avatar };
@@ -11,7 +10,7 @@ export default class AvatarInfo {
     const userInfo = this.getUserInfo();
     api
       .postAvatarUser(
-        "users/me",
+        "users/me/avatar",
         JSON.stringify({
           avatar: userInfo.avatar,
         })
@@ -23,7 +22,7 @@ export default class AvatarInfo {
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((result) => {
-        result.avatar;
+        console.log("🚀 ~ file: AvatarInfo.js:25 ~ AvatarInfo ~ .then ~ result:", result);
         const avatar = document.querySelector(".profile__img");
         avatar.src = result.avatar;
       })
