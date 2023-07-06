@@ -20,11 +20,11 @@
         <button type="submit" class="popup__button popup__card_delete-button">Si</button>
       </form>
     </fieldset>
-    <fieldset class="popup">
-      <form class="popup__form popup-avatar">
+    <fieldset class="popup avatar__form">
+      <form class="popup__form popup-avatar" name="img" novalidate>
         <h2 class="popop__form_title avatar-title">Cambiar foto de perfil</h2>
         <img class="popup__closed" src="<%=require('./image/nav/CloseIcon.svg')%>" alt="ButtonClosed" />
-        <input class="popup__input" id="perfil__url" name="link_perfil" placeholder="New Perfil" type="url" required />
+        <input class="popup__input" id="perfil__url" name="avatar" placeholder="Nuevo avatar" type="url" required />
         <button class="popup__button">Guardar</button>
       </form>
     </fieldset>
@@ -56,7 +56,7 @@
         <div class="header__line"></div>
       </header>
       <nav class="profile">
-        <img class="profile__img" src="<%=require('./image/header/marcoaurelioprogramando.png')%>" alt="marco aurelio" />
+        <img class="profile__img" name="avatar" alt="marco aurelio" />
         <div class="profile__row">
           <h1 class="profile__row-name"></h1>
           <a class="profile__row-edit root__button-hover-active"><img src="<%=require('./image/header/EditButton.svg')%>" alt="botonedit" /></a>

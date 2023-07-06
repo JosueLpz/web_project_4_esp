@@ -1,15 +1,15 @@
-.profile__img{
+.profile__img {
   margin: 0 auto;
   border-radius: 50%;
   width: 120px;
   height: 120px;
   display: block;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 880px){
-.profile__img{
-  grid-area: img;
-  align-self: flex-end;
+@media screen and (min-width: 880px) {
+  .profile__img {
+    grid-area: img;
+    align-self: flex-end;
+  }
 }
-}
-
