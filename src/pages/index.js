@@ -10,10 +10,13 @@ import Section from "../js/Section.js";
 import api from "../js/Api.js";
 import { mainCardsList, popupElements } from "../js/utils.js";
 
+const borrar = document.querySelector(".popup__card_delete");
+
 const [cardForm, profileForm, zoomContainer] = popupElements;
 
 const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
+const popupDeleteCard = new Popup(borrar);
 
 api
   .getInitialCards("cards")
@@ -37,7 +40,7 @@ api
           {
             data: data,
             renderer: (item) => {
-              const card = new Card(item, "#template__article", popupWithImage, popupImg, user);
+              const card = new Card(item, "#template__article", popupWithImage, popupImg, user, popupDeleteCard);
               const cardElement = card.generateCard();
               cardSection.addItem(cardElement);
             },
@@ -66,7 +69,7 @@ const formCard = new PopupWithForm({
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((data) => {
-        const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "");
+        const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard);
         const addNewCard = newCard.generateCard();
         mainCardsList.prepend(addNewCard);
       })

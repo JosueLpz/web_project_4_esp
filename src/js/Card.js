@@ -1,6 +1,6 @@
 import api from "./Api.js";
 export default class Card {
-  constructor(item, cardSelector, popup, zoom, user) {
+  constructor(item, cardSelector, popup, zoom, user, cardDelete) {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
@@ -11,6 +11,7 @@ export default class Card {
     this._popup = popup;
     this._zoom = zoom;
     this._meUserID = user._id;
+    this._cardDelete = cardDelete;
   }
 
   _getTemplate() {
@@ -63,8 +64,6 @@ export default class Card {
     }
   }
   _deleteCard() {
-    document.querySelector(".popup__card_delete").style.display = "block";
-
     document.querySelector(".popup__card_delete-button").addEventListener("click", (event) => {
       event.preventDefault();
       api
@@ -76,11 +75,10 @@ export default class Card {
           return Promise.reject(res.status);
         })
         .then((res) => {
-          // Realizar las acciones necesarias después de eliminar la tarjeta, como actualizar la interfaz de usuario
           this._cardElement.closest(".element__article").remove();
+          this._cardDelete.closed();
         })
         .catch((error) => {
-          // Manejar el error en caso de que ocurra
           console.log("Error al eliminar la tarjeta:", error);
         });
     });
@@ -95,6 +93,7 @@ export default class Card {
       this._likeCard();
     });
     this._cardElement.querySelector(".element__article_delete").addEventListener("click", () => {
+      this._cardDelete.open();
       this._deleteCard();
     });
     this._cardElement.querySelector(".element__article_img_button").addEventListener("click", () => {
