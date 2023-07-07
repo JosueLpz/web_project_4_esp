@@ -1,6 +1,5 @@
-.profile__img::before {
+.profile__img:hover {
   z-index: 2;
   background-image: url(../../../../image/header/Vector.png);
-  background-color: aqua;
-  border: red solid 5px;
+  opacity: 0.4;
 }
