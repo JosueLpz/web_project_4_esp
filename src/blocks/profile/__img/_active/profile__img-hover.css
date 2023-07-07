@@ -1,0 +1,6 @@
+.profile__img::before {
+  z-index: 2;
+  background-image: url(../../../../image/header/Vector.png);
+  background-color: aqua;
+  border: red solid 5px;
+}
