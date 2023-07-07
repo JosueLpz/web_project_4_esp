@@ -9,9 +9,6 @@
   background-color: black;
 }
 
-.test_test {
-  display: none;
+.test {
   border: red solid 1px;
-  background-color: aqua;
-  cursor: pointer;
 }

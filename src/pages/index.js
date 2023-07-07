@@ -69,7 +69,8 @@ const formCard = new PopupWithForm({
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((data) => {
-        const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard);
+        let isNew = true;
+        const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard, isNew);
         const addNewCard = newCard.generateCard();
         mainCardsList.prepend(addNewCard);
       })

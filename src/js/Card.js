@@ -1,6 +1,6 @@
 import api from "./Api.js";
 export default class Card {
-  constructor(item, cardSelector, popup, zoom, user, cardDelete) {
+  constructor(item, cardSelector, popup, zoom, user, cardDelete, isNew = false) {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
@@ -12,6 +12,7 @@ export default class Card {
     this._zoom = zoom;
     this._meUserID = user._id;
     this._cardDelete = cardDelete;
+    this._new = isNew;
   }
 
   _getTemplate() {
@@ -25,9 +26,14 @@ export default class Card {
     this._cardElement.querySelector(".element__article_img").alt = this._name;
     this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
     this._cardElement.querySelector(".element__article_row_title").textContent = this._name;
+    if (this._new) {
+      this._cardElement.querySelector(".element__article_delete").style.display = "block";
+    }
+    if (this._idUser === this._meUserID) {
+      this._cardElement.querySelector(".element__article_delete").style.display = "block";
+    }
     if (this._likes.some((like) => like._id === this._meUserID)) {
       this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
-      // this._cardElement.querySelector(".element__article_delete").style.display = "block";
     }
     return this._cardElement;
   }
