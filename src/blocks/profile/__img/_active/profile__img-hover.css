@@ -1,5 +1,21 @@
-.profile__img:hover {
-  z-index: 2;
+.profile__content-img::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
   background-image: url(../../../../image/header/Vector.png);
+}
+
+.profile__content-img:hover::before {
+  content: "";
+  z-index: 3;
+}
+
+.profile__content-img:hover {
   opacity: 0.4;
+  z-index: 2;
 }
