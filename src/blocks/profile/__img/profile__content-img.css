@@ -7,7 +7,6 @@
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  /* background-image: url(../../../../image/header/Vector.png); */
 }
 
 @media screen and (min-width: 880px) {
