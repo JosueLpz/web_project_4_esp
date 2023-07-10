@@ -23,6 +23,7 @@
 @import url(../blocks/avatar/popup-avatar.css);
 @import url(../blocks/avatar/__input/popup__input.css);
 @import url(../blocks/avatar/__title/avatar-title.css);
+@import url(../blocks/avatar/__error/avatar__container-error.css);
 /* imgZoom */
 @import url(../blocks/zoom/zoom.css);
 @import url(../blocks/zoom/__img/zoom__img.css);
