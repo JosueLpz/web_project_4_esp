@@ -61,7 +61,7 @@
 @import url(../blocks/profile/__row/__edit/profile__row-edit.css);
 @import url(../blocks/profile/__hobbie/profile__hobbie.css);
 @import url(../blocks/profile/__button/profile__button.css);
-@import url(../blocks/profile/__img/profile__content-img.css);
+@import url(../blocks/profile/__content/profile__content-img.css);
 @import url(../blocks/profile/__img/_active/profile__img-hover.css);
 /* element */
 @import url(../blocks/element/element.css);
