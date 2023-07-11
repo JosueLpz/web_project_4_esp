@@ -100,14 +100,17 @@ const swtichAvatar = new PopupWithForm({
 });
 swtichAvatar.setEventListeners();
 
-const formValidProffile = new FormValidator(profileForm, {
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+const userInfo = new UserInfo({ title: "", hobby: "" });
+userInfo.showInfoValue().then(() => {
+  const formValidProffile = new FormValidator(profileForm, {
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  });
+  formValidProffile._enableValidation();
 });
-formValidProffile._enableValidation();
 
 const formValidCard = new FormValidator(cardForm, {
   inputSelector: ".popup__input",

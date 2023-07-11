@@ -35,8 +35,6 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
   setEventListeners() {
-    const userInfo = new UserInfo({ title: "", hobby: "" });
-    userInfo.showInfoValue();
     super.setEventListeners();
     this._elementSelector.addEventListener("submit", (evt) => {
       evt.preventDefault();
