@@ -1,6 +1,7 @@
 export default class FormValidator {
   constructor(form, { inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }) {
     this._form = form;
+    console.log("🚀 ~ file: FormValidator.js:4 ~ FormValidator ~ constructor ~ this._form:", this._form);
     this._inputSelector = inputSelector;
     this._submitButtonSelector = submitButtonSelector;
     this._inactiveButtonClass = inactiveButtonClass;

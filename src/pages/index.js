@@ -10,14 +10,11 @@ import Section from "../js/Section.js";
 import api from "../js/Api.js";
 import { mainCardsList, popupElements } from "../js/utils.js";
 
-const borrar = document.querySelector(".popup__card_delete");
-
-const [cardForm, profileForm, zoomContainer] = popupElements;
+const [cardForm, profileForm, zoomContainer, formSwtichAvatar, formDelete] = popupElements;
 
 const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
-const popupDeleteCard = new Popup(borrar);
-
+const popupDeleteCard = new Popup(formDelete);
 api
   .getInitialCards("cards")
   .then((res) => {
@@ -92,33 +89,42 @@ const formProfile = new PopupWithForm({
 });
 formProfile.setEventListeners();
 
-// const formValidProffile = new FormValidator(profileForm, {
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible",
-// });
-// formValidProffile._enableValidation();
-
-// const formValidCard = new FormValidator(cardForm, {
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible",
-// });
-// formValidCard._enableValidation();
-
-const formAvatar = document.querySelector(".avatar__form");
-const imfavatar = document.querySelector(".profile__img");
-
-const profileAvatar = new PopupWithForm({
-  elementSelector: formAvatar,
+const swtichAvatar = new PopupWithForm({
+  elementSelector: formSwtichAvatar,
   handleFormSubmit: (item) => {
     const avatarInfo = new AvatarInfo({ avatar: item.avatar });
     avatarInfo.setUserInfo();
   },
-  buttonSelector: ".profile__img",
+  buttonSelector: ".profile__content-img",
 });
-profileAvatar.setEventListeners();
+swtichAvatar.setEventListeners();
+
+const userInfo = new UserInfo({ title: "", hobby: "" });
+userInfo.showInfoValue().then(() => {
+  const formValidProffile = new FormValidator(profileForm, {
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  });
+  formValidProffile._enableValidation();
+});
+
+const formValidCard = new FormValidator(cardForm, {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
+formValidCard._enableValidation();
+
+const swtichAvatarValid = new FormValidator(formSwtichAvatar, {
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+});
+swtichAvatarValid._enableValidation();
