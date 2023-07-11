@@ -15,7 +15,6 @@ const [cardForm, profileForm, zoomContainer, formSwtichAvatar, formDelete] = pop
 const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
 const popupDeleteCard = new Popup(formDelete);
-
 api
   .getInitialCards("cards")
   .then((res) => {
