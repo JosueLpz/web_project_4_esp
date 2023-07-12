@@ -80,7 +80,7 @@ export default class Card {
           }
           return Promise.reject(res.status);
         })
-        .then((res) => {
+        .then(() => {
           this._cardElement.closest(".element__article").remove();
           this._cardDelete.closed();
         })
