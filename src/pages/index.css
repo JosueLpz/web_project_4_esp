@@ -16,7 +16,7 @@
 /* popup */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__title/popop__title.css);
+@import url(../blocks/popup/__title/popup__form-title.css);
 @import url(../blocks/popup/__closed/popup__closed.css);
 @import url(../blocks/popup/__button/popup__button.css);
 /* popupProfile */
