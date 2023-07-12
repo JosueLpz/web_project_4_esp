@@ -3,7 +3,6 @@
 /* root */
 @import url(../root/root.css);
 @import url(../blocks/page/page.css);
-@import url(../root/__loading/root__loading-active.css);
 @import url(../root/_active/root__button-hover-active.css);
 @import url(../root/_active/root__windos_fadeon.css);
 @import url(../root/_active/root__windos_fadeoff.css);
@@ -17,7 +16,7 @@
 /* popup */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__title/popop__form_title.css);
+@import url(../blocks/popup/__title/popop__form-title.css);
 @import url(../blocks/popup/__closed/popup__closed.css);
 @import url(../blocks/popup/__button/popup__button.css);
 /* popupProfile */

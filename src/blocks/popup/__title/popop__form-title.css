@@ -1,4 +1,4 @@
-.popop__form_title {
+.popop__form-title {
   margin: 8px auto;
   width: 300px;
   font-size: 18px;
@@ -8,14 +8,14 @@
 }
 
 @media screen and (min-width: 574px) {
-  .popop__form_title {
+  .popop__form-title {
     margin: 19px auto;
     font-size: 22px;
   }
 }
 
 @media screen and (min-width: 880px) {
-  .popop__form_title {
+  .popop__form-title {
     text-align: left;
     margin: 38px 0 38px 27px;
     font-size: 24px;

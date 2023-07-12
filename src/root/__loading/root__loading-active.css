@@ -1,6 +1,0 @@
-.popup__buttton::after {
-  content: "Guardando...";
-  /* position: absolute; */
-  /* display: none; */
-  border: red solid 1px;
-}
