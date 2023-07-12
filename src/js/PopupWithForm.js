@@ -9,6 +9,11 @@ export default class PopupWithForm extends Popup {
   }
   open() {
     super.open();
+    this.button = this._elementSelector.querySelector(".popup__button");
+    this.textOriginal = this.button.textContent;
+  }
+  loading() {
+    super.loading();
   }
   closed() {
     super.closed();
@@ -25,6 +30,7 @@ export default class PopupWithForm extends Popup {
     document.querySelector(".page").classList.remove("page__opacity_active");
     document.removeEventListener("keydown", this._handleEscClose.bind(this));
     document.removeEventListener("click", this._handleClicClose);
+    this.button.textContent = this.textOriginal;
   }
   _getInputValues() {
     this._inputList = this._elementSelector.querySelectorAll(".popup__input");
@@ -37,9 +43,9 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._elementSelector.addEventListener("submit", (evt) => {
+      this.loading();
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.closedSend();
       document.removeEventListener("keydown", this._handleEscClose.bind(this));
       document.removeEventListener("click", this._handleClicClose);
     });

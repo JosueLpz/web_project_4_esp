@@ -22,6 +22,9 @@ export default class Popup {
     document.removeEventListener("keydown", this._handleEscClose.bind(this));
     document.removeEventListener("click", this._handleClicClose);
   }
+  loading() {
+    this._elementSelector.querySelector(".popup__button").textContent = "Guardando...";
+  }
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this._elementSelector.style.display = "none";

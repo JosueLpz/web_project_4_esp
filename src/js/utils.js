@@ -1,5 +1,4 @@
 const mainCardsList = document.querySelector(".element");
-
 const zoomContainer = document.querySelector(".zoom");
 const formElement = document.querySelector(".card");
 const formUp = document.querySelector(".form");
