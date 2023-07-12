@@ -70,6 +70,7 @@ const formCard = new PopupWithForm({
         const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard, isNew);
         const addNewCard = newCard.generateCard();
         mainCardsList.prepend(addNewCard);
+        formCard.closedSend();
       })
       .catch((err) => {
         console.log(err);
@@ -82,8 +83,29 @@ formCard.setEventListeners();
 const formProfile = new PopupWithForm({
   elementSelector: profileForm,
   handleFormSubmit: (item) => {
-    const userInfo = new UserInfo({ title: item.title, hobby: item.hobby });
-    userInfo.setUserInfo();
+    api
+      .postProfileUser(
+        "users/me",
+        JSON.stringify({
+          name: item.title,
+          about: item.hobby,
+        })
+      )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .then((item) => {
+        const userInfo = new UserInfo({ title: item.title, hobby: item.hobby });
+        userInfo.showInfoValue();
+        formProfile.closedSend();
+      })
+      .then(() => {})
+      .catch((err) => {
+        console.log(err);
+      });
   },
   buttonSelector: ".profile__row-edit",
 });
@@ -92,8 +114,27 @@ formProfile.setEventListeners();
 const swtichAvatar = new PopupWithForm({
   elementSelector: formSwtichAvatar,
   handleFormSubmit: (item) => {
-    const avatarInfo = new AvatarInfo({ avatar: item.avatar });
-    avatarInfo.setUserInfo();
+    api
+      .postAvatarUser(
+        "users/me/avatar",
+        JSON.stringify({
+          avatar: item.avatar,
+        })
+      )
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .then((result) => {
+        const avatar = document.querySelector(".profile__img");
+        avatar.src = result.avatar;
+        swtichAvatar.closedSend();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   buttonSelector: ".profile__content-img",
 });

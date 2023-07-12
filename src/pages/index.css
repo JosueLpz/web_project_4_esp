@@ -3,6 +3,7 @@
 /* root */
 @import url(../root/root.css);
 @import url(../blocks/page/page.css);
+@import url(../root/__loading/root__loading-active.css);
 @import url(../root/_active/root__button-hover-active.css);
 @import url(../root/_active/root__windos_fadeon.css);
 @import url(../root/_active/root__windos_fadeoff.css);
