@@ -70,7 +70,7 @@ export default class Card {
     }
   }
   _deleteCard() {
-    document.querySelector(".popup__card-delete").addEventListener("click", (event) => {
+    document.querySelector(".confirm-delete").addEventListener("click", (event) => {
       event.preventDefault();
       api
         .deleteCard(`cards/${this._idCard}`)
