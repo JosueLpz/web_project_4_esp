@@ -4,7 +4,6 @@ import Popup from "../js/Popup.js";
 import PopupWithImage from "../js/PopupWithImage.js";
 import PopupWithForm from "../js/PopupWithForm.js";
 import UserInfo from "../js/UserInfo.js";
-import AvatarInfo from "../js/AvatarInfo.js";
 import FormValidator from "../js/FormValidator.js";
 import Section from "../js/Section.js";
 import api from "../js/Api.js";
