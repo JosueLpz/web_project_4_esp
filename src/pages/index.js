@@ -14,38 +14,31 @@ const [cardForm, profileForm, zoomContainer, formSwtichAvatar, formDelete] = pop
 const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
 const popupDeleteCard = new Popup(formDelete);
-api
-  .getInitialCards("cards")
-  .then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  })
-  .then((data) => {
-    api
-      .getProfileUser("users/me")
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
-      .then((user) => {
-        const cardSection = new Section(
-          {
-            data: data,
-            renderer: (item) => {
-              const card = new Card(item, "#template__article", popupWithImage, popupImg, user, popupDeleteCard);
-              const cardElement = card.generateCard();
-              cardSection.addItem(cardElement);
-            },
+
+api.getInitialCards("cards").then((data) => {
+  api
+    .getProfileUser("users/me")
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    })
+    .then((user) => {
+      const cardSection = new Section(
+        {
+          data: data,
+          renderer: (item) => {
+            const card = new Card(item, "#template__article", popupWithImage, popupImg, user, popupDeleteCard);
+            const cardElement = card.generateCard();
+            cardSection.addItem(cardElement);
           },
-          mainCardsList
-        );
-        cardSection.renderItems();
-      });
-  });
+        },
+        mainCardsList
+      );
+      cardSection.renderItems();
+    });
+});
 
 const formCard = new PopupWithForm({
   elementSelector: cardForm,
@@ -58,13 +51,8 @@ const formCard = new PopupWithForm({
           link: item.link,
         })
       )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
       .then((data) => {
+        console.log("🚀 ~ file: index.js:55 ~ .then ~ data:", data);
         let isNew = true;
         const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard, isNew);
         const addNewCard = newCard.generateCard();
@@ -148,7 +136,7 @@ userInfo.showInfoValue().then(() => {
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible",
   });
-  formValidProffile._enableValidation();
+  // formValidProffile._enableValidation();
 });
 
 const formValidCard = new FormValidator(cardForm, {

@@ -3,6 +3,26 @@ class Api {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
+
+  async _fetch(url, options) {
+    try {
+      const response = await fetch(`${this._baseUrl}${url}`, {
+        headers: {
+          Authorization: this._headers.authorization,
+          "Content-Type": "application/json",
+        },
+        ...options,
+      });
+
+      if (!response.ok) {
+        Promise.reject(`API error: ${response.status}`);
+      }
+      return response.json();
+    } catch (error) {
+      console.error(`Fetch to ${url} failed: ${error.message}`);
+    }
+  }
+
   getProfileUser(url) {
     return fetch(`${this._baseUrl}${url}`, {
       headers: this._headers,
@@ -23,12 +43,10 @@ class Api {
     });
   }
   getInitialCards(url) {
-    return fetch(`${this._baseUrl}${url}`, {
-      headers: this._headers,
-    });
+    return this._fetch(url, { headers: this._headers });
   }
   postCreateCards(url, body) {
-    return fetch(`${this._baseUrl}${url}`, {
+    return this._fetch(url, {
       method: "POST",
       headers: this._headers,
       body: body,
