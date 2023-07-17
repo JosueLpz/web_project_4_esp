@@ -10,13 +10,7 @@ export default class UserInfo {
   showInfoValue() {
     return new Promise((resolve, reject) => {
       api
-        .getProfileUser("users/me")
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Error: ${res.status}`);
-        })
+        .getInfoServer("users/me")
         .then((result) => {
           const inputName = document.querySelector(".form__container-name");
           const inputHobby = document.querySelector(".form__container-hobby");

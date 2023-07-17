@@ -15,29 +15,21 @@ const popupWithImage = new PopupWithImage();
 const popupImg = new Popup(zoomContainer);
 const popupDeleteCard = new Popup(formDelete);
 
-api.getInitialCards("cards").then((data) => {
-  api
-    .getProfileUser("users/me")
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    })
-    .then((user) => {
-      const cardSection = new Section(
-        {
-          data: data,
-          renderer: (item) => {
-            const card = new Card(item, "#template__article", popupWithImage, popupImg, user, popupDeleteCard);
-            const cardElement = card.generateCard();
-            cardSection.addItem(cardElement);
-          },
+api.getInfoServer("cards").then((data) => {
+  api.getInfoServer("users/me").then((user) => {
+    const cardSection = new Section(
+      {
+        data: data,
+        renderer: (item) => {
+          const card = new Card(item, "#template__article", popupWithImage, popupImg, user, popupDeleteCard);
+          const cardElement = card.generateCard();
+          cardSection.addItem(cardElement);
         },
-        mainCardsList
-      );
-      cardSection.renderItems();
-    });
+      },
+      mainCardsList
+    );
+    cardSection.renderItems();
+  });
 });
 
 const formCard = new PopupWithForm({
@@ -52,7 +44,6 @@ const formCard = new PopupWithForm({
         })
       )
       .then((data) => {
-        console.log("🚀 ~ file: index.js:55 ~ .then ~ data:", data);
         let isNew = true;
         const newCard = new Card(data, "#template__article", popupWithImage, popupImg, "", popupDeleteCard, isNew);
         const addNewCard = newCard.generateCard();
@@ -71,27 +62,17 @@ const formProfile = new PopupWithForm({
   elementSelector: profileForm,
   handleFormSubmit: (item) => {
     api
-      .postProfileUser(
+      .updateUserProfile(
         "users/me",
         JSON.stringify({
           name: item.title,
           about: item.hobby,
         })
       )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
       .then((item) => {
         const userInfo = new UserInfo({ title: item.title, hobby: item.hobby });
         userInfo.showInfoValue();
         formProfile.closedSend();
-      })
-      .then(() => {})
-      .catch((err) => {
-        console.log(err);
       });
   },
   buttonSelector: ".profile__row-edit",
@@ -102,25 +83,16 @@ const swtichAvatar = new PopupWithForm({
   elementSelector: formSwtichAvatar,
   handleFormSubmit: (item) => {
     api
-      .postAvatarUser(
+      .updateUserProfile(
         "users/me/avatar",
         JSON.stringify({
           avatar: item.avatar,
         })
       )
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
       .then((result) => {
         const avatar = document.querySelector(".profile__img");
         avatar.src = result.avatar;
         swtichAvatar.closedSend();
-      })
-      .catch((err) => {
-        console.log(err);
       });
   },
   buttonSelector: ".profile__content-img",
@@ -136,7 +108,7 @@ userInfo.showInfoValue().then(() => {
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible",
   });
-  // formValidProffile._enableValidation();
+  formValidProffile._enableValidation();
 });
 
 const formValidCard = new FormValidator(cardForm, {

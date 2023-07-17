@@ -3,7 +3,6 @@ class Api {
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
-
   async _fetch(url, options) {
     try {
       const response = await fetch(`${this._baseUrl}${url}`, {
@@ -13,7 +12,6 @@ class Api {
         },
         ...options,
       });
-
       if (!response.ok) {
         Promise.reject(`API error: ${response.status}`);
       }
@@ -22,28 +20,15 @@ class Api {
       console.error(`Fetch to ${url} failed: ${error.message}`);
     }
   }
-
-  getProfileUser(url) {
-    return fetch(`${this._baseUrl}${url}`, {
-      headers: this._headers,
-    });
-  }
-  postProfileUser(url, body) {
-    return fetch(`${this._baseUrl}${url}`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: body,
-    });
-  }
-  postAvatarUser(url, body) {
-    return fetch(`${this._baseUrl}${url}`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: body,
-    });
-  }
-  getInitialCards(url) {
+  getInfoServer(url) {
     return this._fetch(url, { headers: this._headers });
+  }
+  updateUserProfile(url, body) {
+    return this._fetch(url, {
+      method: "PATCH",
+      headers: this._headers,
+      body: body,
+    });
   }
   postCreateCards(url, body) {
     return this._fetch(url, {
@@ -53,19 +38,13 @@ class Api {
     });
   }
   putLikesCard(url) {
-    return fetch(`${this._baseUrl}${url}`, {
+    return this._fetch(url, {
       method: "PUT",
       headers: this._headers,
     });
   }
-  deleteLikesCard(url) {
-    return fetch(`${this._baseUrl}${url}`, {
-      method: "DELETE",
-      headers: this._headers,
-    });
-  }
-  deleteCard(url) {
-    return fetch(`${this._baseUrl}${url}`, {
+  deleteInfoServer(url) {
+    return this._fetch(url, {
       method: "DELETE",
       headers: this._headers,
     });

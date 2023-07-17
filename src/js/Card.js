@@ -40,53 +40,26 @@ export default class Card {
 
   _likeCard() {
     if (this._likes.every((like) => like._id !== this._meUserID)) {
-      return api
-        .putLikesCard(`cards/likes/${this._idCard}`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Error: ${res.status}`);
-        })
-        .then((res) => {
-          this._likes = res.likes;
-          this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
-          this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
-        });
+      return api.putLikesCard(`cards/likes/${this._idCard}`).then((res) => {
+        this._likes = res.likes;
+        this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
+        this._cardElement.querySelector(".element__article_row_like").classList.add("element__article_row_like_active");
+      });
     } else {
-      return api
-        .deleteLikesCard(`cards/likes/${this._idCard}`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(`Error: ${res.status}`);
-        })
-        .then((res) => {
-          this._likes = res.likes;
-          this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
-          this._cardElement.querySelector(".element__article_row_like").classList.remove("element__article_row_like_active");
-        });
+      return api.deleteInfoServer(`cards/likes/${this._idCard}`).then((res) => {
+        this._likes = res.likes;
+        this._cardElement.querySelector(".element__article_row_like_counter").textContent = this._likes.length;
+        this._cardElement.querySelector(".element__article_row_like").classList.remove("element__article_row_like_active");
+      });
     }
   }
   _deleteCard() {
     document.querySelector(".confirm-delete").addEventListener("click", (event) => {
       event.preventDefault();
-      api
-        .deleteCard(`cards/${this._idCard}`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          return Promise.reject(res.status);
-        })
-        .then(() => {
-          this._cardElement.closest(".element__article").remove();
-          this._cardDelete.closed();
-        })
-        .catch((error) => {
-          console.log("Error al eliminar la tarjeta:", error);
-        });
+      api.deleteInfoServer(`cards/${this._idCard}`).then(() => {
+        this._cardElement.closest(".element__article").remove();
+        this._cardDelete.closed();
+      });
     });
   }
 
