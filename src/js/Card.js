@@ -4,7 +4,6 @@ export default class Card {
     this._cardSelector = cardSelector;
     this._name = item.name;
     this._link = item.link;
-    this._Card = item;
     this._idCard = item._id;
     this._idUser = item.owner._id;
     this._likes = item.likes;
@@ -15,12 +14,12 @@ export default class Card {
     this._new = isNew;
   }
 
-  _getTemplate() {
+  _cloneTemplate() {
     this._cardElement = document.querySelector(this._cardSelector).content.querySelector(".element__article").cloneNode(true);
     return this._cardElement;
   }
   generateCard() {
-    this._cardElement = this._getTemplate();
+    this._cardElement = this._cloneTemplate();
     this._setEventListeners();
     this._cardElement.querySelector(".element__article_img").src = this._link;
     this._cardElement.querySelector(".element__article_img").alt = this._name;
